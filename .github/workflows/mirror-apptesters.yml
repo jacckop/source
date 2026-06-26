@@ -21,7 +21,7 @@ jobs:
           set -e
 
           UPSTREAM_URL="https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/refs/heads/main/apps.json"
-          TARGET_FILE="AppTesters.json"
+          TARGET_FILE="AppTesters"
 
           curl -L --fail --retry 3 --retry-delay 5 "$UPSTREAM_URL" -o "$TARGET_FILE.new"
 
@@ -32,14 +32,13 @@ jobs:
           import re
           from pathlib import Path
 
-          TARGET_FILE = Path("AppTesters.json.new")
+          TARGET_FILE = Path("AppTesters.new")
 
-          MY_SOURCE_URL = "https://raw.githubusercontent.com/jacckop/source/main/AppTesters.json"
+          MY_SOURCE_URL = "https://raw.githubusercontent.com/jacckop/source/main/AppTesters"
           DEVELOPER_NAME = "iKiraPlus"
 
           data = json.loads(TARGET_FILE.read_text(encoding="utf-8"))
 
-          # مهم: خلي رابط السورس دائمًا رابط سورسك أنت
           if isinstance(data, dict):
               data["sourceURL"] = MY_SOURCE_URL
 
@@ -86,13 +85,14 @@ jobs:
           }
 
           SOCIAL_WORDS = [
-              "social", "chat", "message", "messages", "messaging", "dm", "followers"
+              "social", "chat", "message", "messages", "messaging", "dm", "followers",
+              "تواصل", "محادثة", "دردشة", "رسائل"
           ]
 
           ENTERTAINMENT_WORDS = [
               "music", "movie", "movies", "cinema", "video", "videos", "player",
               "stream", "streaming", "iptv", "anime", "tv", "media", "podcast",
-              "مسلسلات", "افلام", "أفلام", "قنوات", "انمي", "أنمي", "مشاهدة"
+              "مسلسلات", "افلام", "أفلام", "قنوات", "انمي", "أنمي", "مشاهدة", "ترفيه"
           ]
 
           TOOLS_WORDS = [
@@ -102,7 +102,7 @@ jobs:
               "installer", "download", "downloader", "password", "keyboard",
               "translate", "maps", "weather", "notes", "documents", "pdf",
               "storage", "backup", "wallpaper", "widget", "terminal", "ssh",
-              "server", "calendar", "draw", "captions"
+              "server", "calendar", "draw", "captions", "أدوات", "توقيع", "مثبت"
           ]
 
           STUDY_AI_WORDS = [
@@ -206,7 +206,6 @@ jobs:
               global processed, developer_filled, categories_written, source_urls_fixed
 
               if isinstance(obj, dict):
-                  # أي sourceURL داخل الملف نخليه رابط سورسك فقط
                   if "sourceURL" in obj:
                       obj["sourceURL"] = MY_SOURCE_URL
                       source_urls_fixed += 1
@@ -246,13 +245,13 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          if git diff --quiet -- AppTesters.json; then
+          if git diff --quiet -- AppTesters; then
             echo "No changes found"
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-            git add AppTesters.json
+            git add AppTesters
             git commit -m "Update customized AppTesters source"
             git push
           fi
