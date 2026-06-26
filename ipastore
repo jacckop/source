@@ -19,7 +19,7 @@
   "apps": [
     {
       "name": "ريكرام",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.burbn.instagram0",
       "developerName": "iKiraPlus",
       "version": "433.0.0",
       "versionDate": "2026-06-10",
@@ -43,7 +43,7 @@
     },
     {
       "name": "WhatsApp Gold",
-      "bundleIdentifier": "com.nspoons.WhatsAppSB",
+      "bundleIdentifier": "net.whatsapp.WhatsApp0",
       "developerName": "iKiraPlus",
       "version": "26.22",
       "versionDate": "2026-06-19",
@@ -67,7 +67,7 @@
     },
     {
       "name": "instagram DL",
-      "bundleIdentifier": "com.burbn.instagram",
+      "bundleIdentifier": "com.burbn.instagram1",
       "developerName": "iKiraPlus",
       "version": "432.0",
       "versionDate": "2026-06-03",
@@ -79,7 +79,7 @@
     },
     {
       "name": "بيكرام",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.burbn.instagram2",
       "developerName": "iKiraPlus",
       "version": "434.0.0",
       "versionDate": "2026-06-19",
@@ -91,7 +91,7 @@
     },
     {
       "name": "instagram IG",
-      "bundleIdentifier": "com.burbn.instagram",
+      "bundleIdentifier": "com.burbn.instagram3",
       "developerName": "iKiraPlus",
       "version": "433.0.0",
       "versionDate": "2026-06-10",
@@ -103,7 +103,7 @@
     },
     {
       "name": "Watusi",
-      "bundleIdentifier": "net.whatsapp.WhatsApp",
+      "bundleIdentifier": "net.whatsapp.WhatsApp1",
       "developerName": "iKiraPlus",
       "version": "26.21.10",
       "versionDate": "2026-06-01",
@@ -115,7 +115,7 @@
     },
     {
       "name": "WhatsApp Business - Watusi",
-      "bundleIdentifier": "net.whatsapp.WhatsApp",
+      "bundleIdentifier": "net.whatsapp.WhatsAppSMB",
       "developerName": "iKiraPlus",
       "version": "26.19.10",
       "versionDate": "2026-05-18",
@@ -187,7 +187,7 @@
     },
     {
       "name": "Tiktok LRD",
-      "bundleIdentifier": "com.zhiliaoapp.musically",
+      "bundleIdentifier": "com.zhiliaoapp.musically0",
       "developerName": "iKiraPlus",
       "version": "43.4.1",
       "versionDate": null,
@@ -199,7 +199,7 @@
     },
     {
       "name": "Tiktok DL",
-      "bundleIdentifier": "com.zhiliaoapp.musically",
+      "bundleIdentifier": "com.zhiliaoapp.musically1",
       "developerName": "iKiraPlus",
       "version": "45.4.0",
       "versionDate": "2026-06-03",
@@ -211,7 +211,7 @@
     },
     {
       "name": "Tiktok DX",
-      "bundleIdentifier": "com.zhiliaoapp.musically",
+      "bundleIdentifier": "com.zhiliaoapp.musically2",
       "developerName": "iKiraPlus",
       "version": "44.3.2",
       "versionDate": null,
@@ -223,7 +223,7 @@
     },
     {
       "name": "Tiktok Vibe",
-      "bundleIdentifier": "com.zhiliaoapp.musically",
+      "bundleIdentifier": "com.zhiliaoapp.musically3",
       "developerName": "iKiraPlus",
       "version": "450.0",
       "versionDate": "2026-05-18",
@@ -235,7 +235,7 @@
     },
     {
       "name": "+TikTok - tiktokBH",
-      "bundleIdentifier": "com.zhiliaoapp.musically",
+      "bundleIdentifier": "com.zhiliaoapp.musically4",
       "developerName": "iKiraPlus",
       "version": "45.6.0",
       "versionDate": "2026-06-16",
@@ -259,7 +259,7 @@
     },
     {
       "name": "Facebook Wolf",
-      "bundleIdentifier": "com.facebook.Facebook",
+      "bundleIdentifier": "com.facebook.Facebook1",
       "developerName": "iKiraPlus",
       "version": "544.0",
       "versionDate": "2026-04-21",
@@ -331,7 +331,7 @@
     },
     {
       "name": "X - Twitter - TWIGalaxy",
-      "bundleIdentifier": "com.atebits.Tweetie2",
+      "bundleIdentifier": "com.atebits.Tweetie21",
       "developerName": "iKiraPlus",
       "version": "11.36",
       "versionDate": null,
@@ -343,7 +343,7 @@
     },
     {
       "name": "X - Twitter (NeoFreeBird)",
-      "bundleIdentifier": "com.atebits.Tweetie2",
+      "bundleIdentifier": "com.atebits.Tweetie22",
       "developerName": "iKiraPlus",
       "version": "11.65",
       "versionDate": null,
@@ -355,7 +355,7 @@
     },
     {
       "name": "Instagram Theta",
-      "bundleIdentifier": "com.burbn.instagram",
+      "bundleIdentifier": "com.burbn.instagram4",
       "developerName": "iKiraPlus",
       "version": "433.0.0",
       "versionDate": "2026-06-10",
@@ -415,7 +415,7 @@
     },
     {
       "name": "سينمانا كيرا",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.cinemana.kira",
       "developerName": "iKiraPlus",
       "version": "4.1.0",
       "versionDate": "2026-05-04",
@@ -583,7 +583,7 @@
     },
     {
       "name": "Anime Cloud",
-      "bundleIdentifier": "com.iMe.messenger",
+      "bundleIdentifier": "com.ikiraplus.anime.cloud",
       "developerName": "iKiraPlus",
       "version": "6.5.1",
       "versionDate": "2026-04-27",
@@ -739,7 +739,7 @@
     },
     {
       "name": "Grand Theft Auto: San Andreas",
-      "bundleIdentifier": "com.ikiraplus.grand.theft.auto.san.andreas",
+      "bundleIdentifier": "com.rockstargames.gtasa",
       "developerName": "iKiraPlus",
       "version": "2.2.21",
       "versionDate": null,
@@ -787,7 +787,7 @@
     },
     {
       "name": "Grand Theft Auto: Vice City",
-      "bundleIdentifier": "com.ikiraplus.grand.theft.auto.vice.city",
+      "bundleIdentifier": "com.rockstargames.gtavc",
       "developerName": "iKiraPlus",
       "version": "1.8",
       "versionDate": null,
@@ -811,7 +811,7 @@
     },
     {
       "name": "GTA: III",
-      "bundleIdentifier": "com.rockstargames.gtasa",
+      "bundleIdentifier": "com.rockstargames.gta3",
       "developerName": "iKiraPlus",
       "version": "Last",
       "versionDate": null,
@@ -823,7 +823,7 @@
     },
     {
       "name": "Bully",
-      "bundleIdentifier": "com.ikiraplus.bully",
+      "bundleIdentifier": "com.rockstargames.bully",
       "developerName": "iKiraPlus",
       "version": "Last",
       "versionDate": null,
@@ -1063,7 +1063,7 @@
     },
     {
       "name": "AndalusiDesign",
-      "bundleIdentifier": "com.esign.app",
+      "bundleIdentifier": "com.ikiraplus.andalusi.design",
       "developerName": "iKiraPlus",
       "version": "9.8.3",
       "versionDate": "2026-06-10",
@@ -1171,7 +1171,7 @@
     },
     {
       "name": "فودو",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.vodu",
       "developerName": "iKiraPlus",
       "version": "1.7",
       "versionDate": null,
@@ -1207,7 +1207,7 @@
     },
     {
       "name": "Subway Surfers mod",
-      "bundleIdentifier": "com.ikiraplus.subway.surfers.mod",
+      "bundleIdentifier": "com.kiloo.subwaysurfers",
       "developerName": "iKiraPlus",
       "version": "3.64.10",
       "versionDate": "2026-06-12",
@@ -1231,7 +1231,7 @@
     },
     {
       "name": "Plants vs. Zombies 2",
-      "bundleIdentifier": "com.ikiraplus.plants.vs.zombies.2",
+      "bundleIdentifier": "com.ea.ios.pvz2",
       "developerName": "iKiraPlus",
       "version": "11.9.1",
       "versionDate": null,
@@ -1255,7 +1255,7 @@
     },
     {
       "name": "Among Us",
-      "bundleIdentifier": "com.ikiraplus.among.us",
+      "bundleIdentifier": "com.innersloth.amongus",
       "developerName": "iKiraPlus",
       "version": "last",
       "versionDate": "2026-04-27",
@@ -1339,7 +1339,7 @@
     },
     {
       "name": "Hill Climb Racing 2",
-      "bundleIdentifier": "com.fingersoft.hillclimb",
+      "bundleIdentifier": "com.fingersoft.hillclimbracing2",
       "developerName": "iKiraPlus",
       "version": "1.62.1",
       "versionDate": null,
@@ -1447,7 +1447,7 @@
     },
     {
       "name": "djay - DJ App & AI Mixer",
-      "bundleIdentifier": "com.algoriddim.djay-iphone",
+      "bundleIdentifier": "com.algoriddim.djay-iphone1",
       "developerName": "iKiraPlus",
       "version": "5.6.2",
       "versionDate": null,
@@ -1519,7 +1519,7 @@
     },
     {
       "name": "Fortnite",
-      "bundleIdentifier": "com.ikiraplus.fortnite",
+      "bundleIdentifier": "com.epicgames.fortnitegame",
       "developerName": "iKiraPlus",
       "version": "39.40",
       "versionDate": null,
@@ -1531,7 +1531,7 @@
     },
     {
       "name": "Brawl Stars hacks",
-      "bundleIdentifier": "com.supercell.laser",
+      "bundleIdentifier": "com.supercell.laser1",
       "developerName": "iKiraPlus",
       "version": "63.265",
       "versionDate": "2026-04-27",
@@ -1543,7 +1543,7 @@
     },
     {
       "name": "Spotify - Eevee",
-      "bundleIdentifier": "com.spotify.client",
+      "bundleIdentifier": "com.spotify.client1",
       "developerName": "iKiraPlus",
       "version": "9.1.52.1059",
       "versionDate": null,
@@ -1579,7 +1579,7 @@
     },
     {
       "name": "GTA: Vice City - Hack",
-      "bundleIdentifier": "com.rockstargames.gtasa",
+      "bundleIdentifier": "com.rockstargames.gtavc1",
       "developerName": "iKiraPlus",
       "version": "1.12",
       "versionDate": null,
@@ -1747,7 +1747,7 @@
     },
     {
       "name": "شاشتي",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.shashety",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": null,
@@ -1795,7 +1795,7 @@
     },
     {
       "name": "موفي بوكس",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.moviebox.tv",
       "developerName": "iKiraPlus",
       "version": "1.0",
       "versionDate": null,
@@ -1807,7 +1807,7 @@
     },
     {
       "name": "الجوكر سبورت",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.joker.sport",
       "developerName": "iKiraPlus",
       "version": "1.0.13",
       "versionDate": "2026-04-27",
@@ -1975,7 +1975,7 @@
     },
     {
       "name": "Youtube OLED",
-      "bundleIdentifier": "com.google.ios.youtube",
+      "bundleIdentifier": "com.google.ios.youtube1",
       "developerName": "iKiraPlus",
       "version": "20.49.5",
       "versionDate": "2026-04-27",
@@ -1987,7 +1987,7 @@
     },
     {
       "name": "Youtube DL",
-      "bundleIdentifier": "com.google.ios.youtube",
+      "bundleIdentifier": "com.google.ios.youtube2",
       "developerName": "iKiraPlus",
       "version": "21.22.05",
       "versionDate": "2026-06-03",
@@ -1999,7 +1999,7 @@
     },
     {
       "name": "Youtube LRD",
-      "bundleIdentifier": "com.google.ios.youtube",
+      "bundleIdentifier": "com.google.ios.youtube3",
       "developerName": "iKiraPlus",
       "version": "20.50.9",
       "versionDate": "2026-04-27",
@@ -2035,7 +2035,7 @@
     },
     {
       "name": "Pubg TW hack",
-      "bundleIdentifier": "com.tencent.ig",
+      "bundleIdentifier": "com.rekoo.pubgm",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": "2026-05-01",
@@ -2047,7 +2047,7 @@
     },
     {
       "name": "Anime Land noads",
-      "bundleIdentifier": "com.iMe.messenger",
+      "bundleIdentifier": "com.ikiraplus.anime.land.noads",
       "developerName": "iKiraPlus",
       "version": "3.11.5",
       "versionDate": "2026-05-01",
@@ -2071,7 +2071,7 @@
     },
     {
       "name": "يلا شوت",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.yalla.shoot",
       "developerName": "iKiraPlus",
       "version": "2.4",
       "versionDate": "2026-05-01",
@@ -2107,7 +2107,7 @@
     },
     {
       "name": "سينمانا القديمة",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.cinemana.old",
       "developerName": "iKiraPlus",
       "version": "3.4.2",
       "versionDate": "2026-05-08",
@@ -2143,7 +2143,7 @@
     },
     {
       "name": "TikTok AC",
-      "bundleIdentifier": "com.zhiliaoapp.musically",
+      "bundleIdentifier": "com.zhiliaoapp.musically5",
       "developerName": "iKiraPlus",
       "version": "45.0.0",
       "versionDate": "2026-05-08",
@@ -2155,7 +2155,7 @@
     },
     {
       "name": "TikTok RX",
-      "bundleIdentifier": "com.zhiliaoapp.musically",
+      "bundleIdentifier": "com.zhiliaoapp.musically6",
       "developerName": "iKiraPlus",
       "version": "43.9.0",
       "versionDate": "2026-05-08",
@@ -2191,7 +2191,7 @@
     },
     {
       "name": "مرايا",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.maraya",
       "developerName": "iKiraPlus",
       "version": "11.1",
       "versionDate": "2026-05-08",
@@ -2239,7 +2239,7 @@
     },
     {
       "name": "efootball",
-      "bundleIdentifier": "com.ikiraplus.efootball",
+      "bundleIdentifier": "jp.konami.pesam",
       "developerName": "iKiraPlus",
       "version": "10.5.0",
       "versionDate": "2026-06-01",
@@ -2263,7 +2263,7 @@
     },
     {
       "name": "Pubg KR Hack",
-      "bundleIdentifier": "com.tencent.ig",
+      "bundleIdentifier": "com.pubg.krmobile",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": "2026-05-08",
@@ -2275,7 +2275,7 @@
     },
     {
       "name": "الاولى",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.aloula",
       "developerName": "iKiraPlus",
       "version": "2.1.2",
       "versionDate": "2026-05-08",
@@ -2311,7 +2311,7 @@
     },
     {
       "name": "Pubg Hack VIT",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.tencent.ig1",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": "2026-05-18",
@@ -2335,7 +2335,7 @@
     },
     {
       "name": "جواكر",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.jawaker",
       "developerName": "iKiraPlus",
       "version": "28.2.92",
       "versionDate": "2026-05-23",
@@ -2383,7 +2383,7 @@
     },
     {
       "name": "messenger plus x",
-      "bundleIdentifier": "com.facebook.Messenger",
+      "bundleIdentifier": "com.facebook.Messenger1",
       "developerName": "iKiraPlus",
       "version": "564.0.0",
       "versionDate": "2026-06-11",
@@ -2395,7 +2395,7 @@
     },
     {
       "name": "resident evil village",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.capcom.residentevil.village",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": "2026-06-01",
@@ -2407,7 +2407,7 @@
     },
     {
       "name": "assassins creed mirage",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ubisoft.assassinscreed.mirage",
       "developerName": "iKiraPlus",
       "version": "1.1.5",
       "versionDate": "2026-06-01",
@@ -2419,7 +2419,7 @@
     },
     {
       "name": "world war 2 legion",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.world.war.2.legion",
       "developerName": "iKiraPlus",
       "version": "0.3.31",
       "versionDate": "2026-06-01",
@@ -2431,7 +2431,7 @@
     },
     {
       "name": "weplay",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.weplay",
       "developerName": "iKiraPlus",
       "version": "6.6.0",
       "versionDate": "2026-06-01",
@@ -2455,7 +2455,7 @@
     },
     {
       "name": "township",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.playrix.township",
       "developerName": "iKiraPlus",
       "version": "36.1.0",
       "versionDate": "2026-06-16",
@@ -2467,7 +2467,7 @@
     },
     {
       "name": "infinity ops",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.infinity.ops",
       "developerName": "iKiraPlus",
       "version": "1.13.7",
       "versionDate": "2026-06-01",
@@ -2479,7 +2479,7 @@
     },
     {
       "name": "street pro racing",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.street.pro.racing",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": "2026-06-01",
@@ -2491,7 +2491,7 @@
     },
     {
       "name": "scarlet",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.scarlet",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": "2026-06-01",
@@ -2503,7 +2503,7 @@
     },
     {
       "name": "المتفوق",
-      "bundleIdentifier": "com.ikiraplus.app",
+      "bundleIdentifier": "com.ikiraplus.almutafawiq",
       "developerName": "iKiraPlus",
       "version": "1.0.71",
       "versionDate": "2026-06-01",
@@ -2515,7 +2515,7 @@
     },
     {
       "name": "X DL",
-      "bundleIdentifier": "com.atebits.Tweetie2",
+      "bundleIdentifier": "com.atebits.Tweetie23",
       "developerName": "iKiraPlus",
       "version": "11.96",
       "versionDate": "2026-06-03",
@@ -2575,7 +2575,7 @@
     },
     {
       "name": "شهادة مجانية",
-      "bundleIdentifier": "com.ikiraplus.-",
+      "bundleIdentifier": "com.ikiraplus.free.certificate",
       "developerName": "iKiraPlus",
       "version": "4.4",
       "versionDate": "2026-06-22",
@@ -2587,7 +2587,7 @@
     },
     {
       "name": "شهادة مجانية 2",
-      "bundleIdentifier": "com.ikiraplus.--2",
+      "bundleIdentifier": "com.ikiraplus.free.certificate1",
       "developerName": "iKiraPlus",
       "version": "4.3",
       "versionDate": "2026-04-24",
@@ -2623,7 +2623,7 @@
     },
     {
       "name": "TikTok Al-asd",
-      "bundleIdentifier": "com.ikiraplus.tiktok-al-asd",
+      "bundleIdentifier": "com.zhiliaoapp.musically7",
       "developerName": "iKiraPlus",
       "version": "45.5.0",
       "versionDate": "2026-06-10",
@@ -2695,7 +2695,7 @@
     },
     {
       "name": "YouTube Al-Asd",
-      "bundleIdentifier": "com.ikiraplus.youtube-al-asd",
+      "bundleIdentifier": "com.google.ios.youtube4",
       "developerName": "iKiraPlus",
       "version": "21.22.4",
       "versionDate": "2026-06-13",
@@ -2983,7 +2983,7 @@
     },
     {
       "name": "into the dead",
-      "bundleIdentifier": "com.ikiraplus.into-the-dead",
+      "bundleIdentifier": "com.ikiraplus.into-the-dead1",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": "2026-06-13",
@@ -2995,7 +2995,7 @@
     },
     {
       "name": "into the dead 2",
-      "bundleIdentifier": "com.ikiraplus.into-the-dead-2",
+      "bundleIdentifier": "com.ikiraplus.into.the.dead.2",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": "2026-06-13",
@@ -3259,7 +3259,7 @@
     },
     {
       "name": "war drone 3d shooting",
-      "bundleIdentifier": "com.ikiraplus.war-drone-3d-shooting",
+      "bundleIdentifier": "com.ikiraplus.war-drone-3d-shooting1",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": "2026-06-19",
@@ -3271,7 +3271,7 @@
     },
     {
       "name": "war drone 3d shooting",
-      "bundleIdentifier": "com.ikiraplus.war-drone-3d-shooting",
+      "bundleIdentifier": "com.ikiraplus.war-drone-3d-shooting2",
       "developerName": "iKiraPlus",
       "version": "last version",
       "versionDate": "2026-06-19",
