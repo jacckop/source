@@ -29,6 +29,7 @@ jobs:
 
           python3 - <<'PY'
           import json
+          import re
           from pathlib import Path
 
           TARGET_FILE = Path("AppTesters.json.new")
@@ -36,46 +37,87 @@ jobs:
 
           data = json.loads(TARGET_FILE.read_text(encoding="utf-8"))
 
+          EXACT_CATEGORY = {
+              "instagram": "تواصل",
+              "telegram": "تواصل",
+              "whatsapp": "تواصل",
+              "facebook": "تواصل",
+              "messenger": "تواصل",
+              "snapchat": "تواصل",
+              "discord": "تواصل",
+              "threads": "تواصل",
+              "tiktok": "تواصل",
+              "twitter": "تواصل",
+              "x": "تواصل",
+
+              "youtube": "ترفيه",
+              "spotify": "ترفيه",
+              "netflix": "ترفيه",
+              "twitch": "ترفيه",
+              "shahid": "ترفيه",
+              "anghami": "ترفيه",
+              "deezer": "ترفيه",
+              "crunchyroll": "ترفيه",
+
+              "chatgpt": "دراسة وذكاء اصطناعي",
+              "openai": "دراسة وذكاء اصطناعي",
+              "gemini": "دراسة وذكاء اصطناعي",
+              "claude": "دراسة وذكاء اصطناعي",
+              "copilot": "دراسة وذكاء اصطناعي",
+              "perplexity": "دراسة وذكاء اصطناعي",
+              "notion": "دراسة وذكاء اصطناعي",
+              "quizlet": "دراسة وذكاء اصطناعي",
+              "duolingo": "دراسة وذكاء اصطناعي",
+
+              "pubg": "ألعاب",
+              "minecraft": "ألعاب",
+              "roblox": "ألعاب",
+              "fortnite": "ألعاب",
+              "clash": "ألعاب",
+              "brawl": "ألعاب",
+              "asphalt": "ألعاب",
+              "genshin": "ألعاب",
+              "stumble": "ألعاب",
+          }
+
           SOCIAL_WORDS = [
-              "whatsapp", "telegram", "instagram", "facebook", "messenger", "snapchat",
-              "twitter", "x.", "tiktok", "discord", "threads", "wechat", "line",
-              "signal", "imo", "viber", "social", "chat", "reddit", "tumblr"
+              "social", "chat", "message", "messages", "messaging", "dm", "followers"
           ]
 
           ENTERTAINMENT_WORDS = [
-              "youtube", "netflix", "spotify", "music", "musixmatch", "soundcloud",
-              "twitch", "movie", "movies", "cinema", "video", "player", "stream",
-              "iptv", "shahid", "anghami", "deezer", "hulu", "prime video",
-              "disney", "crunchyroll", "anime", "tv", "media"
+              "music", "movie", "movies", "cinema", "video", "videos", "player",
+              "stream", "streaming", "iptv", "anime", "tv", "media", "podcast"
           ]
 
           TOOLS_WORDS = [
               "vpn", "proxy", "browser", "file", "manager", "scanner", "scan",
               "editor", "photo", "camera", "calculator", "cleaner", "speedtest",
-              "utility", "tools", "tool", "zip", "unzip", "sign", "installer",
-              "download", "downloader", "password", "keyboard", "translate",
-              "maps", "weather", "notes", "documents", "pdf", "storage",
-              "backup", "wallpaper", "widget", "terminal", "ssh"
+              "utility", "utilities", "tool", "tools", "zip", "unzip", "sign",
+              "installer", "download", "downloader", "password", "keyboard",
+              "translate", "maps", "weather", "notes", "documents", "pdf",
+              "storage", "backup", "wallpaper", "widget", "terminal", "ssh",
+              "server", "calendar", "draw", "captions"
           ]
 
           STUDY_AI_WORDS = [
-              "chatgpt", "gpt", "openai", "ai", "artificial", "intelligence",
-              "claude", "gemini", "copilot", "perplexity", "study", "student",
-              "school", "college", "university", "learn", "learning", "education",
-              "educational", "homework", "math", "dictionary", "duolingo",
-              "quizlet", "notion", "anki", "course", "academy"
+              "study", "student", "school", "college", "university", "learn",
+              "learning", "education", "educational", "homework", "math",
+              "dictionary", "course", "academy", "artificial intelligence"
           ]
 
           GAME_WORDS = [
-              "game", "games", "gaming", "pubg", "minecraft", "roblox", "fortnite",
-              "call of duty", "cod", "among us", "subway", "temple run", "clash",
-              "brawl", "asphalt", "fifa", "efootball", "pes", "carx", "racing",
-              "chess", "puzzle", "simulator", "survival", "battle", "royale",
-              "pokemon", "genshin", "stumble", "geometry dash", "mod menu"
+              "game", "games", "gaming", "racing", "chess", "puzzle", "simulator",
+              "survival", "battle", "royale", "pokemon", "mod menu"
           ]
 
           def is_blank(value):
               return value is None or (isinstance(value, str) and value.strip() == "")
+
+          def normalize(text):
+              text = text.lower()
+              text = re.sub(r"https?://\S+", " ", text)
+              text = re.sub(r"[^a-z0-9\u0600-\u06FF]+", " ", text)
+              return f" {text} "
 
           def app_text(app):
               keys = [
@@ -84,12 +126,7 @@ jobs:
                   "bundleIdentifier",
                   "localizedDescription",
                   "description",
-                  "subtitle",
-                  "version",
-                  "down",
-                  "downloadURL",
-                  "icon",
-                  "iconURL"
+                  "subtitle"
               ]
 
               parts = []
@@ -98,13 +135,23 @@ jobs:
                   if isinstance(value, str):
                       parts.append(value)
 
-              return " ".join(parts).lower()
+              return normalize(" ".join(parts))
+
+          def has_word(text, word):
+              word = normalize(word).strip()
+              if " " in word:
+                  return f" {word} " in text
+              return re.search(rf"(?<![a-z0-9]){re.escape(word)}(?![a-z0-9])", text) is not None
 
           def has_any(text, words):
-              return any(word.lower() in text for word in words)
+              return any(has_word(text, word) for word in words)
 
           def detect_category(app):
               text = app_text(app)
+
+              for key, category in EXACT_CATEGORY.items():
+                  if has_word(text, key):
+                      return category
 
               if has_any(text, GAME_WORDS):
                   return "ألعاب"
@@ -144,10 +191,10 @@ jobs:
 
           processed = 0
           developer_filled = 0
-          categories_added = 0
+          categories_written = 0
 
           def walk(obj):
-              global processed, developer_filled, categories_added
+              global processed, developer_filled, categories_written
 
               if isinstance(obj, dict):
                   if looks_like_app(obj):
@@ -158,7 +205,7 @@ jobs:
                           developer_filled += 1
 
                       obj["category"] = detect_category(obj)
-                      categories_added += 1
+                      categories_written += 1
 
                   for value in obj.values():
                       if isinstance(value, (dict, list)):
@@ -171,13 +218,13 @@ jobs:
           walk(data)
 
           TARGET_FILE.write_text(
-              json.dumps(data, ensure_ascii=False, separators=(",", ":")),
+              json.dumps(data, ensure_ascii=False, indent=4),
               encoding="utf-8"
           )
 
           print(f"Processed apps: {processed}")
           print(f"Developer names filled: {developer_filled}")
-          print(f"Categories written: {categories_added}")
+          print(f"Categories written: {categories_written}")
           PY
 
           mv "$TARGET_FILE.new" "$TARGET_FILE"
