@@ -1,0 +1,52 @@
+name: Mirror AppTesters Source
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */2 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout my repo
+        uses: actions/checkout@v4
+
+      - name: Download latest AppTesters source
+        run: |
+          set -e
+
+          UPSTREAM_URL="https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/refs/heads/main/apps.json"
+          TARGET_FILE="AppTesters.json"
+
+          curl -L --fail --retry 3 --retry-delay 5 "$UPSTREAM_URL" -o "$TARGET_FILE.new"
+
+          test -s "$TARGET_FILE.new"
+
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          file = Path("AppTesters.json.new")
+          json.loads(file.read_text(encoding="utf-8"))
+          print("JSON is valid")
+          PY
+
+          mv "$TARGET_FILE.new" "$TARGET_FILE"
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- AppTesters.json; then
+            echo "No changes found"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+            git add AppTesters.json
+            git commit -m "Update AppTesters mirror source"
+            git push
+          fi
