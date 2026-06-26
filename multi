@@ -1,1 +1,129 @@
-4rr
+{
+  "name": "MultiApp - iKiraPlus",
+  "identifier": "com.ikiraplus.store.multi",
+  "sourceURL": "https://raw.githubusercontent.com/jacckop/source/main/multi",
+  "iconURL": "https://raw.githubusercontent.com/ikira18/feather/main/images/kiraplus.png",
+  "sourceIcon": "https://raw.githubusercontent.com/ikira18/feather/main/images/kiraplus.png",
+  "website": "https://t.me/iKiraPlus",
+  "news": [
+    {
+      "title": "MultiApp - iKiraPlus",
+      "identifier": "com.ikiraplus.card",
+      "caption": "قناة كيرا بلس للتطبيقات والشهادات",
+      "date": "2026-05-11",
+      "tintColor": "#7A7DFF",
+      "imageURL": "https://raw.githubusercontent.com/ikira18/feather/main/images/kiraplus.png",
+      "url": "https://t.me/iKiraPlus"
+    }
+  ],
+  "apps": [
+    {
+      "name": "MultiGram",
+      "bundleIdentifier": "com.ikiraplus.app",
+      "developerName": "iKiraPlus",
+      "version": "435.0.0",
+      "versionDate": "2026-06-10",
+      "downloadURL": "https://dl.ikiraplus.workers.dev/dl/regram433.0.0_rc",
+      "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/0e/9d/f10e9d3f-f0f1-ed93-5b07-ea71bcfb95a3/Prod-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "localizedDescription": "لتفعيل مميزات النسخة",
+      "size": "327155712",
+      "category": "تواصل"
+    },
+    {
+      "name": "MultiTok",
+      "bundleIdentifier": "com.toyopagroup.picaboo",
+      "developerName": "iKiraPlus",
+      "version": "45.7.0",
+      "versionDate": "2026-06-01",
+      "downloadURL": "https://dl.ikiraplus.workers.dev/dl/snapchat-plus",
+      "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f4/95/3c/f4953cfb-b350-6763-a0b4-ceed8cef74ed/TikTok_AppIcon26-0-0-1x_U007epad-0-1-0-0-85-220.png/512x512bb.jpg",
+      "localizedDescription": " ",
+      "size": "406847488",
+      "category": "تواصل"
+    },
+    {
+      "name": "MultiTele",
+      "bundleIdentifier": "com.nspoons.WhatsAppSB",
+      "developerName": "iKiraPlus",
+      "version": "12.8.2",
+      "versionDate": "2026-06-19",
+      "downloadURL": "https://dl.ikiraplus.workers.dev/dl/wgold_2.1",
+      "iconURL": "https://raw.githubusercontent.com/ikiraplus/ipastore/main/images/app-1773512283014.png",
+      "localizedDescription": " ",
+      "size": "92274688",
+      "category": "تواصل"
+    },
+    {
+      "name": "MultiTube",
+      "bundleIdentifier": "ph.telegra.Telegraph",
+      "developerName": "iKiraPlus",
+      "version": "21.25",
+      "versionDate": "2026-05-18",
+      "downloadURL": "https://dl.ikiraplus.workers.dev/dl/teledark_12.7",
+      "iconURL": "https://thumbs.dreamstime.com/b/red-button-player-social-media-networks-multimedia-symbol-application-movie-video-eps-stock-vector-160216832.jpg",
+      "localizedDescription": " ",
+      "size": "148897792",
+      "category": "تواصل"
+    },
+    {
+      "name": "MultiX",
+      "bundleIdentifier": "com.burbn.instagram",
+      "developerName": "iKiraPlus",
+      "version": "12.3",
+      "versionDate": "2026-06-03",
+      "downloadURL": "https://dl.ikiraplus.workers.dev/dl/instagram-dl-432.0",
+      "iconURL": "https://appstore.nabzclan.vip/images/icon_690aa6dcd1f26.jpg",
+      "localizedDescription": "لتفعيل مميزات النسخة : \n- اضغط على زر الـ Home ضغطة مطوله",
+      "size": "190840832",
+      "category": "تواصل"
+    },
+    {
+      "name": "MultiWatusi",
+      "bundleIdentifier": "com.ikiraplus.app",
+      "developerName": "iKiraPlus",
+      "version": "26.24.2",
+      "versionDate": "2026-06-19",
+      "downloadURL": "https://dl.ikiraplus.workers.dev/dl/beegram_2.3",
+      "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/28/d6/9128d6a0-e209-07ae-b61f-e3965b74e8a8/AppIconSMB-0-0-1x_U007ephone-0-0-0-1-0-0-sRGB-0-85-220.png/512x512bb.jpg",
+      "localizedDescription": "",
+      "size": "139460608",
+      "category": "تواصل"
+    },
+    {
+      "name": "MultiKoora",
+      "bundleIdentifier": "com.burbn.instagram",
+      "developerName": "iKiraPlus",
+      "version": "1.8.0",
+      "versionDate": "2026-06-10",
+      "downloadURL": "https://dl.ikiraplus.workers.dev/dl/igformat433.0.0_if",
+      "iconURL": "https://i.ibb.co/357ct06d/file-000000009820720a88d0404c851eca0d.png",
+      "localizedDescription": "لتفعيل مميزات النسخة",
+      "size": "33554432",
+      "category": "تواصل"
+    },
+    {
+      "name": "MultiFace",
+      "bundleIdentifier": "net.whatsapp.WhatsApp",
+      "developerName": "iKiraPlus",
+      "version": "567.0.0",
+      "versionDate": "2026-06-01",
+      "downloadURL": "https://dl.ikiraplus.workers.dev/dl/whatsi-cracked-26.21.10",
+      "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/38/f6/2e38f637-d73e-7125-2534-06e9ede567b6/Icon-Production-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "localizedDescription": "",
+      "size": "184549376",
+      "category": "تواصل"
+    },
+    {
+      "name": "MultiMovie",
+      "bundleIdentifier": "com.ikiraplus.cute-cut-pro",
+      "developerName": "iKiraPlus",
+      "version": "2.0.0",
+      "versionDate": "2026-06-19",
+      "downloadURL": "https://dl.ikiraplus.workers.dev/dl/cute-cut-pro",
+      "iconURL": "https://i.ibb.co/5Xv5SN0C/file-000000004824720ab0b4b278047f3a77-no-bg.png",
+      "localizedDescription": "",
+      "size": "31457280",
+      "category": "أدوات"
+    }
+  ]
+}
