@@ -1,0 +1,1524 @@
+{
+  "name": "IRAQsource",
+  "subtitle": "A source for all of my apps",
+  "description": "Welcome to my source! Here you'll find all of my apps.",
+  "iconURL": "https://i.ibb.co/WWvFH2DX/images.jpg",
+  "website": "https://altstudio.app",
+  "patreonURL": "https://patreon.com/altstudio",
+  "tintColor": "#6156e2",
+  "featuredApps": [],
+  "apps": [
+    {
+      "name": "X sy",
+      "bundleIdentifier": "APPL",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://appiraq.com/uploads/icon_6a2a472c082c1.png",
+      "tintColor": "#6156e2",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "17C53",
+          "downloadURL": "https://github.com/ipasoon/ipa-private-control./releases/download/V601/X.Sy.ipa",
+          "size": 335832857,
+          "date": "2026-06-11T05:27:08+00:00"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Vaco Tv",
+      "bundleIdentifier": "com.xyxzsfqe8d.ln8v0fn0mc",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "This is an awesome app only available on AltStore.",
+      "iconURL": "https://appiraq.com//uploads/icon_6a29958d773b6.png",
+      "tintColor": "#6156e2",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "10",
+          "downloadURL": "https://github.com/ipasoon/ipa-private-control./releases/download/V700/VacoTv.ipa",
+          "size": 59968076,
+          "date": "2026-06-10T16:49:17+00:00"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Yalla Ludo",
+      "bundleIdentifier": "com.4y5reuq5g3.8zd6f8mzex",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "ميزات وطريقة لعب Yalla Ludo\nتقدم Yalla Ludo تجربة ألعاب سلسة وبديهية تمزج بسلاسة بين سحر لودو الخالد والعمق التكتيكي لدومينو. بصفتك لاعبا، ستشرع في رحلة مثيرة حيث ستحتاج إلى المناورة الاستراتيجية لقطع اللعبة الخاصة بك، مع التفكير أيضا في وضع قطع خصمك وحركتها.",
+      "iconURL": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/75/b1/88/75b188dc-b1bc-3f13-b3d9-cfd4854df446/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/400x400.png",
+      "tintColor": "#6156e2",
+      "category": "ألعاب",
+      "screenshots": {
+        "iphone": [
+          {
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFY1HCdw1lHq68wgunLzS83y_9z9cpQGdRjQJYW8QduA&s=10",
+            "width": 588,
+            "height": 330
+          },
+          {
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLqxT5ZtWm87ZVjs_FcyofdyLjIAD8raUVeNbmVuhrSg&s",
+            "width": 299,
+            "height": 168
+          }
+        ],
+        "ipad": [
+          {
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0LjMZY4O-1m43Ci-AIex9Q9stWwe7IcptZipEefiJsQ&s",
+            "width": 321,
+            "height": 157
+          },
+          {
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmHceyYTVYYLjTuP9aT73rOZhED8Ie8oWB0O_UjOJ9fg&s",
+            "width": 299,
+            "height": 168
+          },
+          {
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnFXBbbJCp2d2Pumd3RFmyWx-DRoJtOyXmKYM2FAehuQ&s",
+            "width": 299,
+            "height": 168
+          }
+        ]
+      },
+      "versions": [
+        {
+          "version": "3.7.5",
+          "date": "2026-06-03T02:42:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://file.ipaomtk.com/ipa/Yalla-Ludo.ipa",
+          "size": 162000000,
+          "buildVersion": "162",
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Yalla Ludo",
+      "bundleIdentifier": "com.dpnpn3khdr.wf0qrnojgk",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "مميزات اللعبة:\n\nطريقة اللعب ذات الوضع المزدوج: يتيح لك Yalla Ludo تجربة وضع Ludo الكلاسيكي، بالإضافة إلى وضع Domino الآسر، مما يوفر لك مجموعة متنوعة من خيارات اللعب.\nعناصر التحكم البديهية: تجعل الواجهة سهلة الاستخدام وعناصر التحكم سريعة الاستجابة من السهل على كل من اللاعبين الجدد وذوي الخبرة الحصول على تعليق اللعبة بسرعة.\nوظائف متعددة اللاعبين: تقدم Yalla Ludo وضعا متعدد اللاعبين، مما يتيح لك التنافس ضد الأصدقاء أو تحدي اللاعبين من جميع أنحاء العالم، مما يضيف طبقة إضافية من الإثارة إلى طريقة اللعب.\nرسومات مذهلة: تخلق صور اللعبة النابضة بالحياة ولوحات الألعاب التفصيلية تجربة غامرة وجذابة بصريا، مما يعزز استمتاعك بالألعاب.\nخيارات التخصيص: يسمح لك Yalla Ludo بتخصيص تجربة الألعاب الخاصة بك عن طريق تخصيص قطع اللعبة والألواح وحتى الموسيقى الخلفية لتناسب تفضيلاتك.",
+      "iconURL": "https://ipaomtk.com/wp-content/uploads/2024/05/Yalla-Ludo-1.png",
+      "tintColor": "#6156e2",
+      "category": "ألعاب",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "3.7.0",
+          "date": "2026-06-03T02:37:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ipa-private-control./releases/download/V700/yallaludo_3.6.7_1780404070.ipa",
+          "size": 226000000,
+          "buildVersion": "",
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "شام كاش",
+      "bundleIdentifier": "com.rvbk5zh4o2.tjqreell38",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "شام كاش برنامج يعمل في سوريا نسخة ايفون",
+      "iconURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB4FRZbxNnh-Fp7jK5jxlivDScNn9Q8MDWjp0zo4KCnL8qjQDkUe921XAo&s=10",
+      "tintColor": "#6156e2",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "2.2.6",
+          "date": "2026-05-26T23:16:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ipa-private-control./releases/download/V700/ShamCash.2.2.6.ipa",
+          "size": 33800000,
+          "buildVersion": "",
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Snapchat",
+      "bundleIdentifier": "com.toyopagroup.picaboo",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "نسخة مجانية من Snapchat لإزالة حظر IP وإضافة ميزات بلس قويه 🔥\n\n1- حفظ القصص والستريك: تمت إضافة زر حفظ، مما يسمح لك بحفظ القصص والستريك في ألبوم الكاميرا.\n2- زر العرض: يظهر زر جديد عند النقر عليه، وسيعرف الشخص الآخر عندئذٍ أنك شاهدت قصته أو لقطته.\n3- تحميل الوسائط: قم بتحميل صورك دون ظهور إشعار \"تحميل الوسائط\" للشخص الآخر.\n4- تغيير الموقع: يمكنك تغيير موقعك إلى أي بلد تريده.\n5- تعطيل لقطات الشاشة والتسجيل: لا تظهر أثناء الدردشات\n6- عضوية Snapchat: قم بتفعيل عضوية Snapchat Pro\n\nالمزيد من الميزات…\n\nهذا Snapchat مجاني ✅ نحن غير مسؤولين عن أي حظر للحساب. استخدمه على مسؤوليتك الخاصة ⚠️\n\nلتنشيط الميزات، اضغط على (Snap • Root) ✅\n",
+      "iconURL": "https://i.imgur.com/vHTwXVk.png",
+      "tintColor": "#fcfc04",
+      "category": "تواصل",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "13.70.1",
+          "date": "2026-03-11T08:53:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/SnapCr-ipastoreplus-13.70.1.ipa",
+          "size": 196300000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "شاهد  Shahid",
+      "bundleIdentifier": "net.mbc.shahid-iphone.3",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "مشاهدة المسلسلات المجانية بدون اعلانات\n",
+      "iconURL": "https://i.imgur.com/TlrmLzT.png",
+      "tintColor": "#2cd46c",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "7.107.0",
+          "date": "2026-03-10T07:10:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/1.ipa",
+          "size": 118200000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Yacire 0101",
+      "bundleIdentifier": "com.yacireiptvplayer.ipasoon",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "مشاهدة القنوات الرياضية",
+      "iconURL": "https://i.imgur.com/roQE5q7.png",
+      "tintColor": "#ec041c",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "1.0",
+          "date": "2026-03-10T06:59:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/default.ipa",
+          "size": 4100000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "agar.io",
+      "bundleIdentifier": "com.miniclip.agar.io.shark",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "لعبة Agar.io\n\nالمميزات :\n- سرعة ماكرو مخصصة جديد\n- سرعة ماكرو مخصصة جديدة\n- زر تقسيم رئيسي جديد المؤشرات\n- عداد الخلايا جديد\n- انقسام وقت الدمج جديد\n- مجموع الكتلة NEW تعديلات واجهة المستخدم\n- زر ماكرو X جديد\n- زر ماكرو Y NEW\n- حجم زر ماكرو جديد\n- زر الانقسام الرئيسي X جديد\n- زر الانقسام الرئيسي Y NEW\n- حجم زر الانقسام الرئيسي جديد\n.",
+      "iconURL": "https://i.imgur.com/gvWtNTs.png",
+      "tintColor": "#04ccfb",
+      "category": "ألعاب",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "26.5.0",
+          "date": "2026-03-07T05:55:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/SharkMod.Z._1.8.3.1.ipa",
+          "size": 135300000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Beegram",
+      "bundleIdentifier": "com.lo3s00kvxw.5xvpdt4pt3",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "النحلة جاهزة للاختبار 🐝 Beegram\nتضيف مميزات رائعة للانستكرام\n👻 وضع الشبح (رسائل - قصص - بثوث).\n💬 ابقاء الرسائل المحذوفة (تعمل مع احدث اصدار من انستكرام 409 واعلى..).\n⬇️ التنزيل المفتوح من انستكرام.\n🎤رفع الفويس من الملفات او الفيديوات.\n📄وضع النسخ (يوزر-كابشن-بايو-اسم).\n⏲️ تنزيل الوسئل المعروضة لمرة واحدة\nوالمزيد قريبا …\nعرض المزيد\n",
+      "iconURL": "https://i.imgur.com/3mtsmaD.png",
+      "tintColor": "#791af4",
+      "category": "تواصل",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "424.0.0",
+          "date": "2026-03-06T23:54:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ipa-private-control./releases/download/V700/Beegram.ipa",
+          "size": 215000000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "WhatsApp",
+      "bundleIdentifier": "net.whatsapp.WhatsApp",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "واتساب گولد Wgold 1.8\nالاضافات والتحسينات:\n☁️ نظام النسخ الاحتياطي المتطور.\n👻 تحسينات كثيرة في وضع الشبح.\n🗣 اضافة نظام تغيير الصوت Ai.\n👤 اضافة نظام الاستثناءات.\n🎤 اصلاحات في نظام رفع الفويس.\n⚙️ اصلاحات هنا وهناك..\n✅ توافق كامل مع احدث اصدار",
+      "iconURL": "https://i.imgur.com/mffoyBp.png",
+      "tintColor": "#fcec04",
+      "category": "تواصل",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "26.5.76",
+          "date": "2026-03-07T02:53:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ipa-private-control./releases/download/V700/WGold.ipa",
+          "size": 127800000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Regram",
+      "bundleIdentifier": "com.e0by9r867z.qxaabmmtr1",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "- المميزات\n- عدم الانتقال للستوري التالي تلقائيًا.\n- عرض وتنزيل الصورة الشخصية.\n- إبقاء الرسائل المحذوفة.\n- رؤية رسائل الخاص دون علم الطرف الآخر.\n- إخفاء جارِ الكتابة في الخاص.\n- نسخ النصوص (الشرح التوضيحي، التعليقات، السيرة الذاتية البايو، اسم المستخدم).\n- وغيرها الكثييير .\n\n- مفعله مسبقا ( لا يحتاج لتسجيل الدخول في الاداة )",
+      "iconURL": "https://i.imgur.com/6gUDw67.png",
+      "tintColor": "#8b17fc",
+      "category": "تواصل",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "410.1.0",
+          "date": "2026-03-07T05:40:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Instagram_410.1.0_Regram_2.4_Cracked.ipa",
+          "size": 267100000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "DL insta",
+      "bundleIdentifier": "com.burbn.instagram",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "- تنزيل الصور والفيديوهات من الصفحة الرئيسية، والقصص (الستوري)، والخاص، و Reels.\n- مشاهدة الستوري دون علم الطرف الآخر.\n- عدم الانتقال للستوري التالي تلقائيًا.\n- عرض وتنزيل الصورة الشخصية.\n- إبقاء الرسائل المحذوفة.\n- رؤية رسائل الخاص دون علم الطرف الآخر.\n- إخفاء جارِ الكتابة في الخاص.\n- نسخ النصوص (الشرح التوضيحي، التعليقات، السيرة الذاتية [البايو]، اسم المستخدم).\n- معرفة ما اذا كان الشخص يتابعك أو لا.\n- اإظهار عدد المشاهدات واللايكات.\n- عدم تكرار الفيديو بعد انتهائه.\n- ازالة الاعلانات.\n- فتح الروابط في سفاري مباشرة.\n- قفل التطبيق بالبصمة ورمز الدخول.\n- خيار للتنزيل بأعلى جودة متوفرة تلقائيًا.\n- مشاهدة البث المباشر بشكل متخفي.\n- إمكانية تنزيل اكثر من قصة من نفس المستخدم في وقت واحد مع امكانية دمج هذه القصص كفيديو واحد معًا.\n- تنزيل غلاف القصة البارزة (الهايلايت).",
+      "iconURL": "https://i.imgur.com/P2kBwx5.png",
+      "tintColor": "#8b17fc",
+      "category": "تواصل",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "412.0.0",
+          "date": "2026-03-07T05:39:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Instagram_412.0.0-DLInsta_Cracked.ipa",
+          "size": 282100000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "DL TikTok",
+      "bundleIdentifier": "com.dlmy151g7c.y8lxxlsype",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "- تنزيل كل الفيديوهات والصور بدون علامة مائية.\n- زيادة عدد حروف التعليق الى 240 حرف.\n- تغيير دولة المحتوى.\n- عرض تاريخ إنشاء الفيديوهات.\n- عرض عدد الفيديوهات الإجمالي لكل مستخدم في صفحته.\n- الذهاب تلقائيًا الى الفيديو التالي بعد انتهاء الفيديو الحالي.\n- اخفاء الأزرار في الواجهة.\n- حفظ صورة الملف الشخصي.\n- ازالة الإعلانات.\n- تشغيل الصوت في الفيديوهات التي تم كتم الصوت فيها.\n- فتح الروابط في سفاري مباشرة.\n- فتح التطبيق على قسم أتابعه بدلًا من قسم لك.\n- نسخ الوصف واسم المستخدم والمقدمة التعريفية.\n- اظهار شريط التقدم دائمًا.\n- عدم تكرار الفيديو بعد انتهائه.\n- قفل التطبيق بالبصمة ورمز الدخول.\n- إظهار زر شاهدته للتو دائمًا.\n- ميزة التكبيس.",
+      "iconURL": "https://i.imgur.com/oPLyQFl.png",
+      "tintColor": "#7f7f7f",
+      "category": "تواصل",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "43.3.0",
+          "date": "2026-03-07T05:38:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/TikTok_43.3.0_DL_Cracked.ipa",
+          "size": 358300000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "DL YouTube",
+      "bundleIdentifier": "com.google.ios.youtube12-night",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "- تنزيل الفيديوهات بجودات متعددة.\n- تنزيل الصوت.\n- تنزيل القصص (الستوري).\n- حفظ كل الوسائط المنزلة داخل يوتيوب في تبويب DLTube مع امكانية حفظها لتطبيق الصور.\n- ازالة كل الإعلانات بجميع انواعها.\n- التشغيل في الخلفية.\n- نسخ النصوص (الوصف، العنوان، المنشورات، التعليقات).\n- ازالة الفيديوهات الموصى بها.\n- فتح الروابط في سفاري مباشرة.\n- اعادة تشغيل الفيديو تلقائيًا بعد انتهائه.\n- تنزيل صور المنشورات.\n- إظهار كلمات الأغنية.\n- تفعيل ميزة صورة داخل صورة.\n- إخفاء زر إنشاء فيديو.\n- تنزيل صورة الفيديو المصغرة.",
+      "iconURL": "https://i.imgur.com/Q0Ml8Qy.png",
+      "tintColor": "#fc0434",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "20.42.3",
+          "date": "2026-03-07T05:32:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Youtube.DL.ipa",
+          "size": 289600000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Vodu",
+      "bundleIdentifier": "com.esite.iq.vodu",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "مشاهدة مسلسلات والافلام بجودات متعددة\nملاحظة تعمل فقط داخل العراق",
+      "iconURL": "https://i.imgur.com/YH0t8qf.png",
+      "tintColor": "#764bb3",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "7.0.9",
+          "date": "2026-03-07T05:31:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Vodu.ipa",
+          "size": 40900000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Video Star",
+      "bundleIdentifier": "com.frontierdesign.videostar",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "تدعم من اصدارات ios 15 \n\nمع أداة ICStar Plus\n\nالمميزات:\n• جميع الميزات مفتوحة\n• جميع الاكواد تعمل بشكل كامل\n• جميع الفلاتر تعمل\n• تدعم جميع التأثيرات\n• تدعم السرعة المتجهة\n• لتفعيل مميزات النسخة يجب تفعيلها من الاعدادات\n",
+      "iconURL": "https://i.imgur.com/D42WdAU.png",
+      "tintColor": "#6156e2",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "12.2.2",
+          "date": "2026-03-07T05:30:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Videostar.ipa",
+          "size": 229700000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "TrollInstaller",
+      "bundleIdentifier": "com.opa334.TrollInstaller",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "This is an awesome app only available on AltStore.",
+      "iconURL": "https://i.imgur.com/lP7zlRN.png",
+      "tintColor": "#6156e2",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "1.0",
+          "date": "2026-03-07T05:27:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/TrollInstaller.ipa",
+          "size": 700000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "TikTok",
+      "bundleIdentifier": "com.zhiliaoapp.musically",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "- بدون إعلانات\n- تنزيل الفيديوهات\n- تنزيل الموسيقى\n- زر إظهار/إخفاء واجهة المستخدم\n- نسخ وصف الفيديو\n- نسخ رابط الفيديو\n- نسخ رابط الموسيقى\n- تشغيل الفيديو التالي تلقائيًا\n- إظهار شريط التقدم\n- تأكيد الإعجاب\n- تأكيد الإعجاب بالتعليق\n- تأكيد عدم الإعجاب بالتعليق\n- تأكيد المتابعة\n- حفظ صورة الملف الشخصي\n- نسخ معلومات الملف الشخصي\n- تمديد السيرة الذاتية\n- تمديد التعليق\n- الفتح دائمًا في سفاري\n- تغيير المنطقة\n- علامة تحقق زرقاء مزيفة\n- عدد متابعين مزيف\n- عدد متابعين مزيف\n- قفل",
+      "iconURL": "https://i.imgur.com/UkBnamz.png",
+      "tintColor": "#7f7f7f",
+      "category": "تواصل",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "32.8.0",
+          "date": "2026-03-07T05:23:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/TikTok_32.8.0_1757753407.ipa",
+          "size": 381900000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Teledark",
+      "bundleIdentifier": "ph.telegra.Telegraphj",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "المميزات\nتحديث جديد لتليدارك 💪\n🧮 تخطي قيود عدد الحسابات\n👻 تخطي وضع التقييد في الدردشات الخاصة\n😋 تخطي قيود السكرين شوت وتسجيل الشاشة في كل مكان\n🗣 احدث اصدار 12.6.2",
+      "iconURL": "https://i.imgur.com/KPfUwTX.png",
+      "tintColor": "#7f7f7f",
+      "category": "تواصل",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "16.3",
+          "date": "2026-03-06T20:22:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ipa-private-control./releases/download/V700/Cinemana.ipa",
+          "size": 74300000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Rodjo",
+      "bundleIdentifier": "rodjo.player.video.Rodjo",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "مشاهدة القنوات الرياضية والتلفزيونية",
+      "iconURL": "https://i.imgur.com/fKqOGp0.png",
+      "tintColor": "#5c2c94",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "1.1.1",
+          "date": "2026-03-07T05:22:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Rodjo.5129.ipa",
+          "size": 3800000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "RDR",
+      "bundleIdentifier": "com.rockstargames.rdr",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "ريد ديد ريدمبشن نسخة نتفلكس مجانا حصريا\nملاحظة:\n- يجب أن يكون اصدار ونوع جهازك داعم للعبة\n- لديك حوالي 10 جيجا مساحة فارغة على جهازك\nعند تنزيل اللعبة تحتوي على ملف بحجم 3 جيجا بايت. عند التنزيل، يجب عدم الخروج من اللعبة أو قفل الشاشة\n",
+      "iconURL": "https://i.imgur.com/SOEjZBq.png",
+      "tintColor": "#fbc40d",
+      "category": "ألعاب",
+      "screenshots": {
+        "iphone": [
+          {
+            "imageURL": "https://i.imgur.com/rywLjEd.jpeg",
+            "width": 2560,
+            "height": 1440
+          },
+          {
+            "imageURL": "https://i.imgur.com/QBx3JOl.png",
+            "width": 1440,
+            "height": 810
+          }
+        ],
+        "ipad": [
+          {
+            "imageURL": "https://i.imgur.com/1VMyG4K.jpeg",
+            "width": 2560,
+            "height": 1440
+          },
+          {
+            "imageURL": "https://i.imgur.com/mHBcQrD.png",
+            "width": 1440,
+            "height": 810
+          }
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.50.60293175",
+          "date": "2026-03-07T05:18:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://file.ipaomtk.com/Red-Dead-Redemption/RDR-IPAOMTK.COM.ipa",
+          "size": 2891000000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Remini",
+      "bundleIdentifier": "com.bigwinepot.nwdn.international",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "قنبلة الحصريات\n\nلتصميم الفيديوهات والصور\n\nمفتوح المميزات بالكامل ( لاداعي للشراء فقط تجاوز صفحه الشراء في كل مره يطلب منك الشراء )\nعرض المزيد\n",
+      "iconURL": "https://i.imgur.com/i9RNYvQ.png",
+      "tintColor": "#a41c24",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "2.10.131",
+          "date": "2026-03-07T03:13:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Remini.2.10.131.ipa",
+          "size": 150900000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "PicsArt",
+      "bundleIdentifier": "com.picsart.studio",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "جميع الميزات المدفوعة مفتوحة\nيجب تسجيل الدخول بحساب\n",
+      "iconURL": "https://i.imgur.com/HIxar6X.png",
+      "tintColor": "#8e3acc",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "26.8.3",
+          "date": "2026-03-07T03:11:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/PicsArt.26.8.3.ipa",
+          "size": 115900000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "NodeVideo",
+      "bundleIdentifier": "com.shallwaystudio.nodevideo",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "مفتوح الاشتراك الكامل\n",
+      "iconURL": "https://i.imgur.com/3BXyTdx.png",
+      "tintColor": "#7f7f7f",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "6.40.5",
+          "date": "2026-03-07T03:10:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/NodeVideo.6.40.5.ipa",
+          "size": 115800000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Netflix",
+      "bundleIdentifier": "com.chengzu.book",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "حصري\n\nمشاهدة المسلسلات والافلام\n\n- مفتوح المميزات",
+      "iconURL": "https://i.imgur.com/4NIrfkA.png",
+      "tintColor": "#7f7f7f",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "3.0",
+          "date": "2026-03-07T03:07:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Netflix.ipa",
+          "size": 32500000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Inside",
+      "bundleIdentifier": "com.playdeadgames.inside.ios",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "- فتح اللعبه بشكل كامل\n- تسريع اللعبه\n\nملاحظه : فعل هاك الشراء من المود منيو واضغط على شراء اللعبه كامله",
+      "iconURL": "https://i.imgur.com/cWUhhLS.png",
+      "tintColor": "#6156e2",
+      "category": "ألعاب",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "1.1.8",
+          "date": "2026-03-07T03:01:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Inside.ipasoon.ipa",
+          "size": 669700000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "InstaShot",
+      "bundleIdentifier": "com.camerasideas.InstaShot",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "مفتوح الميزات بالكامل\n",
+      "iconURL": "https://i.imgur.com/WDm5Tc9.png",
+      "tintColor": "#fc245c",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "1.90.2",
+          "date": "2026-03-07T03:00:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/InShot.Pro.1.90.2.ipa",
+          "size": 120300000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "HiTV",
+      "bundleIdentifier": "te6ch.hi6t6v.mytvb",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "تطبيق لمشاهدة وتحميل\nالدراما الاسيوية والمسلسلات العربية و الانمي\n\nبجودات متعددة ومترجمة للعربية ✔️\nبدون اعلانات ❌\nعرض المزيد\n",
+      "iconURL": "https://i.imgur.com/tDUhLCo.png",
+      "tintColor": "#7450fc",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "1.1",
+          "date": "2026-03-07T03:00:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Hitv.ipa",
+          "size": 38000000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "gta",
+      "bundleIdentifier": "com.rockstargames.gta3sa",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "- مولد المركبات\n- انفجارات نووية\n- لا يموت\n- ذخيرة لا نهائية\n- قفزة خارقة\n- قفزة القمر\n- هجوم المشاة عليك\n- سيارات مرتدة\n- سيارات صاخبة\n- نار الديسكو (المفضلة لدي)\n- لكمة قاتلة\n- سرعة السيارة ×1 ×2 ×3\n- الحركة البطيئة\n- الوقت السريع\n- وضع الجنون",
+      "iconURL": "https://i.imgur.com/S2zgRdC.png",
+      "tintColor": "#6e6b93",
+      "category": "ألعاب",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "2.02.11",
+          "date": "2026-03-07T02:59:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/GTA.SAN.Andreas.ipa",
+          "size": 1630900000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Facebook",
+      "bundleIdentifier": "com.facebook.Facebook",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "اداة Facebook Wolf :\n- حفظ الفيديوهات لالبوم الكاميرا.\n- تأكيد الإعجاب.\n- إزالة الإعلانات المزعجة.\n- حفظ الصور والفيديوهات من الستوري.\n- إخفاء مؤشر الكتابة في الخاص.\n- إخفاء قراءة الرسائل.\n- إخفاءة مشاهدة الستوري.\n\nملاحظة :\nيعمل على ايفون XS واحدث.\n",
+      "iconURL": "https://i.imgur.com/vKdQRc8.png",
+      "tintColor": "#0c64fc",
+      "category": "تواصل",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "522.0.0",
+          "date": "2026-03-07T02:58:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Facebook-Glow.ipa",
+          "size": 156900000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Clash of Clans",
+      "bundleIdentifier": "nt.nc.ios",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "- موارد غير محدودة\n- بدون باند",
+      "iconURL": "https://i.imgur.com/DwFKc4x.png",
+      "tintColor": "#f27d0d",
+      "category": "ألعاب",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "18.0.2",
+          "date": "2026-03-07T02:58:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Clash.ipa",
+          "size": 372900000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Cinemana",
+      "bundleIdentifier": "com.55mvu1x8jf.x9d769hzvj",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "المميزات          \nشغال بدون مشاكل\nالنسخة القديمة\nتدعم التحميل",
+      "iconURL": "https://i.imgur.com/bpauGVp.png",
+      "tintColor": "#b10a0a",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "3.4.2",
+          "date": "2026-03-06T20:57:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ipa-private-control./releases/download/V700/Cinemana.ipa",
+          "size": 35400000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Cinemana",
+      "bundleIdentifier": "com.shabakaty.cinemanaa",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "المميزات          \nتدعم التحميل",
+      "iconURL": "https://i.imgur.com/xCSHSS8.png",
+      "tintColor": "#cc140c",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "4.1.0",
+          "date": "2026-03-06T23:57:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Cinemana.ipa",
+          "size": 26800000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "CapCut",
+      "bundleIdentifier": "com.lemon.lvoverseas",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "يضم CapCut كل ما تحتاج إليه لإنشاء محتوى رائج على YouTube وInstagram وغيرهما.\n\n",
+      "iconURL": "https://i.imgur.com/IeQ5PU9.png",
+      "tintColor": "#6156e2",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "12.6.0",
+          "date": "2026-03-07T02:56:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/CapCut.ipa",
+          "size": 146800000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Buz TV",
+      "bundleIdentifier": "com.buztv.player",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "لمشاهدة القنوات الرياضية\n\n- مفتوح المميزات",
+      "iconURL": "https://i.imgur.com/nAs2xjL.png",
+      "tintColor": "#5c348c",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "1.2.11",
+          "date": "2026-03-07T02:56:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Buz.TV.1.2.11.ipa",
+          "size": 18700000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Bawa",
+      "bundleIdentifier": "ali.Bawa",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "لمشاهدة افلام ومسلسلات\n\n- مفتوح المميزات",
+      "iconURL": "https://i.imgur.com/qqqSRyX.png",
+      "tintColor": "#0f8fef",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "1.0",
+          "date": "2026-03-07T02:56:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Bawa.ipa",
+          "size": 3300000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Anime Slayer ipasoon",
+      "bundleIdentifier": "com.animeread",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "لمشاهدة افلام ومسلسلات الانمي\n\n- مفتوح المميزات",
+      "iconURL": "https://i.imgur.com/mlrTXVB.png",
+      "tintColor": "#0444ec",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "5.0.0",
+          "date": "2026-03-07T02:55:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Anime.Slayer.ipa",
+          "size": 24000000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Anime Cloud",
+      "bundleIdentifier": "com.animecloud.rm",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "لمشاهدة افلام ومسلسلات الانمي\n\n- مفتوح المميزات",
+      "iconURL": "https://i.imgur.com/WV9bx4v.png",
+      "tintColor": "#3c74fc",
+      "category": "ترفيه",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "6.5",
+          "date": "2026-03-07T02:54:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Anime.Cloud.6.5.ipa",
+          "size": 7600000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "ArabicArt",
+      "bundleIdentifier": "com.AppChief.ArabicArt",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "تطبيق خاص لتصاميم\n\n- مفتوح المميزات",
+      "iconURL": "https://i.imgur.com/skfs9GB.png",
+      "tintColor": "#c43cb4",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "8.2.6",
+          "date": "2026-03-07T02:53:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/alikrem123alikrem-cyber/Ipasoon/releases/download/v3/Andalusi.8.2.6.ipa",
+          "size": 156200000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "Ksign",
+      "bundleIdentifier": "nya.asami.ksign",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "هذا تطبيق رائع متاح فقط على Zsign",
+      "iconURL": "https://i.imgur.com/kO3XbHh.png",
+      "tintColor": "#0494fc",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "1.4.1",
+          "date": "2026-03-03T14:52:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ios-signer/releases/download/V3/Ksign.ipa",
+          "size": 14000000,
+          "buildVersion": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSAccentColorName": "AccentColor",
+          "NSHumanReadableCopyright": "Copyright (c) 2025 Nagata Asami"
+        }
+      },
+      "patreon": []
+    },
+    {
+      "name": "Scarlet",
+      "bundleIdentifier": "com.DebianArch.ScarletPersonalXYZZZ",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "هذا تطبيق رائع متاح فقط على Zsign",
+      "iconURL": "https://i.imgur.com/ULGjX43.png",
+      "tintColor": "#7f7f7f",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "1.0",
+          "date": "2026-03-03T11:37:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ios-signer/releases/download/V3/ScarletAlpha.ipa",
+          "size": 15500000,
+          "buildVersion": "123",
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "GBox",
+      "bundleIdentifier": "com.ncs.gbox",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "هذا تطبيق رائع متاح فقط على Zsign",
+      "iconURL": "https://i.imgur.com/kWlVExx.png",
+      "tintColor": "#04dc64",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "5.7.6",
+          "date": "2026-03-03T14:38:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ios-signer/releases/download/V3/GBox.ipa",
+          "size": 6800000,
+          "buildVersion": null,
+          "minOSVersion": null
+        },
+        {
+          "version": "5.2",
+          "date": "2026-03-03T14:33:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ios-signer/releases/download/V3/GBox.ipa",
+          "size": 23000000,
+          "buildVersion": "123",
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    },
+    {
+      "name": "ESign",
+      "bundleIdentifier": "p3.xyz.yyyue.esign",
+      "marketplaceID": "",
+      "developerName": "KiraStore",
+      "subtitle": "An awesome app.",
+      "localizedDescription": "هذا تطبيق رائع متاح فقط على Zsign",
+      "iconURL": "https://i.imgur.com/X5lsaqL.png",
+      "tintColor": "#4ca4f4",
+      "category": "أدوات",
+      "screenshots": {
+        "iphone": [
+          {
+            "imageURL": "https://up6.cc/2026/03/177254992051891.png",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "imageURL": "https://up6.cc/2026/03/177254992062592.png",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "imageURL": "https://up6.cc/2026/03/177254992072563.png",
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "ipad": []
+      },
+      "versions": [
+        {
+          "version": "5.2",
+          "date": "2026-03-03T14:31:00+03:00",
+          "localizedDescription": "تطبيقات التوقيع",
+          "downloadURL": "https://github.com/ipasoon/ios-signer/releases/download/V3/esign.ipa",
+          "size": 5000000,
+          "buildVersion": "123",
+          "minOSVersion": null
+        },
+        {
+          "version": "5.2",
+          "date": "2026-03-03T14:10:00+03:00",
+          "localizedDescription": null,
+          "downloadURL": "https://github.com/ipasoon/ios-signer/releases/download/V3/esign.ipa",
+          "size": 123000000,
+          "buildVersion": "123",
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": []
+      },
+      "patreon": []
+    }
+  ],
+  "news": [
+    {
+      "title": "RDR ",
+      "identifier": "news_huk69hkv3f",
+      "caption": "مغامرات غربية ملحمية",
+      "date": "2026-03-11T05:41",
+      "tintColor": "#6156e2",
+      "imageURL": "https://i.imgur.com/kMyD0Ny.jpeg",
+      "url": "https://example.com/new_feature_details",
+      "appID": "com.rockstargames.rdr",
+      "notify": true
+    },
+    {
+      "title": "شاهد  Shahid",
+      "identifier": "news_cprrmi9h9d",
+      "caption": "تابع أفضل الأفلام والمسلسلات",
+      "date": "2026-03-11T05:39",
+      "tintColor": "#6156e2",
+      "imageURL": "https://i.imgur.com/4NhSUkh.png",
+      "url": "https://example.com/new_feature_details",
+      "appID": "net.mbc.shahid-iphone.3",
+      "notify": true
+    },
+    {
+      "title": "Vaco Tv",
+      "identifier": "news_0quon364g6",
+      "caption": "رمز 22455",
+      "date": "2026-03-11T04:46",
+      "tintColor": "#6156e2",
+      "imageURL": "https://i.imgur.com/rY4AKYI.png",
+      "url": "https://example.com/new_feature_details",
+      "appID": "com.xyxzsfqe8d.ln8v0fn0mc",
+      "notify": true
+    },
+    {
+      "title": "Regram",
+      "identifier": "news_cjzt7ocld6",
+      "caption": "تواصل اجتماعي",
+      "date": "2026-03-11T04:42",
+      "tintColor": "#6156e2",
+      "imageURL": "https://i.imgur.com/ReioruX.png",
+      "url": "https://example.com/new_feature_details",
+      "appID": "com.e0by9r867z.qxaabmmtr1",
+      "notify": true
+    },
+    {
+      "title": "Cinemana",
+      "identifier": "news_9e6adz1125",
+      "caption": "تابع أفضل الأفلام والمسلسلات",
+      "date": "2026-03-11T04:41",
+      "tintColor": "#6156e2",
+      "imageURL": "https://i.imgur.com/PUW9vrc.png",
+      "url": "https://example.com/new_feature_details",
+      "appID": "com.shabakaty.cinemanaa",
+      "notify": true
+    },
+    {
+      "title": "TikTok",
+      "identifier": "news_w9r9g8kdl1",
+      "caption": "فديوهات قصيرة كل لحضة",
+      "date": "2026-03-11T02:45",
+      "tintColor": "#6156e2",
+      "imageURL": "https://i.imgur.com/eaZls8n.png",
+      "url": "https://example.com/new_feature_details",
+      "appID": "com.zhiliaoapp.musically",
+      "notify": true
+    }
+  ]
+}
