@@ -77,6 +77,18 @@
       "size": "190840832",
       "category": "تواصل"
     },
+ {
+      "name": "Login X",
+      "bundleIdentifier": "com.burbn.instagram",
+      "developerName": "iKiraPlus",
+      "version": "12.3",
+      "versionDate": "2026-06-03",
+      "downloadURL": "https://dl.ikiraplus.workers.dev/dl/instagram-dl-432.0",
+      "iconURL": "https://appstore.nabzclan.vip/images/icon_690aa6dcd1f26.jpg",
+      "localizedDescription": "لتفعيل مميزات النسخة : \n- اضغط على زر الـ Home ضغطة مطوله",
+      "size": "120840832",
+      "category": "تواصل"
+    },
     {
       "name": "MultiWatusi",
       "bundleIdentifier": "com.ikiraplus.app",
