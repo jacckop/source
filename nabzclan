@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-06-27T11:11:35Z",
+    "updated_at": "2026-06-27T11:30:52Z",
     "name": "NabzClan App Store",
     "identifier": "com.jacckop.source.nabzclan",
     "sourceURL": "https://raw.githubusercontent.com/jacckop/source/main/nabzclan",
-    "iconURL": "https://i.ibb.co/k2TXzQ7S/images.jpg",
+    "iconURL": "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg",
     "website": "https://appstore.sidelix.vip/",
     "ipawebsite": "https://appstore.sidelix.vip/",
     "apiVersion": "v1",
@@ -20,8 +20,8 @@
         "DesignTech-SIA.Spendit",
         "io.labhouse.audioapp",
         "io.rmmbr.remember",
-        "com.unofficialcalculators.payplan",
-        "com.glucobit.cravingBuster.CravingBuster",
+        "com.unofficialcalculators.payplan.2",
+        "com.glucobit.cravingBuster.CravingBuster.2",
         "com.stromming.Plants",
         "com.andydev.alpenglow",
         "com.goodgamestudios.bitlife.go.lifesimulation",
@@ -31,6 +31,7 @@
         {
             "name": "LiveWallpapersFree",
             "bundleIdentifier": "com.apalonapps.livewallpapersfree",
+            "identifier": "com.apalonapps.livewallpapersfree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -58,6 +59,7 @@
         {
             "name": "Accountit",
             "bundleIdentifier": "DesignTech-SIA.Spendit",
+            "identifier": "DesignTech-SIA.Spendit",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -85,6 +87,7 @@
         {
             "name": "SummaryAI",
             "bundleIdentifier": "io.labhouse.audioapp",
+            "identifier": "io.labhouse.audioapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -112,6 +115,7 @@
         {
             "name": "Remember",
             "bundleIdentifier": "io.rmmbr.remember",
+            "identifier": "io.rmmbr.remember",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -138,7 +142,8 @@
         },
         {
             "name": "BillTracker",
-            "bundleIdentifier": "com.unofficialcalculators.payplan",
+            "bundleIdentifier": "com.unofficialcalculators.payplan.2",
+            "identifier": "com.unofficialcalculators.payplan.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -165,7 +170,8 @@
         },
         {
             "name": "Reframe",
-            "bundleIdentifier": "com.glucobit.cravingBuster.CravingBuster",
+            "bundleIdentifier": "com.glucobit.cravingBuster.CravingBuster.2",
+            "identifier": "com.glucobit.cravingBuster.CravingBuster.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -193,6 +199,7 @@
         {
             "name": "Planta",
             "bundleIdentifier": "com.stromming.Plants",
+            "identifier": "com.stromming.Plants",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -220,6 +227,7 @@
         {
             "name": "Alpenglow",
             "bundleIdentifier": "com.andydev.alpenglow",
+            "identifier": "com.andydev.alpenglow",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -247,6 +255,7 @@
         {
             "name": "BitLifeGO",
             "bundleIdentifier": "com.goodgamestudios.bitlife.go.lifesimulation",
+            "identifier": "com.goodgamestudios.bitlife.go.lifesimulation",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with VIP",
@@ -274,6 +283,7 @@
         {
             "name": "luckyloki",
             "bundleIdentifier": "com.coinercab.luckyloki",
+            "identifier": "com.coinercab.luckyloki",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -301,6 +311,7 @@
         {
             "name": "WaterReminder",
             "bundleIdentifier": "com.vgfit.waterreminder",
+            "identifier": "com.vgfit.waterreminder",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -327,7 +338,8 @@
         },
         {
             "name": "Twitch",
-            "bundleIdentifier": "tv.twitch",
+            "bundleIdentifier": "tv.twitch.2",
+            "identifier": "tv.twitch.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Adblock",
@@ -355,6 +367,7 @@
         {
             "name": "foriOS",
             "bundleIdentifier": "com.tapinfinity.HdjcXcode7",
+            "identifier": "com.tapinfinity.HdjcXcode7",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -382,6 +395,7 @@
         {
             "name": "PolyGit",
             "bundleIdentifier": "com.polygitapp.polygit",
+            "identifier": "com.polygitapp.polygit",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -409,6 +423,7 @@
         {
             "name": "AITattoo",
             "bundleIdentifier": "com.ai.tattoo.generator.app",
+            "identifier": "com.ai.tattoo.generator.app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -436,6 +451,7 @@
         {
             "name": "H2O",
             "bundleIdentifier": "co.airapps.waterreminder",
+            "identifier": "co.airapps.waterreminder",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -463,6 +479,7 @@
         {
             "name": "PodcastApp",
             "bundleIdentifier": "com.evolve.podcast",
+            "identifier": "com.evolve.podcast",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -490,6 +507,7 @@
         {
             "name": "ShiftDays",
             "bundleIdentifier": "com.limepresso.shiftworkcalendar",
+            "identifier": "com.limepresso.shiftworkcalendar",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -517,6 +535,7 @@
         {
             "name": "LensAI",
             "bundleIdentifier": "com.lens.ai.app",
+            "identifier": "com.lens.ai.app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -544,6 +563,7 @@
         {
             "name": "ahead",
             "bundleIdentifier": "com.aheadsolutions.aHead",
+            "identifier": "com.aheadsolutions.aHead",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -571,6 +591,7 @@
         {
             "name": "WedslyPlanning",
             "bundleIdentifier": "com.wedbox.planning",
+            "identifier": "com.wedbox.planning",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -598,6 +619,7 @@
         {
             "name": "iSTB",
             "bundleIdentifier": "com.na.istb",
+            "identifier": "com.na.istb",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -625,6 +647,7 @@
         {
             "name": "NBv62258",
             "bundleIdentifier": "nt.nb.ios",
+            "identifier": "nt.nb.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -652,6 +675,7 @@
         {
             "name": "HeadifyAIHeadshotGenerator",
             "bundleIdentifier": "com.photoshoot.headshotaigenerator",
+            "identifier": "com.photoshoot.headshotaigenerator",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -679,6 +703,7 @@
         {
             "name": "Supershift",
             "bundleIdentifier": "io.erna",
+            "identifier": "io.erna",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -706,6 +731,7 @@
         {
             "name": "Infltr",
             "bundleIdentifier": "com.Yooshr.Infltr",
+            "identifier": "com.Yooshr.Infltr",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -733,6 +759,7 @@
         {
             "name": "SwiftyCompiler",
             "bundleIdentifier": "com.hassantaleb.SwiftCompiler",
+            "identifier": "com.hassantaleb.SwiftCompiler",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -760,6 +787,7 @@
         {
             "name": "Pixly",
             "bundleIdentifier": "co.comapps.live.photo",
+            "identifier": "co.comapps.live.photo",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -787,6 +815,7 @@
         {
             "name": "Thenx",
             "bundleIdentifier": "com.calisthenics.thenx",
+            "identifier": "com.calisthenics.thenx",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -813,7 +842,8 @@
         },
         {
             "name": "CarScanner",
-            "bundleIdentifier": "ovz.Car-Scanner",
+            "bundleIdentifier": "ovz.Car-Scanner.2",
+            "identifier": "ovz.Car-Scanner.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -841,6 +871,7 @@
         {
             "name": "PrettyUp",
             "bundleIdentifier": "com.floatcamellia.prettyup",
+            "identifier": "com.floatcamellia.prettyup",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -868,6 +899,7 @@
         {
             "name": "Koloro",
             "bundleIdentifier": "org.skydomain.foodcamera",
+            "identifier": "org.skydomain.foodcamera",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -895,6 +927,7 @@
         {
             "name": "Shapy",
             "bundleIdentifier": "com.blake.femalefitness",
+            "identifier": "com.blake.femalefitness",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -922,6 +955,7 @@
         {
             "name": "PunchClock",
             "bundleIdentifier": "com.parallaxlabs.ShiftCalendar",
+            "identifier": "com.parallaxlabs.ShiftCalendar",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -949,6 +983,7 @@
         {
             "name": "Myfxbook",
             "bundleIdentifier": "com.forex.Myfxbook",
+            "identifier": "com.forex.Myfxbook",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -976,6 +1011,7 @@
         {
             "name": "Badoo",
             "bundleIdentifier": "com.badoo.BadooSPP",
+            "identifier": "com.badoo.BadooSPP",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1003,6 +1039,7 @@
         {
             "name": "VideoCompress",
             "bundleIdentifier": "com.photoclean.videocompress",
+            "identifier": "com.photoclean.videocompress",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -1030,6 +1067,7 @@
         {
             "name": "FLTR",
             "bundleIdentifier": "com.feelty",
+            "identifier": "com.feelty",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -1057,6 +1095,7 @@
         {
             "name": "ForeFlight",
             "bundleIdentifier": "com.foreflight.ForeFlightMobile",
+            "identifier": "com.foreflight.ForeFlightMobile",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -1084,6 +1123,7 @@
         {
             "name": "OurPact",
             "bundleIdentifier": "com.parentsware.ourpact",
+            "identifier": "com.parentsware.ourpact",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1111,6 +1151,7 @@
         {
             "name": "audiomack",
             "bundleIdentifier": "com.audiomack.iphone",
+            "identifier": "com.audiomack.iphone",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -1138,6 +1179,7 @@
         {
             "name": "Lampa",
             "bundleIdentifier": "com.lampa.photo",
+            "identifier": "com.lampa.photo",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1165,6 +1207,7 @@
         {
             "name": "Polarr",
             "bundleIdentifier": "co.polarr.ppe",
+            "identifier": "co.polarr.ppe",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Satella",
@@ -1192,6 +1235,7 @@
         {
             "name": "Amie",
             "bundleIdentifier": "so.amie.ios-app",
+            "identifier": "so.amie.ios-app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1219,6 +1263,7 @@
         {
             "name": "untitled",
             "bundleIdentifier": "com.untitledinbrackets.untitled-ios",
+            "identifier": "com.untitledinbrackets.untitled-ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1246,6 +1291,7 @@
         {
             "name": "AdGuardPro",
             "bundleIdentifier": "com.adguard.AdguardPro",
+            "identifier": "com.adguard.AdguardPro",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1273,6 +1319,7 @@
         {
             "name": "MonokaiToolkitPro",
             "bundleIdentifier": "com.monokaitoolkit.pro",
+            "identifier": "com.monokaitoolkit.pro",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1300,6 +1347,7 @@
         {
             "name": "MistLens",
             "bundleIdentifier": "com.latenightking.TrueFilm",
+            "identifier": "com.latenightking.TrueFilm",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1327,6 +1375,7 @@
         {
             "name": "Pearla",
             "bundleIdentifier": "io.houseofmars.Pearla",
+            "identifier": "io.houseofmars.Pearla",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1354,6 +1403,7 @@
         {
             "name": "Scoreboard",
             "bundleIdentifier": "com.edwinchan.Scoreboard",
+            "identifier": "com.edwinchan.Scoreboard",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1381,6 +1431,7 @@
         {
             "name": "OpenCam",
             "bundleIdentifier": "riccqi.Camel",
+            "identifier": "riccqi.Camel",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1408,6 +1459,7 @@
         {
             "name": "Mainspring",
             "bundleIdentifier": "com.naamapps.mainspring",
+            "identifier": "com.naamapps.mainspring",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1435,6 +1487,7 @@
         {
             "name": "DoubleTake",
             "bundleIdentifier": "com.filmicpro.doubletake",
+            "identifier": "com.filmicpro.doubletake",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1462,6 +1515,7 @@
         {
             "name": "Karteto",
             "bundleIdentifier": "com.karteto.application",
+            "identifier": "com.karteto.application",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1489,6 +1543,7 @@
         {
             "name": "Vintify",
             "bundleIdentifier": "vintage.photo.editor.retro.aesthetic.effect",
+            "identifier": "vintage.photo.editor.retro.aesthetic.effect",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1516,6 +1571,7 @@
         {
             "name": "hianime",
             "bundleIdentifier": "com.pyanime.anime.search",
+            "identifier": "com.pyanime.anime.search",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1543,6 +1599,7 @@
         {
             "name": "Purgo",
             "bundleIdentifier": "com.tonymasek.Purgo",
+            "identifier": "com.tonymasek.Purgo",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1570,6 +1627,7 @@
         {
             "name": "WebVideoCast",
             "bundleIdentifier": "com.instantbits.cast.webvideo",
+            "identifier": "com.instantbits.cast.webvideo",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1597,6 +1655,7 @@
         {
             "name": "VoiceTube",
             "bundleIdentifier": "tw.tyche.voicetube",
+            "identifier": "tw.tyche.voicetube",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1624,6 +1683,7 @@
         {
             "name": "Unzip",
             "bundleIdentifier": "com.cuilingshi.fileextract",
+            "identifier": "com.cuilingshi.fileextract",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -1651,6 +1711,7 @@
         {
             "name": "YPT",
             "bundleIdentifier": "com.pallo.passionTimerScoped",
+            "identifier": "com.pallo.passionTimerScoped",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Satella",
@@ -1678,6 +1739,7 @@
         {
             "name": "Dictionary",
             "bundleIdentifier": "com.mobisystems.OxfordDictionaryOfEnglishFree",
+            "identifier": "com.mobisystems.OxfordDictionaryOfEnglishFree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1705,6 +1767,7 @@
         {
             "name": "Summarify",
             "bundleIdentifier": "nz.digitaltools.Tube-GPT",
+            "identifier": "nz.digitaltools.Tube-GPT",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -1732,6 +1795,7 @@
         {
             "name": "PhotoApp",
             "bundleIdentifier": "com.scaleup.photofx",
+            "identifier": "com.scaleup.photofx",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1759,6 +1823,7 @@
         {
             "name": "MikaFootball",
             "bundleIdentifier": "com.mikafootball.app",
+            "identifier": "com.mikafootball.app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1786,6 +1851,7 @@
         {
             "name": "fGet",
             "bundleIdentifier": "com.penguinbit.fastdownload",
+            "identifier": "com.penguinbit.fastdownload",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1813,6 +1879,7 @@
         {
             "name": "Benky",
             "bundleIdentifier": "app.benkyo.Benkyo",
+            "identifier": "app.benkyo.Benkyo",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1840,6 +1907,7 @@
         {
             "name": "Stellarium",
             "bundleIdentifier": "com.noctuasoftware.stellarium-mobile-plus",
+            "identifier": "com.noctuasoftware.stellarium-mobile-plus",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Plus",
@@ -1867,6 +1935,7 @@
         {
             "name": "WeChef",
             "bundleIdentifier": "com.relentlessco.zesty",
+            "identifier": "com.relentlessco.zesty",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1894,6 +1963,7 @@
         {
             "name": "Stippl",
             "bundleIdentifier": "com.stippl.stippl",
+            "identifier": "com.stippl.stippl",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1921,6 +1991,7 @@
         {
             "name": "MoneyCoach",
             "bundleIdentifier": "com.duuro.moneyCoach",
+            "identifier": "com.duuro.moneyCoach",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -1948,6 +2019,7 @@
         {
             "name": "Gratitude",
             "bundleIdentifier": "com.northstar.gratitude",
+            "identifier": "com.northstar.gratitude",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -1975,6 +2047,7 @@
         {
             "name": "Liftoff",
             "bundleIdentifier": "com.gymbros.app",
+            "identifier": "com.gymbros.app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2001,7 +2074,8 @@
         },
         {
             "name": "Soundscape",
-            "bundleIdentifier": "com.soundscape.music",
+            "bundleIdentifier": "com.soundscape.music.2",
+            "identifier": "com.soundscape.music.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2029,6 +2103,7 @@
         {
             "name": "Rootd",
             "bundleIdentifier": "org.reactjs.native.example.rootd",
+            "identifier": "org.reactjs.native.example.rootd",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2056,6 +2131,7 @@
         {
             "name": "Roblox",
             "bundleIdentifier": "com.gloop.deltamobile",
+            "identifier": "com.gloop.deltamobile",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Mods",
@@ -2083,6 +2159,7 @@
         {
             "name": "FiveCents",
             "bundleIdentifier": "com.degisner.fivecents",
+            "identifier": "com.degisner.fivecents",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2110,6 +2187,7 @@
         {
             "name": "Steps",
             "bundleIdentifier": "com.adambinsz.Steps",
+            "identifier": "com.adambinsz.Steps",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2137,6 +2215,7 @@
         {
             "name": "Facer",
             "bundleIdentifier": "com.little-labs.Facer",
+            "identifier": "com.little-labs.Facer",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2164,6 +2243,7 @@
         {
             "name": "Timetable",
             "bundleIdentifier": "fr.adriencarvalot.Timetable",
+            "identifier": "fr.adriencarvalot.Timetable",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2191,6 +2271,7 @@
         {
             "name": "TubePod",
             "bundleIdentifier": "com.byteapp.tubepod",
+            "identifier": "com.byteapp.tubepod",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2218,6 +2299,7 @@
         {
             "name": "Musify",
             "bundleIdentifier": "com.TPowenda.Musify",
+            "identifier": "com.TPowenda.Musify",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2245,6 +2327,7 @@
         {
             "name": "BoxBox",
             "bundleIdentifier": "club.boxbox.widgets-ios",
+            "identifier": "club.boxbox.widgets-ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2272,6 +2355,7 @@
         {
             "name": "MyFitCoach",
             "bundleIdentifier": "de.my-fit-coach.myfitcoach-ios",
+            "identifier": "de.my-fit-coach.myfitcoach-ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2298,7 +2382,8 @@
         },
         {
             "name": "FaceLab",
-            "bundleIdentifier": "com.lyrebirdstudio.facelab",
+            "bundleIdentifier": "com.lyrebirdstudio.facelab.2",
+            "identifier": "com.lyrebirdstudio.facelab.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2326,6 +2411,7 @@
         {
             "name": "Quizlet",
             "bundleIdentifier": "com.quizlet.quizlet",
+            "identifier": "com.quizlet.quizlet",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Plus",
@@ -2353,6 +2439,7 @@
         {
             "name": "Tachimanga",
             "bundleIdentifier": "com.mangacrush.ios",
+            "identifier": "com.mangacrush.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2380,6 +2467,7 @@
         {
             "name": "AIChatbot",
             "bundleIdentifier": "com.aichatbot.assistant",
+            "identifier": "com.aichatbot.assistant",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2407,6 +2495,7 @@
         {
             "name": "Thenics",
             "bundleIdentifier": "com.innothenics.thenics",
+            "identifier": "com.innothenics.thenics",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2434,6 +2523,7 @@
         {
             "name": "DeepGronkAI",
             "bundleIdentifier": "com.dreamaichatbot.dreameai",
+            "identifier": "com.dreamaichatbot.dreameai",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -2461,6 +2551,7 @@
         {
             "name": "ScannerAir",
             "bundleIdentifier": "co.airapps.scannerapp",
+            "identifier": "co.airapps.scannerapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -2488,6 +2579,7 @@
         {
             "name": "HelloAI",
             "bundleIdentifier": "com.IpadWhatsapp.InternetRocks",
+            "identifier": "com.IpadWhatsapp.InternetRocks",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -2515,6 +2607,7 @@
         {
             "name": "FindAir",
             "bundleIdentifier": "co.airapps.finderbot",
+            "identifier": "co.airapps.finderbot",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -2541,7 +2634,8 @@
         },
         {
             "name": "PDFExpert",
-            "bundleIdentifier": "com.readdle.PDFExpert5",
+            "bundleIdentifier": "com.readdle.PDFExpert5.2",
+            "identifier": "com.readdle.PDFExpert5.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2569,6 +2663,7 @@
         {
             "name": "KetoDiet",
             "bundleIdentifier": "com.lappir.keto",
+            "identifier": "com.lappir.keto",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -2596,6 +2691,7 @@
         {
             "name": "BEAT",
             "bundleIdentifier": "reels-maker-one",
+            "identifier": "reels-maker-one",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2623,6 +2719,7 @@
         {
             "name": "Yogger",
             "bundleIdentifier": "io.yogger.Yogger",
+            "identifier": "io.yogger.Yogger",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2650,6 +2747,7 @@
         {
             "name": "Evertag",
             "bundleIdentifier": "com.leshko.tagseditor",
+            "identifier": "com.leshko.tagseditor",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2677,6 +2775,7 @@
         {
             "name": "Monet",
             "bundleIdentifier": "co.appnation.artgenerator",
+            "identifier": "co.appnation.artgenerator",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2704,6 +2803,7 @@
         {
             "name": "Swiftgram",
             "bundleIdentifier": "app.swiftgram.ios",
+            "identifier": "app.swiftgram.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2731,6 +2831,7 @@
         {
             "name": "BodyFast",
             "bundleIdentifier": "de.BodyFast.BodyFast2",
+            "identifier": "de.BodyFast.BodyFast2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2758,6 +2859,7 @@
         {
             "name": "BlitzerdePRO",
             "bundleIdentifier": "com.eifrig.blitzerdepro",
+            "identifier": "com.eifrig.blitzerdepro",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2785,6 +2887,7 @@
         {
             "name": "NetworkScanner",
             "bundleIdentifier": "com.spycamera.app",
+            "identifier": "com.spycamera.app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2812,6 +2915,7 @@
         {
             "name": "Linkjar",
             "bundleIdentifier": "ventures.bench.linkjar-ios",
+            "identifier": "ventures.bench.linkjar-ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2839,6 +2943,7 @@
         {
             "name": "moneycontrol",
             "bundleIdentifier": "com.moneycontrol.mc",
+            "identifier": "com.moneycontrol.mc",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -2866,6 +2971,7 @@
         {
             "name": "GrowIt",
             "bundleIdentifier": "com.grow.my.food",
+            "identifier": "com.grow.my.food",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -2893,6 +2999,7 @@
         {
             "name": "IPTVExpert",
             "bundleIdentifier": "com.iptv.player",
+            "identifier": "com.iptv.player",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2920,6 +3027,7 @@
         {
             "name": "womenlose",
             "bundleIdentifier": "com.leapfitness.womenlose",
+            "identifier": "com.leapfitness.womenlose",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -2947,6 +3055,7 @@
         {
             "name": "Melodia",
             "bundleIdentifier": "co.appnation.aimusic",
+            "identifier": "co.appnation.aimusic",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -2974,6 +3083,7 @@
         {
             "name": "MyCalendar",
             "bundleIdentifier": "com.podfactor.pod",
+            "identifier": "com.podfactor.pod",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3001,6 +3111,7 @@
         {
             "name": "AIDA64",
             "bundleIdentifier": "com.finalwire.aida64",
+            "identifier": "com.finalwire.aida64",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -3028,6 +3139,7 @@
         {
             "name": "Radarbot",
             "bundleIdentifier": "com.iteration-mobile.radarbot-free-ww",
+            "identifier": "com.iteration-mobile.radarbot-free-ww",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Gold",
@@ -3055,6 +3167,7 @@
         {
             "name": "iAWriter",
             "bundleIdentifier": "pro.writer",
+            "identifier": "pro.writer",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3082,6 +3195,7 @@
         {
             "name": "FreeYourMusic",
             "bundleIdentifier": "io.stampapp.Stamp",
+            "identifier": "io.stampapp.Stamp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3109,6 +3223,7 @@
         {
             "name": "WolframAlpha",
             "bundleIdentifier": "com.wolframalpha.wolframalphaviewer",
+            "identifier": "com.wolframalpha.wolframalphaviewer",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -3136,6 +3251,7 @@
         {
             "name": "Encode",
             "bundleIdentifier": "com.upskew.encode.ios",
+            "identifier": "com.upskew.encode.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3163,6 +3279,7 @@
         {
             "name": "Chatbot",
             "bundleIdentifier": "com.aichatbot.chatturbo.ios",
+            "identifier": "com.aichatbot.chatturbo.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3190,6 +3307,7 @@
         {
             "name": "Pixomatic",
             "bundleIdentifier": "us.pixomaticpro.PixomaticPro",
+            "identifier": "us.pixomaticpro.PixomaticPro",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3217,6 +3335,7 @@
         {
             "name": "Photoleap",
             "bundleIdentifier": "com.lightricks.Enlight-Editor",
+            "identifier": "com.lightricks.Enlight-Editor",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3244,6 +3363,7 @@
         {
             "name": "Compress",
             "bundleIdentifier": "com.newmarketinglab.ImageCompressor",
+            "identifier": "com.newmarketinglab.ImageCompressor",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3271,6 +3391,7 @@
         {
             "name": "AutoCAD",
             "bundleIdentifier": "com.autodesk.autocadws",
+            "identifier": "com.autodesk.autocadws",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -3298,6 +3419,7 @@
         {
             "name": "ImgAI",
             "bundleIdentifier": "com.idevtal.Wallpapers",
+            "identifier": "com.idevtal.Wallpapers",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3325,6 +3447,7 @@
         {
             "name": "Mockview",
             "bundleIdentifier": "com.kavsoft.MockviewApp",
+            "identifier": "com.kavsoft.MockviewApp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3352,6 +3475,7 @@
         {
             "name": "ShiftWorkCal",
             "bundleIdentifier": "jp.ebisusoft.shiftworkcallite",
+            "identifier": "jp.ebisusoft.shiftworkcallite",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3379,6 +3503,7 @@
         {
             "name": "SocialStats",
             "bundleIdentifier": "com.innovativedigitaltechnologies.FollowersWidget",
+            "identifier": "com.innovativedigitaltechnologies.FollowersWidget",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -3406,6 +3531,7 @@
         {
             "name": "LookUp",
             "bundleIdentifier": "in.muditbhargava.LookUp",
+            "identifier": "in.muditbhargava.LookUp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3433,6 +3559,7 @@
         {
             "name": "Noir",
             "bundleIdentifier": "nl.jeffreykuiken.NoirApp",
+            "identifier": "nl.jeffreykuiken.NoirApp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3459,7 +3586,8 @@
         },
         {
             "name": "LumaFusion",
-            "bundleIdentifier": "com.luma-touch.LumaFusion",
+            "bundleIdentifier": "com.luma-touch.LumaFusion.2",
+            "identifier": "com.luma-touch.LumaFusion.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3487,6 +3615,7 @@
         {
             "name": "FishingPoints",
             "bundleIdentifier": "com.gregacucnik.FishingPoints",
+            "identifier": "com.gregacucnik.FishingPoints",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3514,6 +3643,7 @@
         {
             "name": "BXNG",
             "bundleIdentifier": "com.app.BXNGApp",
+            "identifier": "com.app.BXNGApp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3541,6 +3671,7 @@
         {
             "name": "TheWeather",
             "bundleIdentifier": "com.impalastudios.theweatherfree",
+            "identifier": "com.impalastudios.theweatherfree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3568,6 +3699,7 @@
         {
             "name": "Videoleap",
             "bundleIdentifier": "com.lightricks.Enlight-Video",
+            "identifier": "com.lightricks.Enlight-Video",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3595,6 +3727,7 @@
         {
             "name": "Slopes",
             "bundleIdentifier": "com.consumedbycode.slopes",
+            "identifier": "com.consumedbycode.slopes",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3622,6 +3755,7 @@
         {
             "name": "WeatherLive",
             "bundleIdentifier": "com.apalonapps.wlf",
+            "identifier": "com.apalonapps.wlf",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3648,7 +3782,8 @@
         },
         {
             "name": "PSExpress",
-            "bundleIdentifier": "com.adobe.PSMobile",
+            "bundleIdentifier": "com.adobe.PSMobile.2",
+            "identifier": "com.adobe.PSMobile.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3676,6 +3811,7 @@
         {
             "name": "BackgroundMusic",
             "bundleIdentifier": "com.flyingnayeem.nmVideoMergerJune",
+            "identifier": "com.flyingnayeem.nmVideoMergerJune",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3703,6 +3839,7 @@
         {
             "name": "30DayFitness",
             "bundleIdentifier": "com.vigorapps.30DayFitness",
+            "identifier": "com.vigorapps.30DayFitness",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3730,6 +3867,7 @@
         {
             "name": "Blossom",
             "bundleIdentifier": "com.apalonapps.plants",
+            "identifier": "com.apalonapps.plants",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3757,6 +3895,7 @@
         {
             "name": "Focos",
             "bundleIdentifier": "com.focos",
+            "identifier": "com.focos",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -3783,7 +3922,8 @@
         },
         {
             "name": "OldRoll",
-            "bundleIdentifier": "com.zijayrate.analogcam",
+            "bundleIdentifier": "com.zijayrate.analogcam.2",
+            "identifier": "com.zijayrate.analogcam.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -3811,6 +3951,7 @@
         {
             "name": "Enki",
             "bundleIdentifier": "PHCXZHD53T.com.enki.insights",
+            "identifier": "PHCXZHD53T.com.enki.insights",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3838,6 +3979,7 @@
         {
             "name": "MapleReadCX",
             "bundleIdentifier": "com.maplepop.bmcx",
+            "identifier": "com.maplepop.bmcx",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3865,6 +4007,7 @@
         {
             "name": "Fitbod",
             "bundleIdentifier": "com.fitbod",
+            "identifier": "com.fitbod",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3892,6 +4035,7 @@
         {
             "name": "TinyDecisions",
             "bundleIdentifier": "com.nixwang.decision",
+            "identifier": "com.nixwang.decision",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3919,6 +4063,7 @@
         {
             "name": "CodeSnackIDE",
             "bundleIdentifier": "com.cloud-compiler",
+            "identifier": "com.cloud-compiler",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -3946,6 +4091,7 @@
         {
             "name": "ByePhotos",
             "bundleIdentifier": "com.panicbyte.byephotos",
+            "identifier": "com.panicbyte.byephotos",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -3973,6 +4119,7 @@
         {
             "name": "Obscura",
             "bundleIdentifier": "com.benricemccarthy.obscura-3",
+            "identifier": "com.benricemccarthy.obscura-3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4000,6 +4147,7 @@
         {
             "name": "TideGuide",
             "bundleIdentifier": "com.condor.digital.Tide-Over",
+            "identifier": "com.condor.digital.Tide-Over",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4027,6 +4175,7 @@
         {
             "name": "Ornament",
             "bundleIdentifier": "com.ornament.ornament.health",
+            "identifier": "com.ornament.ornament.health",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4054,6 +4203,7 @@
         {
             "name": "Labbet",
             "bundleIdentifier": "app.labbet.labbet",
+            "identifier": "app.labbet.labbet",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4081,6 +4231,7 @@
         {
             "name": "Sketchar",
             "bundleIdentifier": "tech.sketchar.ios",
+            "identifier": "tech.sketchar.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -4107,7 +4258,8 @@
         },
         {
             "name": "Pigment",
-            "bundleIdentifier": "com.pixite.pigment",
+            "bundleIdentifier": "com.pixite.pigment.2",
+            "identifier": "com.pixite.pigment.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4135,6 +4287,7 @@
         {
             "name": "FilmicPro",
             "bundleIdentifier": "com.cinegenix.filmic.pro",
+            "identifier": "com.cinegenix.filmic.pro",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -4162,6 +4315,7 @@
         {
             "name": "Things",
             "bundleIdentifier": "com.culturedcode.ThingsiPad",
+            "identifier": "com.culturedcode.ThingsiPad",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4188,7 +4342,8 @@
         },
         {
             "name": "TuneInRadio",
-            "bundleIdentifier": "com.alexanderben.RadioIn",
+            "bundleIdentifier": "com.alexanderben.RadioIn.2",
+            "identifier": "com.alexanderben.RadioIn.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4216,6 +4371,7 @@
         {
             "name": "SimplePi",
             "bundleIdentifier": "me.hirmer.SimplePi.free",
+            "identifier": "me.hirmer.SimplePi.free",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -4242,7 +4398,8 @@
         },
         {
             "name": "VivaCut",
-            "bundleIdentifier": "com.vivacut.videoeditor",
+            "bundleIdentifier": "com.vivacut.videoeditor.2",
+            "identifier": "com.vivacut.videoeditor.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -4270,6 +4427,7 @@
         {
             "name": "WallpapersCentral",
             "bundleIdentifier": "com.ispazio.Wallpapers-Central",
+            "identifier": "com.ispazio.Wallpapers-Central",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4296,7 +4454,8 @@
         },
         {
             "name": "Noteshelf3",
-            "bundleIdentifier": "com.fluidtouch.noteshelf3",
+            "bundleIdentifier": "com.fluidtouch.noteshelf3.2",
+            "identifier": "com.fluidtouch.noteshelf3.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4324,6 +4483,7 @@
         {
             "name": "Drafts",
             "bundleIdentifier": "com.agiletortoise.Drafts5",
+            "identifier": "com.agiletortoise.Drafts5",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -4351,6 +4511,7 @@
         {
             "name": "Photomath",
             "bundleIdentifier": "com.microblink.PhotoMath",
+            "identifier": "com.microblink.PhotoMath",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -4378,6 +4539,7 @@
         {
             "name": "PureStatus",
             "bundleIdentifier": "com.damtechdesigns.wa.story",
+            "identifier": "com.damtechdesigns.wa.story",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -4405,6 +4567,7 @@
         {
             "name": "FujiXWeekly",
             "bundleIdentifier": "com.fujixweekly.fujixweeklyrecipes",
+            "identifier": "com.fujixweekly.fujixweeklyrecipes",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -4432,6 +4595,7 @@
         {
             "name": "PhotoSync",
             "bundleIdentifier": "com.touchbyte.PhotoSync",
+            "identifier": "com.touchbyte.PhotoSync",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4459,6 +4623,7 @@
         {
             "name": "Float",
             "bundleIdentifier": "com.strv.labs.float",
+            "identifier": "com.strv.labs.float",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -4485,7 +4650,8 @@
         },
         {
             "name": "ShutEye",
-            "bundleIdentifier": "health.sleep.sounds.tracker.alarm.calm",
+            "bundleIdentifier": "health.sleep.sounds.tracker.alarm.calm.2",
+            "identifier": "health.sleep.sounds.tracker.alarm.calm.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4513,6 +4679,7 @@
         {
             "name": "GlowUp",
             "bundleIdentifier": "com.snowcorp.glowup",
+            "identifier": "com.snowcorp.glowup",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -4540,6 +4707,7 @@
         {
             "name": "MediaConvert",
             "bundleIdentifier": "com.verycoolapp.mediaconvert",
+            "identifier": "com.verycoolapp.mediaconvert",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -4567,6 +4735,7 @@
         {
             "name": "PeakVisor",
             "bundleIdentifier": "ru.routes.peakvisor",
+            "identifier": "ru.routes.peakvisor",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -4594,6 +4763,7 @@
         {
             "name": "LeicaLUX",
             "bundleIdentifier": "com.leica-camera.camera",
+            "identifier": "com.leica-camera.camera",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4621,6 +4791,7 @@
         {
             "name": "Glitch",
             "bundleIdentifier": "com.glitche.ios.glitcheapp",
+            "identifier": "com.glitche.ios.glitcheapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4648,6 +4819,7 @@
         {
             "name": "Filtru",
             "bundleIdentifier": "com.przemyslawbobak.filtru",
+            "identifier": "com.przemyslawbobak.filtru",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4675,6 +4847,7 @@
         {
             "name": "Riveo",
             "bundleIdentifier": "co.forgeandform.riveo",
+            "identifier": "co.forgeandform.riveo",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4702,6 +4875,7 @@
         {
             "name": "Acrobat",
             "bundleIdentifier": "com.adobe.Adobe-Reader",
+            "identifier": "com.adobe.Adobe-Reader",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4728,7 +4902,8 @@
         },
         {
             "name": "InShot",
-            "bundleIdentifier": "com.camerasideas.InstaShot",
+            "bundleIdentifier": "com.camerasideas.InstaShot.2",
+            "identifier": "com.camerasideas.InstaShot.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -4755,7 +4930,8 @@
         },
         {
             "name": "StretchingExercises",
-            "bundleIdentifier": "com.abishkking.stretching",
+            "bundleIdentifier": "com.abishkking.stretching.2",
+            "identifier": "com.abishkking.stretching.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -4782,7 +4958,8 @@
         },
         {
             "name": "Bazaart",
-            "bundleIdentifier": "co.bazaart.app",
+            "bundleIdentifier": "co.bazaart.app.2",
+            "identifier": "co.bazaart.app.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4810,6 +4987,7 @@
         {
             "name": "ARMCPUZ",
             "bundleIdentifier": "com.benchu.ARMCPUZ",
+            "identifier": "com.benchu.ARMCPUZ",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -4837,6 +5015,7 @@
         {
             "name": "StoryFont",
             "bundleIdentifier": "com.mfapp.storyFontEn",
+            "identifier": "com.mfapp.storyFontEn",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -4864,6 +5043,7 @@
         {
             "name": "Dropshare",
             "bundleIdentifier": "net.mkswap.Dropshare-iOS",
+            "identifier": "net.mkswap.Dropshare-iOS",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -4891,6 +5071,7 @@
         {
             "name": "Homeworkouts",
             "bundleIdentifier": "com.abishkking.maleworkout",
+            "identifier": "com.abishkking.maleworkout",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -4918,6 +5099,7 @@
         {
             "name": "Stemz",
             "bundleIdentifier": "com.mwm.stems",
+            "identifier": "com.mwm.stems",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -4945,6 +5127,7 @@
         {
             "name": "Lingokids",
             "bundleIdentifier": "es.monkimun.lingokids",
+            "identifier": "es.monkimun.lingokids",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -4972,6 +5155,7 @@
         {
             "name": "LoseWeightforMen",
             "bundleIdentifier": "com.leapfitness.loseweightformen",
+            "identifier": "com.leapfitness.loseweightformen",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -4999,6 +5183,7 @@
         {
             "name": "KeyLifts",
             "bundleIdentifier": "org.borrowedcache.ultimate531",
+            "identifier": "org.borrowedcache.ultimate531",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5026,6 +5211,7 @@
         {
             "name": "MyDexTCG",
             "bundleIdentifier": "com.albertomoral.PokedexTradingCards",
+            "identifier": "com.albertomoral.PokedexTradingCards",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -5053,6 +5239,7 @@
         {
             "name": "SimplyPiano",
             "bundleIdentifier": "com.joytunes.asla",
+            "identifier": "com.joytunes.asla",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -5080,6 +5267,7 @@
         {
             "name": "SimplyGuitar",
             "bundleIdentifier": "com.joytunes.SimplyGuitar",
+            "identifier": "com.joytunes.SimplyGuitar",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -5107,6 +5295,7 @@
         {
             "name": "CensorText",
             "bundleIdentifier": "com.censorblur.app",
+            "identifier": "com.censorblur.app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5134,6 +5323,7 @@
         {
             "name": "Dazz",
             "bundleIdentifier": "dazz.camera.vintagecamera",
+            "identifier": "dazz.camera.vintagecamera",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5161,6 +5351,7 @@
         {
             "name": "Liit",
             "bundleIdentifier": "liit.photovideo.editor",
+            "identifier": "liit.photovideo.editor",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5188,6 +5379,7 @@
         {
             "name": "Lingvist",
             "bundleIdentifier": "ee.keel24.Lingvist",
+            "identifier": "ee.keel24.Lingvist",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5215,6 +5407,7 @@
         {
             "name": "Narwhal",
             "bundleIdentifier": "com.rickharrison.narwhal",
+            "identifier": "com.rickharrison.narwhal",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5242,6 +5435,7 @@
         {
             "name": "MuslimPro",
             "bundleIdentifier": "com.bitsmedia.muslimpro",
+            "identifier": "com.bitsmedia.muslimpro",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5269,6 +5463,7 @@
         {
             "name": "smpro",
             "bundleIdentifier": "com.plusblog.smpro",
+            "identifier": "com.plusblog.smpro",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5296,6 +5491,7 @@
         {
             "name": "Motobit",
             "bundleIdentifier": "com.getmotobit.motobit",
+            "identifier": "com.getmotobit.motobit",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -5323,6 +5519,7 @@
         {
             "name": "Widgetsmith",
             "bundleIdentifier": "com.crossforward.WidgetSmith",
+            "identifier": "com.crossforward.WidgetSmith",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5350,6 +5547,7 @@
         {
             "name": "FitnessOnline",
             "bundleIdentifier": "com.aiti.FitnessOnline",
+            "identifier": "com.aiti.FitnessOnline",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5377,6 +5575,7 @@
         {
             "name": "Pedometer",
             "bundleIdentifier": "com.crossforward.pedometer",
+            "identifier": "com.crossforward.pedometer",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -5404,6 +5603,7 @@
         {
             "name": "GREC",
             "bundleIdentifier": "com.igliverec.app",
+            "identifier": "com.igliverec.app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5431,6 +5631,7 @@
         {
             "name": "ChatbotAI",
             "bundleIdentifier": "com.talgat.AIChat",
+            "identifier": "com.talgat.AIChat",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -5458,6 +5659,7 @@
         {
             "name": "FitnessAI",
             "bundleIdentifier": "com.jakemor.firness-ai",
+            "identifier": "com.jakemor.firness-ai",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5485,6 +5687,7 @@
         {
             "name": "HabitKit",
             "bundleIdentifier": "com.roehl.habitkit",
+            "identifier": "com.roehl.habitkit",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5512,6 +5715,7 @@
         {
             "name": "Boostcamp",
             "bundleIdentifier": "com.bpmhealth.boostfitness",
+            "identifier": "com.bpmhealth.boostfitness",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5539,6 +5743,7 @@
         {
             "name": "duet",
             "bundleIdentifier": "com.kairos.duet",
+            "identifier": "com.kairos.duet",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5566,6 +5771,7 @@
         {
             "name": "AlphaProgr",
             "bundleIdentifier": "com.alphaprogression.alphaprogression",
+            "identifier": "com.alphaprogression.alphaprogression",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5593,6 +5799,7 @@
         {
             "name": "Zing",
             "bundleIdentifier": "com.coach.zing",
+            "identifier": "com.coach.zing",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -5620,6 +5827,7 @@
         {
             "name": "Edith",
             "bundleIdentifier": "com.thenovik.Presets",
+            "identifier": "com.thenovik.Presets",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5646,7 +5854,8 @@
         },
         {
             "name": "ToonMe",
-            "bundleIdentifier": "com.informelab.toonme",
+            "bundleIdentifier": "com.informelab.toonme.2",
+            "identifier": "com.informelab.toonme.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -5674,6 +5883,7 @@
         {
             "name": "Phocus",
             "bundleIdentifier": "com.ahmetserdarkaradeniz.Phocus",
+            "identifier": "com.ahmetserdarkaradeniz.Phocus",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5701,6 +5911,7 @@
         {
             "name": "superagent",
             "bundleIdentifier": "com.agent.super.extension.safari",
+            "identifier": "com.agent.super.extension.safari",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5728,6 +5939,7 @@
         {
             "name": "Doppler",
             "bundleIdentifier": "co.brushedtype.doppler-ios",
+            "identifier": "co.brushedtype.doppler-ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5755,6 +5967,7 @@
         {
             "name": "Hiii",
             "bundleIdentifier": "com.abighead.Widgets",
+            "identifier": "com.abighead.Widgets",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5782,6 +5995,7 @@
         {
             "name": "CollaNote",
             "bundleIdentifier": "net.quochuywdm.collanote496",
+            "identifier": "net.quochuywdm.collanote496",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5809,6 +6023,7 @@
         {
             "name": "NRv121693",
             "bundleIdentifier": "nt.nr.ios",
+            "identifier": "nt.nr.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -5836,6 +6051,7 @@
         {
             "name": "Piano",
             "bundleIdentifier": "com.mwm.piano-app",
+            "identifier": "com.mwm.piano-app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5863,6 +6079,7 @@
         {
             "name": "TypeAI",
             "bundleIdentifier": "com.codeway.AIKeyboard",
+            "identifier": "com.codeway.AIKeyboard",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5889,7 +6106,8 @@
         },
         {
             "name": "Documents",
-            "bundleIdentifier": "com.readdle.ReaddleDocsIPad",
+            "bundleIdentifier": "com.readdle.ReaddleDocsIPad.2",
+            "identifier": "com.readdle.ReaddleDocsIPad.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Plus",
@@ -5917,6 +6135,7 @@
         {
             "name": "NotePlan",
             "bundleIdentifier": "co.noteplan.NotePlan3",
+            "identifier": "co.noteplan.NotePlan3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5944,6 +6163,7 @@
         {
             "name": "CalculatorAir",
             "bundleIdentifier": "com.CalculatorForiPad.InternetRocks",
+            "identifier": "com.CalculatorForiPad.InternetRocks",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -5970,7 +6190,8 @@
         },
         {
             "name": "VideoStar",
-            "bundleIdentifier": "com.frontierdesign.videostar",
+            "bundleIdentifier": "com.frontierdesign.videostar.2",
+            "identifier": "com.frontierdesign.videostar.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -5998,6 +6219,7 @@
         {
             "name": "Zoomable",
             "bundleIdentifier": "com.actowise.browser",
+            "identifier": "com.actowise.browser",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6025,6 +6247,7 @@
         {
             "name": "Shapr3D",
             "bundleIdentifier": "com.shapr3d.shapr",
+            "identifier": "com.shapr3d.shapr",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6052,6 +6275,7 @@
         {
             "name": "Kanji",
             "bundleIdentifier": "howell.Kanji-",
+            "identifier": "howell.Kanji-",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6079,6 +6303,7 @@
         {
             "name": "LUTStudio",
             "bundleIdentifier": "com.solveit.lut-studio",
+            "identifier": "com.solveit.lut-studio",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6106,6 +6331,7 @@
         {
             "name": "JSCodePad",
             "bundleIdentifier": "com.markodevcic.js-code-pad",
+            "identifier": "com.markodevcic.js-code-pad",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -6133,6 +6359,7 @@
         {
             "name": "Wallcraft",
             "bundleIdentifier": "com.wallpaperscraft.wallpapers",
+            "identifier": "com.wallpaperscraft.wallpapers",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6160,6 +6387,7 @@
         {
             "name": "Vids",
             "bundleIdentifier": "viral.vision.vids",
+            "identifier": "viral.vision.vids",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6186,7 +6414,8 @@
         },
         {
             "name": "Calory",
-            "bundleIdentifier": "com.funnmedia.calory",
+            "bundleIdentifier": "com.funnmedia.calory.2",
+            "identifier": "com.funnmedia.calory.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -6214,6 +6443,7 @@
         {
             "name": "Reels",
             "bundleIdentifier": "com.TetianaKolomiichuk.Reel-Templates",
+            "identifier": "com.TetianaKolomiichuk.Reel-Templates",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6241,6 +6471,7 @@
         {
             "name": "CHANI",
             "bundleIdentifier": "com.chaninicholas.chaniapp",
+            "identifier": "com.chaninicholas.chaniapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6268,6 +6499,7 @@
         {
             "name": "WaterMinder",
             "bundleIdentifier": "com.waterminder.waterminder",
+            "identifier": "com.waterminder.waterminder",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6295,6 +6527,7 @@
         {
             "name": "Lifesum",
             "bundleIdentifier": "com.sillens.iShape",
+            "identifier": "com.sillens.iShape",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -6322,6 +6555,7 @@
         {
             "name": "SleepMonitor",
             "bundleIdentifier": "com.sleepmonitor.aio",
+            "identifier": "com.sleepmonitor.aio",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6349,6 +6583,7 @@
         {
             "name": "iLovePDF",
             "bundleIdentifier": "com.ilovepdf.www",
+            "identifier": "com.ilovepdf.www",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6376,6 +6611,7 @@
         {
             "name": "Fing",
             "bundleIdentifier": "overlook.fing",
+            "identifier": "overlook.fing",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -6403,6 +6639,7 @@
         {
             "name": "HeavyBagPro",
             "bundleIdentifier": "com.opentechiz.heavybagpro",
+            "identifier": "com.opentechiz.heavybagpro",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -6430,6 +6667,7 @@
         {
             "name": "SpeakTranslate",
             "bundleIdentifier": "com.appicfun.translatorfree",
+            "identifier": "com.appicfun.translatorfree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -6456,7 +6694,8 @@
         },
         {
             "name": "Calisteniapp",
-            "bundleIdentifier": "com.inakitajes.Calisthenial",
+            "bundleIdentifier": "com.inakitajes.Calisthenial.2",
+            "identifier": "com.inakitajes.Calisthenial.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6484,6 +6723,7 @@
         {
             "name": "Reface",
             "bundleIdentifier": "com.neocortext.doublicatapp",
+            "identifier": "com.neocortext.doublicatapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6511,6 +6751,7 @@
         {
             "name": "Paired",
             "bundleIdentifier": "io.betterhalf.app",
+            "identifier": "io.betterhalf.app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6538,6 +6779,7 @@
         {
             "name": "SigStick",
             "bundleIdentifier": "com.ooeric.SignStick1",
+            "identifier": "com.ooeric.SignStick1",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -6564,7 +6806,8 @@
         },
         {
             "name": "Dehancer",
-            "bundleIdentifier": "com.dehancer.film.ios-app",
+            "bundleIdentifier": "com.dehancer.film.ios-app.2",
+            "identifier": "com.dehancer.film.ios-app.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -6592,6 +6835,7 @@
         {
             "name": "Mockup",
             "bundleIdentifier": "com.hasankassem.mockup",
+            "identifier": "com.hasankassem.mockup",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -6619,6 +6863,7 @@
         {
             "name": "AAI",
             "bundleIdentifier": "app.aplusai",
+            "identifier": "app.aplusai",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6646,6 +6891,7 @@
         {
             "name": "Tooboo",
             "bundleIdentifier": "com.hltek.ZouZou",
+            "identifier": "com.hltek.ZouZou",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6673,6 +6919,7 @@
         {
             "name": "StudyCards",
             "bundleIdentifier": "com.cameronshemilt.StudyCards",
+            "identifier": "com.cameronshemilt.StudyCards",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6700,6 +6947,7 @@
         {
             "name": "ReminiPublic",
             "bundleIdentifier": "com.bigwinepot.nwdn.international",
+            "identifier": "com.bigwinepot.nwdn.international",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -6727,6 +6975,7 @@
         {
             "name": "VideoGPTPublic",
             "bundleIdentifier": "com.elven.video",
+            "identifier": "com.elven.video",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -6754,6 +7003,7 @@
         {
             "name": "AdobeScan",
             "bundleIdentifier": "com.adobe.scan.ios",
+            "identifier": "com.adobe.scan.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6781,6 +7031,7 @@
         {
             "name": "Mercury",
             "bundleIdentifier": "com.tripleglazedstudios.Weather",
+            "identifier": "com.tripleglazedstudios.Weather",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6808,6 +7059,7 @@
         {
             "name": "PhotoEditorPublic",
             "bundleIdentifier": "com.bb.Presets",
+            "identifier": "com.bb.Presets",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -6835,6 +7087,7 @@
         {
             "name": "Nerva",
             "bundleIdentifier": "com.mindsethealth.ibs",
+            "identifier": "com.mindsethealth.ibs",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6861,7 +7114,8 @@
         },
         {
             "name": "Spotify",
-            "bundleIdentifier": "com.spotify.client",
+            "bundleIdentifier": "com.spotify.client.3",
+            "identifier": "com.spotify.client.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6889,6 +7143,7 @@
         {
             "name": "iTranslate",
             "bundleIdentifier": "com.outerspaceapps.itranslate",
+            "identifier": "com.outerspaceapps.itranslate",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -6916,6 +7171,7 @@
         {
             "name": "PilotPro",
             "bundleIdentifier": "pilotpro",
+            "identifier": "pilotpro",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -6943,6 +7199,7 @@
         {
             "name": "RunGo",
             "bundleIdentifier": "com.leapingcoyote.rungo",
+            "identifier": "com.leapingcoyote.rungo",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -6970,6 +7227,7 @@
         {
             "name": "Smallpdf",
             "bundleIdentifier": "com.smallpdf.app.ios",
+            "identifier": "com.smallpdf.app.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -6997,6 +7255,7 @@
         {
             "name": "Overcast",
             "bundleIdentifier": "fm.overcast.overcast",
+            "identifier": "fm.overcast.overcast",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7024,6 +7283,7 @@
         {
             "name": "flipclock",
             "bundleIdentifier": "com.cuilingshi.flipclock",
+            "identifier": "com.cuilingshi.flipclock",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7051,6 +7311,7 @@
         {
             "name": "Photoshop",
             "bundleIdentifier": "com.adobe.photoshop.ios",
+            "identifier": "com.adobe.photoshop.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7078,6 +7339,7 @@
         {
             "name": "QrCode",
             "bundleIdentifier": "com.internet-rocks.codescanner",
+            "identifier": "com.internet-rocks.codescanner",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7105,6 +7367,7 @@
         {
             "name": "Wallpapers",
             "bundleIdentifier": "com.apalonapps.wallpaperspys",
+            "identifier": "com.apalonapps.wallpaperspys",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7132,6 +7395,7 @@
         {
             "name": "Heartify",
             "bundleIdentifier": "com.heartify",
+            "identifier": "com.heartify",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7159,6 +7423,7 @@
         {
             "name": "Wikiloc",
             "bundleIdentifier": "com.wikiloc.wikiloc",
+            "identifier": "com.wikiloc.wikiloc",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7185,7 +7450,8 @@
         },
         {
             "name": "AlightMotion",
-            "bundleIdentifier": "com.alightcreative.motion",
+            "bundleIdentifier": "com.alightcreative.motion.2",
+            "identifier": "com.alightcreative.motion.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7212,7 +7478,8 @@
         },
         {
             "name": "OrNETBrowser",
-            "bundleIdentifier": "ch.b-eng.tor",
+            "bundleIdentifier": "ch.b-eng.tor.2",
+            "identifier": "ch.b-eng.tor.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7240,6 +7507,7 @@
         {
             "name": "Precious",
             "bundleIdentifier": "com.laubrothersllc.BabyArt",
+            "identifier": "com.laubrothersllc.BabyArt",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7267,6 +7535,7 @@
         {
             "name": "GOWOD",
             "bundleIdentifier": "eu.gowod",
+            "identifier": "eu.gowod",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7294,6 +7563,7 @@
         {
             "name": "ProFit",
             "bundleIdentifier": "com.maxty.gofitness",
+            "identifier": "com.maxty.gofitness",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7321,6 +7591,7 @@
         {
             "name": "DeviceMonitor",
             "bundleIdentifier": "org.fastdevsproject.altervista.Device-Monitor",
+            "identifier": "org.fastdevsproject.altervista.Device-Monitor",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7348,6 +7619,7 @@
         {
             "name": "Clipboard",
             "bundleIdentifier": "com.zeus.EasyCopy",
+            "identifier": "com.zeus.EasyCopy",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7375,6 +7647,7 @@
         {
             "name": "BeatMakerPro",
             "bundleIdentifier": "com.mwm.sampler-app",
+            "identifier": "com.mwm.sampler-app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7402,6 +7675,7 @@
         {
             "name": "FELFishEyeLens",
             "bundleIdentifier": "com.phantom.fantengmu",
+            "identifier": "com.phantom.fantengmu",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7429,6 +7703,7 @@
         {
             "name": "TunerPro",
             "bundleIdentifier": "com.mwm.guitartuner",
+            "identifier": "com.mwm.guitartuner",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7456,6 +7731,7 @@
         {
             "name": "Stndrd",
             "bundleIdentifier": "uni.cbum",
+            "identifier": "uni.cbum",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7483,6 +7759,7 @@
         {
             "name": "Animock",
             "bundleIdentifier": "com.hassantaleb.mockup",
+            "identifier": "com.hassantaleb.mockup",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7510,6 +7787,7 @@
         {
             "name": "DictionaryAir",
             "bundleIdentifier": "co.airapps.dictionary",
+            "identifier": "co.airapps.dictionary",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7537,6 +7815,7 @@
         {
             "name": "Stepz",
             "bundleIdentifier": "com.visualhype.pedometer",
+            "identifier": "com.visualhype.pedometer",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7564,6 +7843,7 @@
         {
             "name": "Calm",
             "bundleIdentifier": "com.calm.calmapp",
+            "identifier": "com.calm.calmapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7591,6 +7871,7 @@
         {
             "name": "PlantSnap",
             "bundleIdentifier": "net.plantsnap.freemium",
+            "identifier": "net.plantsnap.freemium",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7618,6 +7899,7 @@
         {
             "name": "ProFit",
             "bundleIdentifier": "com.maxty.gofitness.2",
+            "identifier": "com.maxty.gofitness.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7645,6 +7927,7 @@
         {
             "name": "Clipboard",
             "bundleIdentifier": "com.zeus.EasyCopy.2",
+            "identifier": "com.zeus.EasyCopy.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7672,6 +7955,7 @@
         {
             "name": "FELFishEyeLens",
             "bundleIdentifier": "com.phantom.fantengmu.2",
+            "identifier": "com.phantom.fantengmu.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7699,6 +7983,7 @@
         {
             "name": "Stndrd",
             "bundleIdentifier": "uni.cbum.2",
+            "identifier": "uni.cbum.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7726,6 +8011,7 @@
         {
             "name": "Windyapp",
             "bundleIdentifier": "co.windyapp.Windy",
+            "identifier": "co.windyapp.Windy",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7753,6 +8039,7 @@
         {
             "name": "Animock",
             "bundleIdentifier": "com.hassantaleb.mockup.2",
+            "identifier": "com.hassantaleb.mockup.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7780,6 +8067,7 @@
         {
             "name": "Life",
             "bundleIdentifier": "co.lovetap.Female-by-Design",
+            "identifier": "co.lovetap.Female-by-Design",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7807,6 +8095,7 @@
         {
             "name": "Vids",
             "bundleIdentifier": "viral.vision.vids.2",
+            "identifier": "viral.vision.vids.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7834,6 +8123,7 @@
         {
             "name": "PlantSnap",
             "bundleIdentifier": "net.plantsnap.freemium.2",
+            "identifier": "net.plantsnap.freemium.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -7861,6 +8151,7 @@
         {
             "name": "AlarmClockforMe",
             "bundleIdentifier": "com.apalonapps.alarmclockfree",
+            "identifier": "com.apalonapps.alarmclockfree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7888,6 +8179,7 @@
         {
             "name": "Persona",
             "bundleIdentifier": "com.tickettothemoon.video.persona",
+            "identifier": "com.tickettothemoon.video.persona",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with VIP",
@@ -7915,6 +8207,7 @@
         {
             "name": "NOAARadar",
             "bundleIdentifier": "com.itwcalculator.worldradarfree",
+            "identifier": "com.itwcalculator.worldradarfree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7942,6 +8235,7 @@
         {
             "name": "FlightTracker",
             "bundleIdentifier": "com.iaftt.flightplusfree",
+            "identifier": "com.iaftt.flightplusfree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -7969,6 +8263,7 @@
         {
             "name": "Windyapp",
             "bundleIdentifier": "co.windyapp.Windy.2",
+            "identifier": "co.windyapp.Windy.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -7996,6 +8291,7 @@
         {
             "name": "DiamondFinder",
             "bundleIdentifier": "com.mcdiamondfinder.app",
+            "identifier": "com.mcdiamondfinder.app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8023,6 +8319,7 @@
         {
             "name": "Life",
             "bundleIdentifier": "co.lovetap.Female-by-Design.2",
+            "identifier": "co.lovetap.Female-by-Design.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -8050,6 +8347,7 @@
         {
             "name": "PlanesLiveFree",
             "bundleIdentifier": "com.apalonapps.planesfree",
+            "identifier": "com.apalonapps.planesfree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8077,6 +8375,7 @@
         {
             "name": "Hevy",
             "bundleIdentifier": "com.hevyapp.hevy",
+            "identifier": "com.hevyapp.hevy",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8104,6 +8403,7 @@
         {
             "name": "AlarmClockforMe",
             "bundleIdentifier": "com.apalonapps.alarmclockfree.2",
+            "identifier": "com.apalonapps.alarmclockfree.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8131,6 +8431,7 @@
         {
             "name": "Uplens",
             "bundleIdentifier": "app.uplens",
+            "identifier": "app.uplens",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8158,6 +8459,7 @@
         {
             "name": "NOAARadar",
             "bundleIdentifier": "com.itwcalculator.worldradarfree.2",
+            "identifier": "com.itwcalculator.worldradarfree.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8185,6 +8487,7 @@
         {
             "name": "MkIIIPublic",
             "bundleIdentifier": "camera.lux.halide.mkii",
+            "identifier": "camera.lux.halide.mkii",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8212,6 +8515,7 @@
         {
             "name": "FlightTracker",
             "bundleIdentifier": "com.iaftt.flightplusfree.2",
+            "identifier": "com.iaftt.flightplusfree.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8239,6 +8543,7 @@
         {
             "name": "CollaNote",
             "bundleIdentifier": "net.quochuywdm.collanote496.2",
+            "identifier": "net.quochuywdm.collanote496.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8266,6 +8571,7 @@
         {
             "name": "SlideShow",
             "bundleIdentifier": "com.spacegab.slideshow",
+            "identifier": "com.spacegab.slideshow",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8293,6 +8599,7 @@
         {
             "name": "TickTick",
             "bundleIdentifier": "com.TickTick.task",
+            "identifier": "com.TickTick.task",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8320,6 +8627,7 @@
         {
             "name": "DiamondFinder",
             "bundleIdentifier": "com.mcdiamondfinder.app.2",
+            "identifier": "com.mcdiamondfinder.app.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8347,6 +8655,7 @@
         {
             "name": "MyScriptNotes",
             "bundleIdentifier": "com.myscript.nebo",
+            "identifier": "com.myscript.nebo",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8374,6 +8683,7 @@
         {
             "name": "PlanesLiveFree",
             "bundleIdentifier": "com.apalonapps.planesfree.2",
+            "identifier": "com.apalonapps.planesfree.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8401,6 +8711,7 @@
         {
             "name": "Hevy",
             "bundleIdentifier": "com.hevyapp.hevy.2",
+            "identifier": "com.hevyapp.hevy.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8428,6 +8739,7 @@
         {
             "name": "DrKegel",
             "bundleIdentifier": "games.calico.mantracker",
+            "identifier": "games.calico.mantracker",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8455,6 +8767,7 @@
         {
             "name": "Uplens",
             "bundleIdentifier": "app.uplens.2",
+            "identifier": "app.uplens.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8482,6 +8795,7 @@
         {
             "name": "MkIIIPublic",
             "bundleIdentifier": "camera.lux.halide.mkii.2",
+            "identifier": "camera.lux.halide.mkii.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8509,6 +8823,7 @@
         {
             "name": "Across",
             "bundleIdentifier": "com.daymore.Across",
+            "identifier": "com.daymore.Across",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -8536,6 +8851,7 @@
         {
             "name": "SlideShow",
             "bundleIdentifier": "com.spacegab.slideshow.2",
+            "identifier": "com.spacegab.slideshow.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8563,6 +8879,7 @@
         {
             "name": "TickTick",
             "bundleIdentifier": "com.TickTick.task.2",
+            "identifier": "com.TickTick.task.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8590,6 +8907,7 @@
         {
             "name": "LingoDeer",
             "bundleIdentifier": "com.lingodeer",
+            "identifier": "com.lingodeer",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -8617,6 +8935,7 @@
         {
             "name": "MyScriptNotes",
             "bundleIdentifier": "com.myscript.nebo.2",
+            "identifier": "com.myscript.nebo.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8644,6 +8963,7 @@
         {
             "name": "FitbittoAppleHealth",
             "bundleIdentifier": "com.bickster.myFitnessSync",
+            "identifier": "com.bickster.myFitnessSync",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8670,7 +8990,8 @@
         },
         {
             "name": "HeyJapan",
-            "bundleIdentifier": "com.eup.heyjapan",
+            "bundleIdentifier": "com.eup.heyjapan.2",
+            "identifier": "com.eup.heyjapan.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -8698,6 +9019,7 @@
         {
             "name": "Letterboxd",
             "bundleIdentifier": "com.letterboxd.LetterboxdApp",
+            "identifier": "com.letterboxd.LetterboxdApp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8725,6 +9047,7 @@
         {
             "name": "DrKegel",
             "bundleIdentifier": "games.calico.mantracker.2",
+            "identifier": "games.calico.mantracker.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8752,6 +9075,7 @@
         {
             "name": "CoinSnap",
             "bundleIdentifier": "com.coinidentifier.identifycoins",
+            "identifier": "com.coinidentifier.identifycoins",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -8778,7 +9102,8 @@
         },
         {
             "name": "RenovateAI",
-            "bundleIdentifier": "app.renovateai",
+            "bundleIdentifier": "app.renovateai.2",
+            "identifier": "app.renovateai.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8806,6 +9131,7 @@
         {
             "name": "PlantApp",
             "bundleIdentifier": "com.scaleup.plantid",
+            "identifier": "com.scaleup.plantid",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8832,7 +9158,8 @@
         },
         {
             "name": "ShutEye",
-            "bundleIdentifier": "health.sleep.sounds.tracker.alarm.calm.2",
+            "bundleIdentifier": "health.sleep.sounds.tracker.alarm.calm.3",
+            "identifier": "health.sleep.sounds.tracker.alarm.calm.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -8860,6 +9187,7 @@
         {
             "name": "Across",
             "bundleIdentifier": "com.daymore.Across.2",
+            "identifier": "com.daymore.Across.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -8887,6 +9215,7 @@
         {
             "name": "KineMaster",
             "bundleIdentifier": "com.kinemaster.kios",
+            "identifier": "com.kinemaster.kios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -8914,6 +9243,7 @@
         {
             "name": "Persona",
             "bundleIdentifier": "com.tickettothemoon.video.persona.2",
+            "identifier": "com.tickettothemoon.video.persona.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with VIP",
@@ -8940,7 +9270,8 @@
         },
         {
             "name": "Impulse",
-            "bundleIdentifier": "gen.tech.impulse",
+            "bundleIdentifier": "gen.tech.impulse.2",
+            "identifier": "gen.tech.impulse.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -8968,6 +9299,7 @@
         {
             "name": "ColoringBook",
             "bundleIdentifier": "com.apalonapps.clrbook",
+            "identifier": "com.apalonapps.clrbook",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -8995,6 +9327,7 @@
         {
             "name": "LingoDeer",
             "bundleIdentifier": "com.lingodeer.2",
+            "identifier": "com.lingodeer.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -9022,6 +9355,7 @@
         {
             "name": "SimplySing",
             "bundleIdentifier": "com.joytunes.Sing",
+            "identifier": "com.joytunes.Sing",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -9048,7 +9382,8 @@
         },
         {
             "name": "ShutEye",
-            "bundleIdentifier": "health.sleep.sounds.tracker.alarm.calm.3",
+            "bundleIdentifier": "health.sleep.sounds.tracker.alarm.calm.4",
+            "identifier": "health.sleep.sounds.tracker.alarm.calm.4",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -9076,6 +9411,7 @@
         {
             "name": "FitbittoAppleHealth",
             "bundleIdentifier": "com.bickster.myFitnessSync.2",
+            "identifier": "com.bickster.myFitnessSync.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9103,6 +9439,7 @@
         {
             "name": "Cleanup",
             "bundleIdentifier": "com.codeway.cleanerplus",
+            "identifier": "com.codeway.cleanerplus",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -9130,6 +9467,7 @@
         {
             "name": "Letterboxd",
             "bundleIdentifier": "com.letterboxd.LetterboxdApp.2",
+            "identifier": "com.letterboxd.LetterboxdApp.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9156,7 +9494,8 @@
         },
         {
             "name": "Noteshelf3",
-            "bundleIdentifier": "com.fluidtouch.noteshelf3.2",
+            "bundleIdentifier": "com.fluidtouch.noteshelf3.3",
+            "identifier": "com.fluidtouch.noteshelf3.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -9184,6 +9523,7 @@
         {
             "name": "CoinSnap",
             "bundleIdentifier": "com.coinidentifier.identifycoins.2",
+            "identifier": "com.coinidentifier.identifycoins.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -9210,7 +9550,8 @@
         },
         {
             "name": "VideoStar",
-            "bundleIdentifier": "com.frontierdesign.videostar.2",
+            "bundleIdentifier": "com.frontierdesign.videostar.3",
+            "identifier": "com.frontierdesign.videostar.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9238,6 +9579,7 @@
         {
             "name": "OfflineMusic",
             "bundleIdentifier": "com.offlinemusic",
+            "identifier": "com.offlinemusic",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9265,6 +9607,7 @@
         {
             "name": "PlantApp",
             "bundleIdentifier": "com.scaleup.plantid.2",
+            "identifier": "com.scaleup.plantid.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9292,6 +9635,7 @@
         {
             "name": "MobileScanner",
             "bundleIdentifier": "com.glority.everlens",
+            "identifier": "com.glority.everlens",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -9319,6 +9663,7 @@
         {
             "name": "KineMaster",
             "bundleIdentifier": "com.kinemaster.kios.2",
+            "identifier": "com.kinemaster.kios.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9346,6 +9691,7 @@
         {
             "name": "Vids",
             "bundleIdentifier": "viral.vision.vids.3",
+            "identifier": "viral.vision.vids.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9373,6 +9719,7 @@
         {
             "name": "swipewipe",
             "bundleIdentifier": "com.aoklab.fewerphotos",
+            "identifier": "com.aoklab.fewerphotos",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9400,6 +9747,7 @@
         {
             "name": "ColoringBook",
             "bundleIdentifier": "com.apalonapps.clrbook.2",
+            "identifier": "com.apalonapps.clrbook.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -9427,6 +9775,7 @@
         {
             "name": "PixelColor",
             "bundleIdentifier": "com.djitlabs.pixelcolor",
+            "identifier": "com.djitlabs.pixelcolor",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -9453,7 +9802,8 @@
         },
         {
             "name": "Documents",
-            "bundleIdentifier": "com.readdle.ReaddleDocsIPad.2",
+            "bundleIdentifier": "com.readdle.ReaddleDocsIPad.3",
+            "identifier": "com.readdle.ReaddleDocsIPad.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Plus",
@@ -9481,6 +9831,7 @@
         {
             "name": "SimplySing",
             "bundleIdentifier": "com.joytunes.Sing.2",
+            "identifier": "com.joytunes.Sing.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -9508,6 +9859,7 @@
         {
             "name": "Stay",
             "bundleIdentifier": "com.dajiu.stay.pro",
+            "identifier": "com.dajiu.stay.pro",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9535,6 +9887,7 @@
         {
             "name": "HappyScale",
             "bundleIdentifier": "com.frontpocketsoftware.happyscale",
+            "identifier": "com.frontpocketsoftware.happyscale",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -9562,6 +9915,7 @@
         {
             "name": "Cleanup",
             "bundleIdentifier": "com.codeway.cleanerplus.2",
+            "identifier": "com.codeway.cleanerplus.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -9589,6 +9943,7 @@
         {
             "name": "ImagineArt",
             "bundleIdentifier": "com.vyro.Imagine",
+            "identifier": "com.vyro.Imagine",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9616,6 +9971,7 @@
         {
             "name": "OfflineMusic",
             "bundleIdentifier": "com.offlinemusic.2",
+            "identifier": "com.offlinemusic.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9643,6 +9999,7 @@
         {
             "name": "Speedometer",
             "bundleIdentifier": "com.jps.gpspeedhud",
+            "identifier": "com.jps.gpspeedhud",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9670,6 +10027,7 @@
         {
             "name": "MobileScanner",
             "bundleIdentifier": "com.glority.everlens.2",
+            "identifier": "com.glority.everlens.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -9697,6 +10055,7 @@
         {
             "name": "Peachy",
             "bundleIdentifier": "com.camerasideas.Peachy",
+            "identifier": "com.camerasideas.Peachy",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9724,6 +10083,7 @@
         {
             "name": "swipewipe",
             "bundleIdentifier": "com.aoklab.fewerphotos.2",
+            "identifier": "com.aoklab.fewerphotos.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9751,6 +10111,7 @@
         {
             "name": "PixelColor",
             "bundleIdentifier": "com.djitlabs.pixelcolor.2",
+            "identifier": "com.djitlabs.pixelcolor.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -9778,6 +10139,7 @@
         {
             "name": "Beelinguapp",
             "bundleIdentifier": "com.beelinguapp.beelinguapp",
+            "identifier": "com.beelinguapp.beelinguapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -9805,6 +10167,7 @@
         {
             "name": "Stay",
             "bundleIdentifier": "com.dajiu.stay.pro.2",
+            "identifier": "com.dajiu.stay.pro.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9832,6 +10195,7 @@
         {
             "name": "HappyScale",
             "bundleIdentifier": "com.frontpocketsoftware.happyscale.2",
+            "identifier": "com.frontpocketsoftware.happyscale.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -9859,6 +10223,7 @@
         {
             "name": "ImagineArt",
             "bundleIdentifier": "com.vyro.Imagine.2",
+            "identifier": "com.vyro.Imagine.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9886,6 +10251,7 @@
         {
             "name": "YouCut",
             "bundleIdentifier": "com.shantanu.YouCut",
+            "identifier": "com.shantanu.YouCut",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -9913,6 +10279,7 @@
         {
             "name": "Speedometer",
             "bundleIdentifier": "com.jps.gpspeedhud.2",
+            "identifier": "com.jps.gpspeedhud.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9940,6 +10307,7 @@
         {
             "name": "InCollage",
             "bundleIdentifier": "PhotoEditor.PhotoCollage.inCollage",
+            "identifier": "PhotoEditor.PhotoCollage.inCollage",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -9967,6 +10335,7 @@
         {
             "name": "Peachy",
             "bundleIdentifier": "com.camerasideas.Peachy.2",
+            "identifier": "com.camerasideas.Peachy.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -9994,6 +10363,7 @@
         {
             "name": "Polish",
             "bundleIdentifier": "com.photoeditor.polish",
+            "identifier": "com.photoeditor.polish",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -10020,7 +10390,8 @@
         },
         {
             "name": "AllTrails",
-            "bundleIdentifier": "com.alltrails.AllTrails",
+            "bundleIdentifier": "com.alltrails.AllTrails.2",
+            "identifier": "com.alltrails.AllTrails.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -10048,6 +10419,7 @@
         {
             "name": "Mercury",
             "bundleIdentifier": "com.tripleglazedstudios.Weather.2",
+            "identifier": "com.tripleglazedstudios.Weather.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -10075,6 +10447,7 @@
         {
             "name": "Beelinguapp",
             "bundleIdentifier": "com.beelinguapp.beelinguapp.2",
+            "identifier": "com.beelinguapp.beelinguapp.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -10102,6 +10475,7 @@
         {
             "name": "SODA",
             "bundleIdentifier": "com.snowcorp.soda",
+            "identifier": "com.snowcorp.soda",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10128,7 +10502,8 @@
         },
         {
             "name": "Splash",
-            "bundleIdentifier": "app.cranberry.splash",
+            "bundleIdentifier": "app.cranberry.splash.2",
+            "identifier": "app.cranberry.splash.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -10156,6 +10531,7 @@
         {
             "name": "SlideShowMakerPublic",
             "bundleIdentifier": "com.debotoshdey.slideshow",
+            "identifier": "com.debotoshdey.slideshow",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -10183,6 +10559,7 @@
         {
             "name": "SODA",
             "bundleIdentifier": "com.snowcorp.soda.2",
+            "identifier": "com.snowcorp.soda.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10210,6 +10587,7 @@
         {
             "name": "Acrobat",
             "bundleIdentifier": "com.adobe.Adobe-Reader.2",
+            "identifier": "com.adobe.Adobe-Reader.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -10237,6 +10615,7 @@
         {
             "name": "SlideShowMakerPublic",
             "bundleIdentifier": "com.debotoshdey.slideshow.2",
+            "identifier": "com.debotoshdey.slideshow.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -10264,6 +10643,7 @@
         {
             "name": "PhotoCollagePublic",
             "bundleIdentifier": "com.reezo.RezooPipCam",
+            "identifier": "com.reezo.RezooPipCam",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -10290,7 +10670,8 @@
         },
         {
             "name": "AudioEditor",
-            "bundleIdentifier": "com.hemin.mp3editor",
+            "bundleIdentifier": "com.hemin.mp3editor.2",
+            "identifier": "com.hemin.mp3editor.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -10318,6 +10699,7 @@
         {
             "name": "Walli",
             "bundleIdentifier": "com.stanga.projectKu",
+            "identifier": "com.stanga.projectKu",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -10344,7 +10726,8 @@
         },
         {
             "name": "WebSSH",
-            "bundleIdentifier": "com.itimeteo.webssh",
+            "bundleIdentifier": "com.itimeteo.webssh.2",
+            "identifier": "com.itimeteo.webssh.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -10372,6 +10755,7 @@
         {
             "name": "Tarteel",
             "bundleIdentifier": "com.iqraapp.Iqra",
+            "identifier": "com.iqraapp.Iqra",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -10399,6 +10783,7 @@
         {
             "name": "Yana",
             "bundleIdentifier": "com.yana.yanapp",
+            "identifier": "com.yana.yanapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -10425,7 +10810,8 @@
         },
         {
             "name": "DuolingoMaxPublic",
-            "bundleIdentifier": "com.duolingo.DuolingoMobile",
+            "bundleIdentifier": "com.duolingo.DuolingoMobile.2",
+            "identifier": "com.duolingo.DuolingoMobile.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -10453,6 +10839,7 @@
         {
             "name": "LINECamera",
             "bundleIdentifier": "jp.naver.linecamera",
+            "identifier": "jp.naver.linecamera",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10480,6 +10867,7 @@
         {
             "name": "Locket",
             "bundleIdentifier": "com.locket.Locket",
+            "identifier": "com.locket.Locket",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Gold",
@@ -10507,6 +10895,7 @@
         {
             "name": "SkyGuide",
             "bundleIdentifier": "com.fifthstarlabs.skyguide",
+            "identifier": "com.fifthstarlabs.skyguide",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Plus",
@@ -10534,6 +10923,7 @@
         {
             "name": "SnappierIPTV",
             "bundleIdentifier": "uk.co.snappy-code.snappierIPTV",
+            "identifier": "uk.co.snappy-code.snappierIPTV",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -10561,6 +10951,7 @@
         {
             "name": "Evermusic",
             "bundleIdentifier": "com.leshko.cloudplayer",
+            "identifier": "com.leshko.cloudplayer",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10588,6 +10979,7 @@
         {
             "name": "Luminar",
             "bundleIdentifier": "com.skylum.luminaripad",
+            "identifier": "com.skylum.luminaripad",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10615,6 +11007,7 @@
         {
             "name": "Motionleap",
             "bundleIdentifier": "com.lightricks.Enlight-Phoenix",
+            "identifier": "com.lightricks.Enlight-Phoenix",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10642,6 +11035,7 @@
         {
             "name": "PUSH",
             "bundleIdentifier": "com.ADPTVLTD.push",
+            "identifier": "com.ADPTVLTD.push",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10669,6 +11063,7 @@
         {
             "name": "MacroFactor",
             "bundleIdentifier": "com.sbs.diet",
+            "identifier": "com.sbs.diet",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10696,6 +11091,7 @@
         {
             "name": "Retrx",
             "bundleIdentifier": "com.bikinstudio.screenx",
+            "identifier": "com.bikinstudio.screenx",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -10723,6 +11119,7 @@
         {
             "name": "Pillow",
             "bundleIdentifier": "com.neybox.Pillow",
+            "identifier": "com.neybox.Pillow",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10749,7 +11146,8 @@
         },
         {
             "name": "SCRL",
-            "bundleIdentifier": "com.dopedevelopment.Panels",
+            "bundleIdentifier": "com.dopedevelopment.Panels.2",
+            "identifier": "com.dopedevelopment.Panels.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10777,6 +11175,7 @@
         {
             "name": "SleepCycle",
             "bundleIdentifier": "com.lexwarelabs.goodmorning",
+            "identifier": "com.lexwarelabs.goodmorning",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -10804,6 +11203,7 @@
         {
             "name": "Flightradar24",
             "bundleIdentifier": "se.resenatverket.FlightRadar24-Free",
+            "identifier": "se.resenatverket.FlightRadar24-Free",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Gold",
@@ -10831,6 +11231,7 @@
         {
             "name": "Moonly",
             "bundleIdentifier": "com.moonly.Moonly",
+            "identifier": "com.moonly.Moonly",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -10858,6 +11259,7 @@
         {
             "name": "TranslateNow",
             "bundleIdentifier": "solutions.wzp.translator",
+            "identifier": "solutions.wzp.translator",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10885,6 +11287,7 @@
         {
             "name": "Unfold",
             "bundleIdentifier": "com.moonlab.unfoldstories",
+            "identifier": "com.moonlab.unfoldstories",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10912,6 +11315,7 @@
         {
             "name": "1Blocker",
             "bundleIdentifier": "com.khanov.BlockerX",
+            "identifier": "com.khanov.BlockerX",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -10939,6 +11343,7 @@
         {
             "name": "Truecaller",
             "bundleIdentifier": "com.truesoftware.TrueCallerOther",
+            "identifier": "com.truesoftware.TrueCallerOther",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -10966,6 +11371,7 @@
         {
             "name": "Coconote",
             "bundleIdentifier": "com.bbauman.Scripty",
+            "identifier": "com.bbauman.Scripty",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -10993,6 +11399,7 @@
         {
             "name": "AdGuard",
             "bundleIdentifier": "com.adguard.AdguardExtension",
+            "identifier": "com.adguard.AdguardExtension",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11020,6 +11427,7 @@
         {
             "name": "Clarity",
             "bundleIdentifier": "com.moodtools.thoughtdiary",
+            "identifier": "com.moodtools.thoughtdiary",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -11047,6 +11455,7 @@
         {
             "name": "Picsew",
             "bundleIdentifier": "com.sugarmo.ScrollClip",
+            "identifier": "com.sugarmo.ScrollClip",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -11073,7 +11482,8 @@
         },
         {
             "name": "Infuse",
-            "bundleIdentifier": "com.firecore.infuse",
+            "bundleIdentifier": "com.firecore.infuse.2",
+            "identifier": "com.firecore.infuse.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Plus",
@@ -11100,7 +11510,8 @@
         },
         {
             "name": "Instagram",
-            "bundleIdentifier": "com.burbn.instagram",
+            "bundleIdentifier": "com.burbn.instagram.8",
+            "identifier": "com.burbn.instagram.8",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11128,6 +11539,7 @@
         {
             "name": "Balance",
             "bundleIdentifier": "com.elevateapp.kamino.kamino",
+            "identifier": "com.elevateapp.kamino.kamino",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11154,7 +11566,8 @@
         },
         {
             "name": "Rest",
-            "bundleIdentifier": "com.evolve.helm",
+            "bundleIdentifier": "com.evolve.helm.2",
+            "identifier": "com.evolve.helm.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11182,6 +11595,7 @@
         {
             "name": "GentlerStreak",
             "bundleIdentifier": "app.gentler.activity",
+            "identifier": "app.gentler.activity",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11208,7 +11622,8 @@
         },
         {
             "name": "Notability",
-            "bundleIdentifier": "com.gingerlabs.Notability",
+            "bundleIdentifier": "com.gingerlabs.Notability.2",
+            "identifier": "com.gingerlabs.Notability.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -11236,6 +11651,7 @@
         {
             "name": "VideoLite",
             "bundleIdentifier": "com.videobrowser.ios",
+            "identifier": "com.videobrowser.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -11263,6 +11679,7 @@
         {
             "name": "Textastic",
             "bundleIdentifier": "com.textasticapp.textastic-universal",
+            "identifier": "com.textasticapp.textastic-universal",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11289,7 +11706,8 @@
         },
         {
             "name": "YouTubeOLED",
-            "bundleIdentifier": "com.google.ios.youtube",
+            "bundleIdentifier": "com.google.ios.youtube.6",
+            "identifier": "com.google.ios.youtube.6",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11317,6 +11735,7 @@
         {
             "name": "Mojo",
             "bundleIdentifier": "archery.storify",
+            "identifier": "archery.storify",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11343,7 +11762,8 @@
         },
         {
             "name": "Facetune",
-            "bundleIdentifier": "com.lightricks.Facetune2",
+            "bundleIdentifier": "com.lightricks.Facetune2.2",
+            "identifier": "com.lightricks.Facetune2.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11371,6 +11791,7 @@
         {
             "name": "MoneyManagerExpenseBudget",
             "bundleIdentifier": "com.realbyteapps.MoneyManager2",
+            "identifier": "com.realbyteapps.MoneyManager2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -11398,6 +11819,7 @@
         {
             "name": "DoCast",
             "bundleIdentifier": "us.electronic.docast",
+            "identifier": "us.electronic.docast",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11425,6 +11847,7 @@
         {
             "name": "ReversoContext",
             "bundleIdentifier": "com.softissimo.ReversoContext",
+            "identifier": "com.softissimo.ReversoContext",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -11452,6 +11875,7 @@
         {
             "name": "StepsApp",
             "bundleIdentifier": "com.gunthermarktl.stepapp",
+            "identifier": "com.gunthermarktl.stepapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11479,6 +11903,7 @@
         {
             "name": "MelonVPNPublic",
             "bundleIdentifier": "com.vpnbottle.melon.unblock.fast.vpn",
+            "identifier": "com.vpnbottle.melon.unblock.fast.vpn",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -11505,7 +11930,8 @@
         },
         {
             "name": "Threads",
-            "bundleIdentifier": "com.burbn.barcelona",
+            "bundleIdentifier": "com.burbn.barcelona.3",
+            "identifier": "com.burbn.barcelona.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11533,6 +11959,7 @@
         {
             "name": "Foodie",
             "bundleIdentifier": "com.linecorp.Foodie",
+            "identifier": "com.linecorp.Foodie",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11560,6 +11987,7 @@
         {
             "name": "YAZIO",
             "bundleIdentifier": "com.yazio.ios.YAZIO",
+            "identifier": "com.yazio.ios.YAZIO",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11587,6 +12015,7 @@
         {
             "name": "Temply",
             "bundleIdentifier": "com.templyvideo.Temply",
+            "identifier": "com.templyvideo.Temply",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11614,6 +12043,7 @@
         {
             "name": "Scanner",
             "bundleIdentifier": "com.apalonapps.pdffree",
+            "identifier": "com.apalonapps.pdffree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11641,6 +12071,7 @@
         {
             "name": "Vixer",
             "bundleIdentifier": "com.vixerapp.Vixer",
+            "identifier": "com.vixerapp.Vixer",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11667,7 +12098,8 @@
         },
         {
             "name": "ProCCD",
-            "bundleIdentifier": "com.yengshine.proccd",
+            "bundleIdentifier": "com.yengshine.proccd.2",
+            "identifier": "com.yengshine.proccd.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -11695,6 +12127,7 @@
         {
             "name": "HiWidget",
             "bundleIdentifier": "com.zerone.hidesktop",
+            "identifier": "com.zerone.hidesktop",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11722,6 +12155,7 @@
         {
             "name": "Productive",
             "bundleIdentifier": "com.beHappy.Productive",
+            "identifier": "com.beHappy.Productive",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -11749,6 +12183,7 @@
         {
             "name": "TuneTally",
             "bundleIdentifier": "universeye.co.TuneTally",
+            "identifier": "universeye.co.TuneTally",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11776,6 +12211,7 @@
         {
             "name": "InOut",
             "bundleIdentifier": "com.umayanga.Budget",
+            "identifier": "com.umayanga.Budget",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11803,6 +12239,7 @@
         {
             "name": "B42",
             "bundleIdentifier": "com.soccerFitYou.App",
+            "identifier": "com.soccerFitYou.App",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11830,6 +12267,7 @@
         {
             "name": "Animatic",
             "bundleIdentifier": "com.inkboard.animatic",
+            "identifier": "com.inkboard.animatic",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11857,6 +12295,7 @@
         {
             "name": "Alarmy",
             "bundleIdentifier": "droom.sleepIfUCanFree",
+            "identifier": "droom.sleepIfUCanFree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11884,6 +12323,7 @@
         {
             "name": "KitchenStories",
             "bundleIdentifier": "com.AJNSNewMedia.KitchenStories",
+            "identifier": "com.AJNSNewMedia.KitchenStories",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11911,6 +12351,7 @@
         {
             "name": "Noteful",
             "bundleIdentifier": "com.noteful-technologies.noteful",
+            "identifier": "com.noteful-technologies.noteful",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -11937,7 +12378,8 @@
         },
         {
             "name": "MyFitnessPal",
-            "bundleIdentifier": "com.myfitnesspal.mfp",
+            "bundleIdentifier": "com.myfitnesspal.mfp.2",
+            "identifier": "com.myfitnesspal.mfp.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -11965,6 +12407,7 @@
         {
             "name": "Lightroom",
             "bundleIdentifier": "com.adobe.lrmobilephone",
+            "identifier": "com.adobe.lrmobilephone",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -11992,6 +12435,7 @@
         {
             "name": "LoFiCam",
             "bundleIdentifier": "com.paha.LoFiCam",
+            "identifier": "com.paha.LoFiCam",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -12019,6 +12463,7 @@
         {
             "name": "CMProCalc",
             "bundleIdentifier": "com.calculated.laurene",
+            "identifier": "com.calculated.laurene",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -12046,6 +12491,7 @@
         {
             "name": "SnapEdit",
             "bundleIdentifier": "com.sfun.snapedit",
+            "identifier": "com.sfun.snapedit",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -12073,6 +12519,7 @@
         {
             "name": "PictureThis",
             "bundleIdentifier": "cn.danatech.xingseus",
+            "identifier": "cn.danatech.xingseus",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12100,6 +12547,7 @@
         {
             "name": "Tripsy",
             "bundleIdentifier": "app.tripsy.ios",
+            "identifier": "app.tripsy.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -12127,6 +12575,7 @@
         {
             "name": "ColorPop",
             "bundleIdentifier": "com.mwm.procolor",
+            "identifier": "com.mwm.procolor",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12154,6 +12603,7 @@
         {
             "name": "Osmosis",
             "bundleIdentifier": "com.osmose-it.osmosis",
+            "identifier": "com.osmose-it.osmosis",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12180,7 +12630,8 @@
         },
         {
             "name": "NeoServer",
-            "bundleIdentifier": "com.neo.NeoMan",
+            "bundleIdentifier": "com.neo.NeoMan.2",
+            "identifier": "com.neo.NeoMan.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12208,6 +12659,7 @@
         {
             "name": "Fitia",
             "bundleIdentifier": "com.ulisesolave.Fitia",
+            "identifier": "com.ulisesolave.Fitia",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12235,6 +12687,7 @@
         {
             "name": "Photoroom",
             "bundleIdentifier": "com.dr1ven.eraser",
+            "identifier": "com.dr1ven.eraser",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12262,6 +12715,7 @@
         {
             "name": "Athlytic",
             "bundleIdentifier": "myndarc.newFitnessApp",
+            "identifier": "myndarc.newFitnessApp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12288,7 +12742,8 @@
         },
         {
             "name": "edjingMix",
-            "bundleIdentifier": "com.edjing.edjingdjturntable",
+            "bundleIdentifier": "com.edjing.edjingdjturntable.2",
+            "identifier": "com.edjing.edjingdjturntable.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12316,6 +12771,7 @@
         {
             "name": "Splice",
             "bundleIdentifier": "com.path36.SpliceFree",
+            "identifier": "com.path36.SpliceFree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12343,6 +12799,7 @@
         {
             "name": "GALATEA",
             "bundleIdentifier": "org.reactjs.native.Inkitt.App.Colt",
+            "identifier": "org.reactjs.native.Inkitt.App.Colt",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12370,6 +12827,7 @@
         {
             "name": "Buddy",
             "bundleIdentifier": "com.iPwners.Plonkan",
+            "identifier": "com.iPwners.Plonkan",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -12397,6 +12855,7 @@
         {
             "name": "SHRED",
             "bundleIdentifier": "com.shred.shredlabs",
+            "identifier": "com.shred.shredlabs",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12424,6 +12883,7 @@
         {
             "name": "Fonts",
             "bundleIdentifier": "fontskeyboard.fonts",
+            "identifier": "fontskeyboard.fonts",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12450,7 +12910,8 @@
         },
         {
             "name": "EasyAnatomy3DPublic",
-            "bundleIdentifier": "AB.iOsteology",
+            "bundleIdentifier": "AB.iOsteology.2",
+            "identifier": "AB.iOsteology.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -12478,6 +12939,7 @@
         {
             "name": "SoundLab",
             "bundleIdentifier": "com.castpeer.audioroom.ios",
+            "identifier": "com.castpeer.audioroom.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12504,7 +12966,8 @@
         },
         {
             "name": "EPIK",
-            "bundleIdentifier": "com.snowcorp.epik",
+            "bundleIdentifier": "com.snowcorp.epik.2",
+            "identifier": "com.snowcorp.epik.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12532,6 +12995,7 @@
         {
             "name": "UnifiedDictionary",
             "bundleIdentifier": "com.bravolol.bravoLang.chineseDictionary",
+            "identifier": "com.bravolol.bravoLang.chineseDictionary",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12558,7 +13022,8 @@
         },
         {
             "name": "PicsArt",
-            "bundleIdentifier": "com.picsart.studio",
+            "bundleIdentifier": "com.picsart.studio.2",
+            "identifier": "com.picsart.studio.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12585,7 +13050,8 @@
         },
         {
             "name": "Premiere",
-            "bundleIdentifier": "com.adobe.premiere.ios",
+            "bundleIdentifier": "com.adobe.premiere.ios.2",
+            "identifier": "com.adobe.premiere.ios.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12612,7 +13078,8 @@
         },
         {
             "name": "SnoreLab",
-            "bundleIdentifier": "com.revivasoftworks.Snore-Lab",
+            "bundleIdentifier": "com.revivasoftworks.Snore-Lab.2",
+            "identifier": "com.revivasoftworks.Snore-Lab.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12640,6 +13107,7 @@
         {
             "name": "CleanMyPhone",
             "bundleIdentifier": "com.macpaw.iosgemini",
+            "identifier": "com.macpaw.iosgemini",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12667,6 +13135,7 @@
         {
             "name": "CLIME",
             "bundleIdentifier": "com.apalonapps.radarfree",
+            "identifier": "com.apalonapps.radarfree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12694,6 +13163,7 @@
         {
             "name": "CuteWeather",
             "bundleIdentifier": "at.stefanstangl.CuteWeather",
+            "identifier": "at.stefanstangl.CuteWeather",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12721,6 +13191,7 @@
         {
             "name": "AniClient",
             "bundleIdentifier": "com.picspacehd.anilistclient",
+            "identifier": "com.picspacehd.anilistclient",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -12748,6 +13219,7 @@
         {
             "name": "PlaneFinder",
             "bundleIdentifier": "uk.co.leeus.planefinderfree",
+            "identifier": "uk.co.leeus.planefinderfree",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -12775,6 +13247,7 @@
         {
             "name": "VEEDCaptions",
             "bundleIdentifier": "io.veed.appstore",
+            "identifier": "io.veed.appstore",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12802,6 +13275,7 @@
         {
             "name": "BandLab",
             "bundleIdentifier": "com.bandlab.bandlab.iphone",
+            "identifier": "com.bandlab.bandlab.iphone",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Boost Membership",
@@ -12829,6 +13303,7 @@
         {
             "name": "BeautyPlus",
             "bundleIdentifier": "com.commsource.BeautyPlus",
+            "identifier": "com.commsource.BeautyPlus",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -12856,6 +13331,7 @@
         {
             "name": "TravelBoast",
             "bundleIdentifier": "com.travelboast.travelboast",
+            "identifier": "com.travelboast.travelboast",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -12883,6 +13359,7 @@
         {
             "name": "Passbook",
             "bundleIdentifier": "com.am.pkstudio",
+            "identifier": "com.am.pkstudio",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -12910,6 +13387,7 @@
         {
             "name": "Leto",
             "bundleIdentifier": "biser.stories",
+            "identifier": "biser.stories",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -12937,6 +13415,7 @@
         {
             "name": "Bearable",
             "bundleIdentifier": "co.codeleap.bearable",
+            "identifier": "co.codeleap.bearable",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -12963,7 +13442,8 @@
         },
         {
             "name": "Flo",
-            "bundleIdentifier": "org.iggymedia.periodtracker",
+            "bundleIdentifier": "org.iggymedia.periodtracker.2",
+            "identifier": "org.iggymedia.periodtracker.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -12991,6 +13471,7 @@
         {
             "name": "VSCO",
             "bundleIdentifier": "co.visualsupply.cam",
+            "identifier": "co.visualsupply.cam",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13017,7 +13498,8 @@
         },
         {
             "name": "X",
-            "bundleIdentifier": "com.atebits.Tweetie2",
+            "bundleIdentifier": "com.atebits.Tweetie2.6",
+            "identifier": "com.atebits.Tweetie2.6",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13045,6 +13527,7 @@
         {
             "name": "Captions",
             "bundleIdentifier": "boomer.Smart-Video",
+            "identifier": "boomer.Smart-Video",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13071,7 +13554,8 @@
         },
         {
             "name": "Endel",
-            "bundleIdentifier": "com.endel.endel",
+            "bundleIdentifier": "com.endel.endel.2",
+            "identifier": "com.endel.endel.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13099,6 +13583,7 @@
         {
             "name": "VlogNow",
             "bundleIdentifier": "com.frontrow.vlog",
+            "identifier": "com.frontrow.vlog",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13125,7 +13610,8 @@
         },
         {
             "name": "AdobeFresco",
-            "bundleIdentifier": "com.adobe.fresco.ios",
+            "bundleIdentifier": "com.adobe.fresco.ios.2",
+            "identifier": "com.adobe.fresco.ios.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13153,6 +13639,7 @@
         {
             "name": "B612",
             "bundleIdentifier": "com.linecorp.b612",
+            "identifier": "com.linecorp.b612",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13180,6 +13667,7 @@
         {
             "name": "AdobeExpress",
             "bundleIdentifier": "com.adobe.post",
+            "identifier": "com.adobe.post",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13207,6 +13695,7 @@
         {
             "name": "Phoenix",
             "bundleIdentifier": "com.phoenix.motivationapp",
+            "identifier": "com.phoenix.motivationapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13234,6 +13723,7 @@
         {
             "name": "Pennies",
             "bundleIdentifier": "com.magneticzero.pennies",
+            "identifier": "com.magneticzero.pennies",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13261,6 +13751,7 @@
         {
             "name": "Bend",
             "bundleIdentifier": "com.bowery-digital.bend",
+            "identifier": "com.bowery-digital.bend",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -13287,7 +13778,8 @@
         },
         {
             "name": "Minutes",
-            "bundleIdentifier": "ventures.slam.minutes",
+            "bundleIdentifier": "ventures.slam.minutes.2",
+            "identifier": "ventures.slam.minutes.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -13315,6 +13807,7 @@
         {
             "name": "MetadataEditor",
             "bundleIdentifier": "com.andrespizabuckmann.MetadataEditor",
+            "identifier": "com.andrespizabuckmann.MetadataEditor",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13341,7 +13834,8 @@
         },
         {
             "name": "YouTubeMusic",
-            "bundleIdentifier": "com.google.ios.youtubemusic",
+            "bundleIdentifier": "com.google.ios.youtubemusic.2",
+            "identifier": "com.google.ios.youtubemusic.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13368,7 +13862,8 @@
         },
         {
             "name": "Trace",
-            "bundleIdentifier": "com.morpholioapps.trace",
+            "bundleIdentifier": "com.morpholioapps.trace.2",
+            "identifier": "com.morpholioapps.trace.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -13395,7 +13890,8 @@
         },
         {
             "name": "TikTok",
-            "bundleIdentifier": "com.zhiliaoapp.musically",
+            "bundleIdentifier": "com.zhiliaoapp.musically.4",
+            "identifier": "com.zhiliaoapp.musically.4",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13423,6 +13919,7 @@
         {
             "name": "UpNote",
             "bundleIdentifier": "com.getupnote.ios",
+            "identifier": "com.getupnote.ios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13450,6 +13947,7 @@
         {
             "name": "SNOW",
             "bundleIdentifier": "com.campmobile.snow",
+            "identifier": "com.campmobile.snow",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -13477,6 +13975,7 @@
         {
             "name": "PerfectAIPublic",
             "bundleIdentifier": "comai.redrawart.iosapp",
+            "identifier": "comai.redrawart.iosapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -13503,7 +14002,8 @@
         },
         {
             "name": "Facebook",
-            "bundleIdentifier": "com.facebook.Facebook",
+            "bundleIdentifier": "com.facebook.Facebook.3",
+            "identifier": "com.facebook.Facebook.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13530,7 +14030,8 @@
         },
         {
             "name": "Messenger",
-            "bundleIdentifier": "com.facebook.Messenger",
+            "bundleIdentifier": "com.facebook.Messenger.3",
+            "identifier": "com.facebook.Messenger.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13557,7 +14058,8 @@
         },
         {
             "name": "Mimo",
-            "bundleIdentifier": "com.getmimo.mimo",
+            "bundleIdentifier": "com.getmimo.mimo.2",
+            "identifier": "com.getmimo.mimo.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -13585,6 +14087,7 @@
         {
             "name": "Headway",
             "bundleIdentifier": "com.headway.books",
+            "identifier": "com.headway.books",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13612,6 +14115,7 @@
         {
             "name": "Apollo",
             "bundleIdentifier": "com.christianselig.Apollo",
+            "identifier": "com.christianselig.Apollo",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13639,6 +14143,7 @@
         {
             "name": "PowerThesaurus",
             "bundleIdentifier": "org.powerthesaurus.powerthesaurus",
+            "identifier": "org.powerthesaurus.powerthesaurus",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -13666,6 +14171,7 @@
         {
             "name": "Euforia",
             "bundleIdentifier": "digital.euforia",
+            "identifier": "digital.euforia",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13693,6 +14199,7 @@
         {
             "name": "Busuu",
             "bundleIdentifier": "com.busuu.english.app",
+            "identifier": "com.busuu.english.app",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13720,6 +14227,7 @@
         {
             "name": "Speedtest",
             "bundleIdentifier": "com.ookla.speedtest",
+            "identifier": "com.ookla.speedtest",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13747,6 +14255,7 @@
         {
             "name": "AlfredCamera",
             "bundleIdentifier": "com.kalavision.alfred",
+            "identifier": "com.kalavision.alfred",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13774,6 +14283,7 @@
         {
             "name": "TeraBox",
             "bundleIdentifier": "com.dubox.drive",
+            "identifier": "com.dubox.drive",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13800,7 +14310,8 @@
         },
         {
             "name": "SixPackAbsAbsWorkout",
-            "bundleIdentifier": "com.abishkking.sixpack",
+            "bundleIdentifier": "com.abishkking.sixpack.2",
+            "identifier": "com.abishkking.sixpack.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with IAP",
@@ -13828,6 +14339,7 @@
         {
             "name": "Acrobat",
             "bundleIdentifier": "com.adobe.Adobe-Reader.3",
+            "identifier": "com.adobe.Adobe-Reader.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13855,6 +14367,7 @@
         {
             "name": "VideoShow",
             "bundleIdentifier": "com.enjoy.VideoShow",
+            "identifier": "com.enjoy.VideoShow",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with VIP",
@@ -13881,7 +14394,8 @@
         },
         {
             "name": "Unscripted",
-            "bundleIdentifier": "com.ibit.UNPOSED",
+            "bundleIdentifier": "com.ibit.UNPOSED.2",
+            "identifier": "com.ibit.UNPOSED.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -13909,6 +14423,7 @@
         {
             "name": "Flow",
             "bundleIdentifier": "design.yugen.Flow",
+            "identifier": "design.yugen.Flow",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -13936,6 +14451,7 @@
         {
             "name": "Mondly",
             "bundleIdentifier": "com.atistudios.MondlyLanguages",
+            "identifier": "com.atistudios.MondlyLanguages",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -13962,7 +14478,8 @@
         },
         {
             "name": "Aloha",
-            "bundleIdentifier": "com.alohabrowser.alohabrowser",
+            "bundleIdentifier": "com.alohabrowser.alohabrowser.2",
+            "identifier": "com.alohabrowser.alohabrowser.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -13990,6 +14507,7 @@
         {
             "name": "StressWatch",
             "bundleIdentifier": "com.ideation.Stress",
+            "identifier": "com.ideation.Stress",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -14017,6 +14535,7 @@
         {
             "name": "Komoot",
             "bundleIdentifier": "de.komoot.berlinbikeapp",
+            "identifier": "de.komoot.berlinbikeapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
@@ -14044,6 +14563,7 @@
         {
             "name": "RiseSleep",
             "bundleIdentifier": "com.risesci.nyx",
+            "identifier": "com.risesci.nyx",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Subscription Unlocked",
@@ -14071,6 +14591,7 @@
         {
             "name": "Anime",
             "bundleIdentifier": "com.wallpapershub.anime",
+            "identifier": "com.wallpapershub.anime",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Pro",
@@ -14098,6 +14619,7 @@
         {
             "name": "Scarlet",
             "bundleIdentifier": "com.DebianArch.ScarletPersonalXYZZZ",
+            "identifier": "com.DebianArch.ScarletPersonalXYZZZ",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Scarlet iOS signing app",
@@ -14125,6 +14647,7 @@
         {
             "name": "Photoroom: AI Photo Editor",
             "bundleIdentifier": "com.dr1ven.eraser.2",
+            "identifier": "com.dr1ven.eraser.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Photoroom: AI Photo Editor Tweak",
@@ -14152,6 +14675,7 @@
         {
             "name": "Shape: Lucid Dreaming",
             "bundleIdentifier": "com.arthurvansiclen.Shape",
+            "identifier": "com.arthurvansiclen.Shape",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Shape: Lucid Dreaming Tweak",
@@ -14179,6 +14703,7 @@
         {
             "name": "Lyfta: Gym Workout Tracker Log",
             "bundleIdentifier": "com.lyftaios",
+            "identifier": "com.lyftaios",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "https://t.me/JacksonThinkingProApps",
@@ -14206,6 +14731,7 @@
         {
             "name": "Invoice Simple: Invoice Maker",
             "bundleIdentifier": "com.logicalengine.qsei",
+            "identifier": "com.logicalengine.qsei",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "https://t.me/JacksonThinkingProApps",
@@ -14233,6 +14759,7 @@
         {
             "name": "365Scores: Live Scores & News",
             "bundleIdentifier": "com.365scores.365scroesapp",
+            "identifier": "com.365scores.365scroesapp",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "365Scores: Live Scores & News - Tweak",
