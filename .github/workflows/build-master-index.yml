@@ -3,7 +3,6 @@ name: Build KiraStore Master Index
 on:
   workflow_dispatch:
   schedule:
-    # يحدث الملف كل 6 ساعات. تقدر تغيّرها أو تحذفها.
     - cron: "0 */6 * * *"
   push:
     branches:
@@ -32,22 +31,28 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Build merged source without deleting duplicates
+      - name: Build KiraStore lite master source
         run: |
-          python scripts/build_master_index.py \
-            --output dist/kirastore-index.json
+          python scripts/build_master_index.py --output dist/kirastore-index.json
 
-      - name: Validate JSON and print count
+      - name: Validate generated JSON
         run: |
           python -m json.tool dist/kirastore-index.json > /tmp/kirastore-index.check.json
           python - <<'PY'
           import json
           from pathlib import Path
-          data = json.loads(Path('dist/kirastore-index.json').read_text(encoding='utf-8'))
-          print('KiraStore apps:', len(data.get('apps', [])))
-          bundles = [app.get('bundleIdentifier') for app in data.get('apps', []) if isinstance(app, dict)]
-          print('Unique bundle IDs:', len(set(bundles)), '/', len(bundles))
-          print('KiraStore source:', 'dist/kirastore-index.json')
+
+          data = json.loads(Path("dist/kirastore-index.json").read_text(encoding="utf-8"))
+          apps = data.get("apps", [])
+          bundles = [app.get("bundleIdentifier") for app in apps if isinstance(app, dict)]
+          size_mb = Path("dist/kirastore-index.json")..stat().st_size / 1024 / 1024
+
+          print("Apps:", len(apps))
+          print("Unique bundle identifiers:", len(set(bundles)), "/", len(bundles))
+          print("File size:", round(size_mb, 2), "MB")
+
+          if len(set(bundles)) != len(bundles):
+              raise SystemExit("Duplicate bundle identifiers still exist")
           PY
 
       - name: Commit generated source
