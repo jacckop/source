@@ -49,7 +49,7 @@ MASTER_SOURCE: dict[str, Any] = {
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/3.0",
+    "User-Agent": "KiraStore-IndexBuilder/5.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
@@ -74,7 +74,6 @@ VERSION_KEY_ALIASES = {
     "version": ["version", "versionName"],
     "downloadURL": ["downloadURL", "downloadUrl", "download", "url", "ipa", "ipaURL", "ipaUrl"],
     "date": ["date", "versionDate", "updatedDate", "updated", "lastUpdated"],
-    "localizedDescription": ["localizedDescription", "description", "desc", "changelog"],
     "size": ["size", "sizeBytes", "fileSize", "fileSizeBytes"],
     "minOSVersion": ["minOSVersion", "minimumOSVersion", "minIOS", "minIOSVersion"],
 }
@@ -95,10 +94,108 @@ def sha1_text(text: str) -> str:
 def clean_text(value: Any) -> str:
     if value is None:
         return ""
+
     if not isinstance(value, str):
         value = str(value)
+
     value = value.replace("\u0000", "")
     return re.sub(r"\s+", " ", value).strip()
+
+
+def first_value(data: dict[str, Any], aliases: list[str], default: Any = None) -> Any:
+    for key in aliases:
+        if key in data and data[key] not in (None, ""):
+            return data[key]
+
+    return default
+
+
+def normalize_url(value: Any) -> str:
+    return clean_text(value)
+
+
+def safe_slug(text: str) -> str:
+    text = clean_text(text).lower()
+    text = re.sub(r"[^a-z0-9]+", ".", text)
+    text = re.sub(r"\.+", ".", text).strip(".")
+    return text or "app"
+
+
+def normalize_tint_color(value: Any) -> str:
+    text = clean_text(value)
+
+    if not text:
+        return "#000000"
+
+    if re.fullmatch(r"#?[0-9a-fA-F]{6}", text):
+        return text if text.startswith("#") else f"#{text}"
+
+    return "#000000"
+
+
+def parse_size(value: Any) -> int:
+    """
+    يأخذ الحجم فقط من قيمة موجودة داخل السورس.
+    لا يجلب أي شيء من رابط التحميل.
+    لا يخمّن.
+    إذا القيمة غير موجودة أو صفر يرجع 0.
+
+    يدعم:
+    42344934
+    "42344934"
+    "42 MB"
+    "42.5 MB"
+    "1.2 GB"
+    """
+
+    if value is None or value == "":
+        return 0
+
+    if isinstance(value, bool):
+        return 0
+
+    if isinstance(value, int):
+        return value if value > 0 else 0
+
+    if isinstance(value, float):
+        return int(value) if value > 0 else 0
+
+    text = clean_text(value).replace(",", "")
+    if not text:
+        return 0
+
+    if re.fullmatch(r"\d+", text):
+        try:
+            number = int(text)
+            return number if number > 0 else 0
+        except ValueError:
+            return 0
+
+    match = re.search(r"([0-9]+(?:\.[0-9]+)?)\s*([KMGT]?I?B|[KMGT]|BYTES?)?", text, re.I)
+
+    if not match:
+        return 0
+
+    number = float(match.group(1))
+    unit = (match.group(2) or "B").upper()
+    unit = unit.replace("IB", "B")
+
+    multipliers = {
+        "B": 1,
+        "BYTE": 1,
+        "BYTES": 1,
+        "K": 1024,
+        "KB": 1024,
+        "M": 1024**2,
+        "MB": 1024**2,
+        "G": 1024**3,
+        "GB": 1024**3,
+        "T": 1024**4,
+        "TB": 1024**4,
+    }
+
+    size = int(number * multipliers.get(unit, 1))
+    return size if size > 0 else 0
 
 
 def remove_screenshot_content(value: Any) -> str:
@@ -107,7 +204,7 @@ def remove_screenshot_content(value: Any) -> str:
     if not text:
         return ""
 
-    # حذف روابط الصور التي غالباً تكون screenshots داخل الوصف
+    # حذف روابط الصور داخل الوصف
     text = re.sub(
         r"https?://\S+\.(?:png|jpg|jpeg|webp|gif)(?:\?\S*)?",
         "",
@@ -115,7 +212,7 @@ def remove_screenshot_content(value: Any) -> str:
         flags=re.IGNORECASE,
     )
 
-    # حذف أسطر أو مقاطع فيها كلمة screenshots
+    # حذف أي مقطع يذكر screenshots أو preview
     parts = re.split(r"(?<=[.!؟])\s+|\n+", text)
     cleaned_parts: list[str] = []
 
@@ -135,84 +232,28 @@ def remove_screenshot_content(value: Any) -> str:
         low = part.lower()
         if any(word in low for word in bad_words):
             continue
+
         cleaned_parts.append(part)
 
     text = " ".join(cleaned_parts)
 
-    # تنظيف أي بقايا روابط صور بدون امتداد واضح
-    text = re.sub(r"https?://\S*(?:screenshot|screenshots|preview)\S*", "", text, flags=re.IGNORECASE)
+    text = re.sub(
+        r"https?://\S*(?:screenshot|screenshots|preview)\S*",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    )
 
     return clean_text(text)
 
 
 def trim_text(value: Any, limit: int) -> str:
     text = remove_screenshot_content(value)
+
     if len(text) <= limit:
         return text
+
     return text[:limit].rstrip() + "..."
-
-
-def first_value(data: dict[str, Any], aliases: list[str], default: Any = None) -> Any:
-    for key in aliases:
-        if key in data and data[key] not in (None, ""):
-            return data[key]
-    return default
-
-
-def normalize_url(value: Any) -> str:
-    return clean_text(value)
-
-
-def parse_size(value: Any) -> int | None:
-    if value is None or value == "":
-        return None
-
-    if isinstance(value, bool):
-        return None
-
-    if isinstance(value, int):
-        return value if value >= 0 else None
-
-    if isinstance(value, float):
-        return int(value) if value >= 0 else None
-
-    text = clean_text(value).replace(",", "")
-    if not text:
-        return None
-
-    if re.fullmatch(r"\d+", text):
-        try:
-            return int(text)
-        except ValueError:
-            return None
-
-    match = re.search(r"([0-9]+(?:\.[0-9]+)?)\s*([KMGT]?I?B|[KMGT])?", text, re.I)
-    if not match:
-        return None
-
-    number = float(match.group(1))
-    unit = (match.group(2) or "B").upper().replace("IB", "B")
-
-    multipliers = {
-        "B": 1,
-        "K": 1024,
-        "KB": 1024,
-        "M": 1024**2,
-        "MB": 1024**2,
-        "G": 1024**3,
-        "GB": 1024**3,
-        "T": 1024**4,
-        "TB": 1024**4,
-    }
-
-    return int(number * multipliers.get(unit, 1))
-
-
-def safe_slug(text: str) -> str:
-    text = clean_text(text).lower()
-    text = re.sub(r"[^a-z0-9]+", ".", text)
-    text = re.sub(r"\.+", ".", text).strip(".")
-    return text or "app"
 
 
 def fetch_json(url: str, retries: int = 3, timeout: int = 45) -> dict[str, Any] | list[Any]:
@@ -284,6 +325,29 @@ def source_name(source_json: dict[str, Any] | list[Any], fallback_url: str) -> s
     return host or path_name or fallback_url
 
 
+def get_source_size(app_data: dict[str, Any], version_data: dict[str, Any]) -> int:
+    """
+    أولوية الحجم:
+    1. حجم النسخة version.size إذا موجود بالسورس
+    2. حجم التطبيق app.size إذا موجود بالسورس
+    3. صفر
+
+    ماكو أي طلب لرابط IPA.
+    """
+
+    version_size = parse_size(first_value(version_data, VERSION_KEY_ALIASES["size"], None))
+
+    if version_size > 0:
+        return version_size
+
+    app_size = parse_size(first_value(app_data, APP_KEY_ALIASES["size"], None))
+
+    if app_size > 0:
+        return app_size
+
+    return 0
+
+
 def normalize_version(version_data: dict[str, Any], app_data: dict[str, Any]) -> dict[str, Any]:
     version = clean_text(
         first_value(
@@ -309,24 +373,16 @@ def normalize_version(version_data: dict[str, Any], app_data: dict[str, Any]) ->
         )
     ) or today()
 
-    size = parse_size(
-        first_value(
-            version_data,
-            VERSION_KEY_ALIASES["size"],
-            first_value(app_data, APP_KEY_ALIASES["size"], None),
-        )
-    )
+    size = get_source_size(app_data, version_data)
 
     output: dict[str, Any] = {
         "version": version,
         "date": date_value,
+        "size": size,
     }
 
     if download_url:
         output["downloadURL"] = download_url
-
-    if size is not None:
-        output["size"] = size
 
     min_os = clean_text(
         first_value(
@@ -361,6 +417,7 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
                 if version.get("downloadURL") or top_download_url:
                     if not version.get("downloadURL") and top_download_url:
                         version["downloadURL"] = top_download_url
+
                     versions.append(version)
 
     if not versions and top_download_url:
@@ -384,18 +441,12 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
     subtitle = trim_text(first_value(app, APP_KEY_ALIASES["subtitle"], src_name), 45)
     description = trim_text(first_value(app, APP_KEY_ALIASES["localizedDescription"], subtitle or name), 90)
     icon_url = normalize_url(first_value(app, APP_KEY_ALIASES["iconURL"], ""))
-    tint_color = clean_text(first_value(app, APP_KEY_ALIASES["tintColor"], "#000000")) or "#000000"
+    tint_color = normalize_tint_color(first_value(app, APP_KEY_ALIASES["tintColor"], "#000000"))
+    category = clean_text(first_value(app, APP_KEY_ALIASES["category"], ""))
 
-    lite_version: dict[str, Any] = {
-        "version": clean_text(latest.get("version")) or clean_text(first_value(app, APP_KEY_ALIASES["version"], "1.0")) or "1.0",
-        "date": clean_text(latest.get("date")) or clean_text(first_value(app, APP_KEY_ALIASES["versionDate"], today())) or today(),
-        "downloadURL": latest_download_url,
-    }
-
-    size = parse_size(latest.get("size") or first_value(app, APP_KEY_ALIASES["size"], None))
-
-    if size is not None:
-        lite_version["size"] = size
+    app_size = parse_size(first_value(app, APP_KEY_ALIASES["size"], None))
+    version_size = parse_size(latest.get("size"))
+    final_size = version_size if version_size > 0 else app_size
 
     output: dict[str, Any] = {
         "name": name,
@@ -404,8 +455,25 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
         "localizedDescription": description,
         "iconURL": icon_url,
         "tintColor": tint_color,
-        "versions": [lite_version],
+        "size": final_size,
+        "versions": [
+            {
+                "version": clean_text(latest.get("version")) or "1.0",
+                "date": clean_text(latest.get("date")) or today(),
+                "downloadURL": latest_download_url,
+                "size": final_size,
+            }
+        ],
     }
+
+    if category:
+        output["category"] = category
+
+    min_os = clean_text(first_value(app, APP_KEY_ALIASES["minOSVersion"], ""))
+
+    if min_os:
+        output["minOSVersion"] = min_os
+        output["versions"][0]["minOSVersion"] = min_os
 
     return output
 
@@ -462,6 +530,8 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
         "totalSkippedApps": 0,
         "totalOutputApps": 0,
         "bundleIdentifierRenamedApps": 0,
+        "appsWithSize": 0,
+        "appsWithoutSize": 0,
         "errors": [],
     }
 
@@ -511,13 +581,36 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
 
     renamed_count = make_bundle_identifiers_unique(all_apps)
 
+    apps_with_size = 0
+    apps_without_size = 0
+
+    for app in all_apps:
+        size = parse_size(app.get("size"))
+
+        if size > 0:
+            apps_with_size += 1
+        else:
+            apps_without_size += 1
+            app["size"] = 0
+
+        versions = app.get("versions")
+
+        if isinstance(versions, list) and versions and isinstance(versions[0], dict):
+            version_size = parse_size(versions[0].get("size"))
+
+            if version_size <= 0:
+                versions[0]["size"] = app["size"]
+
     all_apps.sort(key=app_sort_key)
 
     featured_apps: list[str] = []
+
     for app in all_apps:
         bundle = clean_text(app.get("bundleIdentifier"))
+
         if bundle and bundle not in featured_apps:
             featured_apps.append(bundle)
+
         if len(featured_apps) >= 20:
             break
 
@@ -527,6 +620,8 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
 
     report["totalOutputApps"] = len(all_apps)
     report["bundleIdentifierRenamedApps"] = renamed_count
+    report["appsWithSize"] = apps_with_size
+    report["appsWithoutSize"] = apps_without_size
 
     return output, report
 
@@ -557,6 +652,8 @@ def main() -> int:
     print(f"Apps: {len(data.get('apps', []))}")
     print(f"File size: {file_size_mb:.2f} MB")
     print(f"Renamed duplicate bundle identifiers: {report.get('bundleIdentifierRenamedApps', 0)}")
+    print(f"Apps with source size: {report.get('appsWithSize', 0)}")
+    print(f"Apps without source size: {report.get('appsWithoutSize', 0)}")
 
     if report.get("errors"):
         print("\nSome sources failed, but the merged source was still generated.", file=sys.stderr)
