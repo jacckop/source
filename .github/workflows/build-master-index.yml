@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -65,12 +67,14 @@ jobs:
                   bundles.append(bundle)
 
               app_size = app.get("size", 0)
+
               if isinstance(app_size, int) and app_size > 0:
                   app_size_ok += 1
               else:
                   app_size_zero += 1
 
               versions = app.get("versions", [])
+
               if isinstance(versions, list) and versions and isinstance(versions[0], dict):
                   version_size = versions[0].get("size", 0)
 
@@ -100,6 +104,81 @@ jobs:
               raise SystemExit("No apps generated")
           PY
 
+      - name: Check ipaomtk sizes
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("dist/kirastore-index.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+
+          apps = data.get("apps", [])
+
+          ipaomtk_apps = []
+          with_size = []
+          zero_size = []
+
+          for app in apps:
+              if not isinstance(app, dict):
+                  continue
+
+              text = json.dumps(app, ensure_ascii=False).lower()
+
+              if "ipaomtk" not in text:
+                  continue
+
+              versions = app.get("versions", [])
+              version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+
+              app_size = app.get("size", 0)
+              version_size = version.get("size", 0)
+
+              item = {
+                  "name": app.get("name"),
+                  "bundleIdentifier": app.get("bundleIdentifier"),
+                  "appSize": app_size,
+                  "versionSize": version_size,
+                  "downloadURL": version.get("downloadURL"),
+              }
+
+              ipaomtk_apps.append(item)
+
+              if isinstance(app_size, int) and app_size > 0 and isinstance(version_size, int) and version_size > 0:
+                  with_size.append(item)
+              else:
+                  zero_size.append(item)
+
+          print("ipaomtk apps:", len(ipaomtk_apps))
+          print("ipaomtk with size:", len(with_size))
+          print("ipaomtk zero/missing size:", len(zero_size))
+
+          print("")
+          print("First 30 ipaomtk zero-size apps:")
+          for item in zero_size[:30]:
+              print(
+                  item["name"],
+                  "| appSize:", item["appSize"],
+                  "| versionSize:", item["versionSize"],
+                  "| bundle:", item["bundleIdentifier"],
+              )
+
+          print("")
+          print("First 30 ipaomtk apps with size:")
+          for item in with_size[:30]:
+              print(
+                  item["name"],
+                  "| appSize:", item["appSize"],
+                  "| versionSize:", item["versionSize"],
+                  "| bundle:", item["bundleIdentifier"],
+              )
+          PY
+
+      - name: Show git changes
+        run: |
+          git status --short
+          git diff --stat dist/kirastore-index.json || true
+
       - name: Commit generated source
         run: |
           git config user.name "github-actions[bot]"
@@ -109,7 +188,10 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
-          else
-            git commit -m "chore: update KiraStore master index"
-            git push
+            exit 0
           fi
+
+          git commit -m "chore: update KiraStore master index"
+
+          git pull --rebase origin main
+          git push origin main
