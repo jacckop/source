@@ -7,12 +7,11 @@ import json
 import re
 import sys
 import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote, urlparse, urlsplit, urlunsplit
+from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 
@@ -50,34 +49,227 @@ MASTER_SOURCE: dict[str, Any] = {
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/6.0",
+    "User-Agent": "KiraStore-IndexBuilder/7.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
 
 APP_KEY_ALIASES = {
-    "name": ["name", "title", "appName"],
-    "bundleIdentifier": ["bundleIdentifier", "bundleID", "bundleId", "bundle", "identifier"],
-    "subtitle": ["subtitle", "shortDescription"],
-    "localizedDescription": ["localizedDescription", "description", "desc"],
-    "iconURL": ["iconURL", "iconUrl", "icon", "icon_url", "image", "imageURL", "imageUrl"],
-    "tintColor": ["tintColor", "tint"],
-    "category": ["category", "genre"],
-    "downloadURL": ["downloadURL", "downloadUrl", "download", "url", "ipa", "ipaURL", "ipaUrl"],
-    "version": ["version", "versionName", "latestVersion"],
-    "versionDate": ["versionDate", "date", "updatedDate", "updated", "lastUpdated"],
-    "size": ["size", "sizeBytes", "fileSize", "fileSizeBytes"],
-    "minOSVersion": ["minOSVersion", "minimumOSVersion", "minIOS", "minIOSVersion"],
+    "name": [
+        "name",
+        "title",
+        "appName",
+        "app_name",
+    ],
+    "bundleIdentifier": [
+        "bundleIdentifier",
+        "bundleID",
+        "bundleId",
+        "bundle",
+        "identifier",
+        "bundle_identifier",
+        "bundleid",
+        "package",
+        "packageName",
+    ],
+    "subtitle": [
+        "subtitle",
+        "shortDescription",
+        "short_description",
+        "caption",
+    ],
+    "localizedDescription": [
+        "localizedDescription",
+        "description",
+        "desc",
+        "fullDescription",
+        "full_description",
+        "changelog",
+    ],
+    "iconURL": [
+        "iconURL",
+        "iconUrl",
+        "icon",
+        "icon_url",
+        "image",
+        "imageURL",
+        "imageUrl",
+        "artworkURL",
+        "artworkUrl",
+        "thumbnail",
+    ],
+    "tintColor": [
+        "tintColor",
+        "tint",
+        "color",
+    ],
+    "category": [
+        "category",
+        "genre",
+        "type",
+    ],
+    "downloadURL": [
+        "downloadURL",
+        "downloadUrl",
+        "download_url",
+        "download",
+        "url",
+        "ipa",
+        "ipaURL",
+        "ipaUrl",
+        "ipa_url",
+        "file",
+        "fileURL",
+        "fileUrl",
+        "file_url",
+        "link",
+        "directLink",
+        "direct_link",
+    ],
+    "version": [
+        "version",
+        "versionName",
+        "version_name",
+        "latestVersion",
+        "latest_version",
+        "build",
+    ],
+    "versionDate": [
+        "versionDate",
+        "date",
+        "updatedDate",
+        "updated",
+        "lastUpdated",
+        "last_updated",
+        "created",
+        "createdAt",
+        "updated_at",
+    ],
+    "size": [
+        "size",
+        "Size",
+        "SIZE",
+        "sizeBytes",
+        "size_bytes",
+        "fileSize",
+        "filesize",
+        "file_size",
+        "fileSizeBytes",
+        "file_size_bytes",
+        "ipaSize",
+        "ipa_size",
+        "appSize",
+        "app_size",
+        "downloadSize",
+        "download_size",
+        "binarySize",
+        "binary_size",
+        "ipaFileSize",
+        "ipa_file_size",
+        "file_size_in_bytes",
+        "bytes",
+        "length",
+        "contentLength",
+        "content_length",
+    ],
+    "minOSVersion": [
+        "minOSVersion",
+        "minimumOSVersion",
+        "minimum_os_version",
+        "minIOS",
+        "minIOSVersion",
+        "min_ios_version",
+    ],
 }
 
 
 VERSION_KEY_ALIASES = {
-    "version": ["version", "versionName"],
-    "downloadURL": ["downloadURL", "downloadUrl", "download", "url", "ipa", "ipaURL", "ipaUrl"],
-    "date": ["date", "versionDate", "updatedDate", "updated", "lastUpdated"],
-    "size": ["size", "sizeBytes", "fileSize", "fileSizeBytes"],
-    "minOSVersion": ["minOSVersion", "minimumOSVersion", "minIOS", "minIOSVersion"],
+    "version": [
+        "version",
+        "versionName",
+        "version_name",
+        "build",
+    ],
+    "downloadURL": [
+        "downloadURL",
+        "downloadUrl",
+        "download_url",
+        "download",
+        "url",
+        "ipa",
+        "ipaURL",
+        "ipaUrl",
+        "ipa_url",
+        "file",
+        "fileURL",
+        "fileUrl",
+        "file_url",
+        "link",
+        "directLink",
+        "direct_link",
+    ],
+    "date": [
+        "date",
+        "versionDate",
+        "updatedDate",
+        "updated",
+        "lastUpdated",
+        "last_updated",
+        "created",
+        "createdAt",
+        "updated_at",
+    ],
+    "size": [
+        "size",
+        "Size",
+        "SIZE",
+        "sizeBytes",
+        "size_bytes",
+        "fileSize",
+        "filesize",
+        "file_size",
+        "fileSizeBytes",
+        "file_size_bytes",
+        "ipaSize",
+        "ipa_size",
+        "appSize",
+        "app_size",
+        "downloadSize",
+        "download_size",
+        "binarySize",
+        "binary_size",
+        "ipaFileSize",
+        "ipa_file_size",
+        "file_size_in_bytes",
+        "bytes",
+        "length",
+        "contentLength",
+        "content_length",
+    ],
+    "minOSVersion": [
+        "minOSVersion",
+        "minimumOSVersion",
+        "minimum_os_version",
+        "minIOS",
+        "minIOSVersion",
+        "min_ios_version",
+    ],
 }
+
+
+SIZE_CONTAINER_KEYS = [
+    "size",
+    "Size",
+    "SIZE",
+    "file",
+    "ipa",
+    "download",
+    "metadata",
+    "info",
+    "asset",
+    "binary",
+    "version",
+]
 
 
 def utc_now() -> str:
@@ -115,27 +307,6 @@ def normalize_url(value: Any) -> str:
     return clean_text(value)
 
 
-def safe_url_for_request(url: str) -> str:
-    """
-    يحوّل المسافات والرموز غير المرمزة داخل الرابط حتى urllib يقدر يفحص الحجم.
-    هذا لا يغيّر الرابط المحفوظ داخل JSON، فقط يستخدم للفحص.
-    """
-
-    url = normalize_url(url)
-
-    if not url:
-        return ""
-
-    try:
-        parts = urlsplit(url)
-        path = quote(parts.path, safe="/:%@+")
-        query = quote(parts.query, safe="=&:%@+/?")
-        fragment = quote(parts.fragment, safe="")
-        return urlunsplit((parts.scheme, parts.netloc, path, query, fragment))
-    except Exception:
-        return url.replace(" ", "%20")
-
-
 def safe_slug(text: str) -> str:
     text = clean_text(text).lower()
     text = re.sub(r"[^a-z0-9]+", ".", text)
@@ -157,14 +328,18 @@ def normalize_tint_color(value: Any) -> str:
 
 def parse_size(value: Any) -> int:
     """
-    يحوّل الحجم إلى بايت بصيغة رقم:
+    يحوّل الحجم إلى بايت.
+    يأخذ الحجم فقط إذا موجود بالسورس.
+    لا يفحص رابط IPA.
+    لا يخمّن.
+
+    يدعم:
     42344934
     "42344934"
     "42 MB"
-    "42.5 MB"
+    "42.5MB"
     "1.2 GB"
-
-    إذا الحجم غير موجود أو صفر يرجع 0.
+    "1024 KB"
     """
 
     if value is None or value == "":
@@ -179,7 +354,23 @@ def parse_size(value: Any) -> int:
     if isinstance(value, float):
         return int(value) if value > 0 else 0
 
+    if isinstance(value, dict):
+        for key in VERSION_KEY_ALIASES["size"] + APP_KEY_ALIASES["size"]:
+            if key in value:
+                parsed = parse_size(value.get(key))
+                if parsed > 0:
+                    return parsed
+        return 0
+
+    if isinstance(value, list):
+        for item in value:
+            parsed = parse_size(item)
+            if parsed > 0:
+                return parsed
+        return 0
+
     text = clean_text(value).replace(",", "")
+
     if not text:
         return 0
 
@@ -190,13 +381,23 @@ def parse_size(value: Any) -> int:
         except ValueError:
             return 0
 
-    match = re.search(r"([0-9]+(?:\.[0-9]+)?)\s*([KMGT]?I?B|[KMGT]|BYTES?)?", text, re.I)
+    patterns = [
+        r"([0-9]+(?:\.[0-9]+)?)\s*(BYTES?|B|KB|KIB|K|MB|MIB|M|GB|GIB|G|TB|TIB|T)",
+        r"([0-9]+(?:\.[0-9]+)?)",
+    ]
+
+    match = None
+    for pattern in patterns:
+        match = re.search(pattern, text, re.I)
+        if match:
+            break
 
     if not match:
         return 0
 
     number = float(match.group(1))
-    unit = (match.group(2) or "B").upper()
+    unit = match.group(2).upper() if len(match.groups()) >= 2 and match.group(2) else "B"
+
     unit = unit.replace("IB", "B")
 
     multipliers = {
@@ -215,6 +416,49 @@ def parse_size(value: Any) -> int:
 
     size = int(number * multipliers.get(unit, 1))
     return size if size > 0 else 0
+
+
+def deep_find_size(data: Any, depth: int = 0) -> int:
+    """
+    يبحث عن الحجم داخل أي مكان قريب من التطبيق أو النسخة.
+    هذا مهم لأن بعض السورسات تخلي الحجم داخل:
+    file.size
+    ipa.size
+    download.size
+    metadata.size
+    size.value
+    """
+
+    if depth > 4:
+        return 0
+
+    if isinstance(data, (int, float, str)):
+        return parse_size(data)
+
+    if isinstance(data, list):
+        for item in data:
+            parsed = deep_find_size(item, depth + 1)
+            if parsed > 0:
+                return parsed
+        return 0
+
+    if not isinstance(data, dict):
+        return 0
+
+    for key in VERSION_KEY_ALIASES["size"] + APP_KEY_ALIASES["size"]:
+        if key in data:
+            parsed = parse_size(data.get(key))
+            if parsed > 0:
+                return parsed
+
+    for key in SIZE_CONTAINER_KEYS:
+        nested = data.get(key)
+        if isinstance(nested, (dict, list)):
+            parsed = deep_find_size(nested, depth + 1)
+            if parsed > 0:
+                return parsed
+
+    return 0
 
 
 def remove_screenshot_content(value: Any) -> str:
@@ -300,67 +544,6 @@ def fetch_json(url: str, retries: int = 3, timeout: int = 45) -> dict[str, Any] 
     raise RuntimeError(f"failed to fetch {url}: {last_error}")
 
 
-def fetch_remote_size(url: str, timeout: int = 15) -> int:
-    """
-    يجيب الحجم الحقيقي من السيرفر إذا السورس كاتب الحجم صفر أو ما كاتبه.
-    هذا مو تخمين. يعتمد على:
-    - Content-Length
-    - Content-Range
-
-    إذا السيرفر ما يرجع حجم يرجع 0.
-    """
-
-    request_url = safe_url_for_request(url)
-
-    if not request_url.startswith("http://") and not request_url.startswith("https://"):
-        return 0
-
-    headers = {
-        "User-Agent": "KiraStore-SizeFetcher/6.0",
-        "Accept": "*/*",
-    }
-
-    try:
-        request = Request(request_url, headers=headers, method="HEAD")
-
-        with urlopen(request, timeout=timeout) as response:
-            length = response.headers.get("Content-Length")
-
-            if length and length.isdigit():
-                size = int(length)
-
-                if size > 0:
-                    return size
-    except Exception:
-        pass
-
-    try:
-        headers["Range"] = "bytes=0-0"
-        request = Request(request_url, headers=headers, method="GET")
-
-        with urlopen(request, timeout=timeout) as response:
-            content_range = response.headers.get("Content-Range", "")
-            match = re.search(r"/(\d+)$", content_range)
-
-            if match:
-                size = int(match.group(1))
-
-                if size > 0:
-                    return size
-
-            length = response.headers.get("Content-Length")
-
-            if length and length.isdigit():
-                size = int(length)
-
-                if size > 1:
-                    return size
-    except Exception:
-        pass
-
-    return 0
-
-
 def extract_apps(source_json: dict[str, Any] | list[Any]) -> list[dict[str, Any]]:
     if isinstance(source_json, list):
         return [item for item in source_json if isinstance(item, dict)]
@@ -404,15 +587,37 @@ def source_name(source_json: dict[str, Any] | list[Any], fallback_url: str) -> s
 
 
 def get_source_size(app_data: dict[str, Any], version_data: dict[str, Any]) -> int:
-    version_size = parse_size(first_value(version_data, VERSION_KEY_ALIASES["size"], None))
+    """
+    أولوية نقل الحجم:
+    1. من النسخة نفسها.
+    2. من التطبيق نفسه.
+    3. من أي حقل nested قريب مثل file.size أو ipa.size.
+    4. صفر.
+
+    لا يوجد أي فحص لرابط IPA.
+    """
+
+    version_direct = first_value(version_data, VERSION_KEY_ALIASES["size"], None)
+    version_size = parse_size(version_direct)
 
     if version_size > 0:
         return version_size
 
-    app_size = parse_size(first_value(app_data, APP_KEY_ALIASES["size"], None))
+    app_direct = first_value(app_data, APP_KEY_ALIASES["size"], None)
+    app_size = parse_size(app_direct)
 
     if app_size > 0:
         return app_size
+
+    version_deep = deep_find_size(version_data)
+
+    if version_deep > 0:
+        return version_deep
+
+    app_deep = deep_find_size(app_data)
+
+    if app_deep > 0:
+        return app_deep
 
     return 0
 
@@ -514,9 +719,12 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
     category = clean_text(first_value(app, APP_KEY_ALIASES["category"], ""))
     min_os = clean_text(first_value(app, APP_KEY_ALIASES["minOSVersion"], ""))
 
-    app_size = parse_size(first_value(app, APP_KEY_ALIASES["size"], None))
-    version_size = parse_size(latest.get("size"))
-    final_size = version_size if version_size > 0 else app_size
+    final_size = parse_size(latest.get("size"))
+
+    if final_size <= 0:
+        final_size = get_source_size(app, raw_versions[0] if isinstance(raw_versions, list) and raw_versions and isinstance(raw_versions[0], dict) else {})
+
+    latest["size"] = final_size
 
     output_version: dict[str, Any] = {
         "version": clean_text(latest.get("version")) or "1.0",
@@ -546,66 +754,6 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
         output["minOSVersion"] = min_os
 
     return output
-
-
-def fill_missing_sizes(apps: list[dict[str, Any]], max_workers: int = 40) -> int:
-    """
-    يملأ الحجوم الناقصة فقط:
-    - إذا الحجم من السورس موجود، ما يغيره.
-    - إذا الحجم 0، يفحص رابط IPA ويأخذ Content-Length.
-    - إذا السيرفر ما رجع حجم، يبقى 0.
-    """
-
-    targets: list[tuple[int, str]] = []
-
-    for index, app in enumerate(apps):
-        app_size = parse_size(app.get("size"))
-
-        versions = app.get("versions")
-        version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
-
-        version_size = parse_size(version.get("size")) if isinstance(version, dict) else 0
-        download_url = clean_text(version.get("downloadURL")) if isinstance(version, dict) else ""
-
-        if app_size <= 0 and version_size <= 0 and download_url:
-            targets.append((index, download_url))
-
-    if not targets:
-        return 0
-
-    print(f"Fetching real sizes for {len(targets)} apps with missing size...")
-
-    updated = 0
-
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {
-            executor.submit(fetch_remote_size, url): index
-            for index, url in targets
-        }
-
-        for future in as_completed(futures):
-            index = futures[future]
-
-            try:
-                size = future.result()
-            except Exception:
-                size = 0
-
-            if size <= 0:
-                continue
-
-            app = apps[index]
-            app["size"] = size
-
-            versions = app.get("versions")
-
-            if isinstance(versions, list) and versions and isinstance(versions[0], dict):
-                versions[0]["size"] = size
-
-            updated += 1
-
-    print(f"Real sizes updated: {updated}/{len(targets)}")
-    return updated
 
 
 def make_bundle_identifiers_unique(apps: list[dict[str, Any]]) -> int:
@@ -648,7 +796,7 @@ def app_sort_key(app: dict[str, Any]) -> tuple[str, str]:
     )
 
 
-def build_index(fill_sizes: bool = False) -> tuple[dict[str, Any], dict[str, Any]]:
+def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
     all_apps: list[dict[str, Any]] = []
 
     report: dict[str, Any] = {
@@ -660,11 +808,8 @@ def build_index(fill_sizes: bool = False) -> tuple[dict[str, Any], dict[str, Any
         "totalSkippedApps": 0,
         "totalOutputApps": 0,
         "bundleIdentifierRenamedApps": 0,
-        "appsWithSourceSize": 0,
-        "appsWithoutSourceSize": 0,
-        "remoteSizesUpdated": 0,
-        "appsWithFinalSize": 0,
-        "appsWithoutFinalSize": 0,
+        "appsWithSize": 0,
+        "appsWithoutSize": 0,
         "errors": [],
     }
 
@@ -675,6 +820,8 @@ def build_index(fill_sizes: bool = False) -> tuple[dict[str, Any], dict[str, Any
             "fetchedApps": 0,
             "normalizedApps": 0,
             "skippedApps": 0,
+            "withSize": 0,
+            "withoutSize": 0,
             "error": "",
         }
 
@@ -696,9 +843,11 @@ def build_index(fill_sizes: bool = False) -> tuple[dict[str, Any], dict[str, Any
                     continue
 
                 if parse_size(normalized.get("size")) > 0:
-                    report["appsWithSourceSize"] += 1
+                    source_report["withSize"] += 1
+                    report["appsWithSize"] += 1
                 else:
-                    report["appsWithoutSourceSize"] += 1
+                    source_report["withoutSize"] += 1
+                    report["appsWithoutSize"] += 1
 
                 all_apps.append(normalized)
                 source_report["normalizedApps"] += 1
@@ -706,7 +855,10 @@ def build_index(fill_sizes: bool = False) -> tuple[dict[str, Any], dict[str, Any
 
             print(
                 f"OK: {src_name} | fetched={source_report['fetchedApps']} "
-                f"normalized={source_report['normalizedApps']} skipped={source_report['skippedApps']}"
+                f"normalized={source_report['normalizedApps']} "
+                f"withSize={source_report['withSize']} "
+                f"withoutSize={source_report['withoutSize']} "
+                f"skipped={source_report['skippedApps']}"
             )
 
         except Exception as error:
@@ -719,28 +871,14 @@ def build_index(fill_sizes: bool = False) -> tuple[dict[str, Any], dict[str, Any
 
     renamed_count = make_bundle_identifiers_unique(all_apps)
 
-    if fill_sizes:
-        report["remoteSizesUpdated"] = fill_missing_sizes(all_apps)
-
-    apps_with_final_size = 0
-    apps_without_final_size = 0
-
     for app in all_apps:
         size = parse_size(app.get("size"))
-
-        if size > 0:
-            apps_with_final_size += 1
-        else:
-            apps_without_final_size += 1
-            app["size"] = 0
+        app["size"] = size
 
         versions = app.get("versions")
 
         if isinstance(versions, list) and versions and isinstance(versions[0], dict):
-            version_size = parse_size(versions[0].get("size"))
-
-            if version_size <= 0:
-                versions[0]["size"] = app["size"]
+            versions[0]["size"] = size
 
     all_apps.sort(key=app_sort_key)
 
@@ -761,8 +899,6 @@ def build_index(fill_sizes: bool = False) -> tuple[dict[str, Any], dict[str, Any
 
     report["totalOutputApps"] = len(all_apps)
     report["bundleIdentifierRenamedApps"] = renamed_count
-    report["appsWithFinalSize"] = apps_with_final_size
-    report["appsWithoutFinalSize"] = apps_without_final_size
 
     return output, report
 
@@ -771,18 +907,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build a lite merged KiraStore source.")
     parser.add_argument("--output", default="dist/kirastore-index.json", help="Output JSON path")
     parser.add_argument("--pretty", action="store_true", help="Pretty print JSON. This increases file size.")
-    parser.add_argument(
-        "--fill-missing-sizes",
-        action="store_true",
-        help="Fetch real IPA sizes when source size is missing or zero.",
-    )
 
     args = parser.parse_args()
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    data, report = build_index(fill_sizes=args.fill_missing_sizes)
+    data, report = build_index()
 
     if args.pretty:
         json_text = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
@@ -799,11 +930,8 @@ def main() -> int:
     print(f"Apps: {len(data.get('apps', []))}")
     print(f"File size: {file_size_mb:.2f} MB")
     print(f"Renamed duplicate bundle identifiers: {report.get('bundleIdentifierRenamedApps', 0)}")
-    print(f"Apps with source size: {report.get('appsWithSourceSize', 0)}")
-    print(f"Apps without source size: {report.get('appsWithoutSourceSize', 0)}")
-    print(f"Remote sizes updated: {report.get('remoteSizesUpdated', 0)}")
-    print(f"Apps with final size: {report.get('appsWithFinalSize', 0)}")
-    print(f"Apps without final size: {report.get('appsWithoutFinalSize', 0)}")
+    print(f"Apps with size: {report.get('appsWithSize', 0)}")
+    print(f"Apps without size: {report.get('appsWithoutSize', 0)}")
 
     if report.get("errors"):
         print("\nSome sources failed, but the merged source was still generated.", file=sys.stderr)
