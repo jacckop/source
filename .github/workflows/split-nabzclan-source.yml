@@ -1,0 +1,435 @@
+name: Split NabzClan Source
+
+on:
+  workflow_dispatch:
+  schedule:
+    # يفحص كل 15 دقيقة، لكن التنفيذ الحقيقي يصير كل 3 ساعات وربع
+    - cron: "*/15 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: split-nabzclan-source
+  cancel-in-progress: true
+
+jobs:
+  split:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout my repo
+        uses: actions/checkout@v4
+
+      - name: Download, split, categorize, and customize source
+        run: |
+          set -e
+
+          UPSTREAM_URL="https://apps.nabzclan.vip/repos/altstore.php"
+
+          FIRST_FILE="sidelix"
+          SECOND_FILE="nabzclan"
+
+          FIRST_SOURCE_URL="https://raw.githubusercontent.com/jacckop/source/main/sidelix"
+          SECOND_SOURCE_URL="https://raw.githubusercontent.com/jacckop/source/main/nabzclan"
+
+          SYNC_STATE_FILE=".github/split-nabzclan-last-sync"
+          SYNC_INTERVAL_SECONDS=$((195 * 60))
+
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            NOW=$(date +%s)
+
+            if [ -f "$SYNC_STATE_FILE" ]; then
+              LAST_SYNC=$(cat "$SYNC_STATE_FILE" || echo 0)
+            else
+              LAST_SYNC=0
+            fi
+
+            AGE=$((NOW - LAST_SYNC))
+
+            if [ "$AGE" -lt "$SYNC_INTERVAL_SECONDS" ]; then
+              echo "Not time yet. Last sync was $AGE seconds ago."
+              exit 0
+            fi
+          fi
+
+          curl -L --fail --retry 3 --retry-delay 5 \
+            --compressed \
+            -H "User-Agent: Mozilla/5.0" \
+            -H "Accept: application/json,text/plain,*/*" \
+            "$UPSTREAM_URL" \
+            -o upstream_source.json
+
+          test -s upstream_source.json
+
+          python3 - <<'PY'
+          import json
+          import copy
+          import re
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          UPSTREAM_FILE = Path("upstream_source.json")
+
+          FIRST_FILE = Path("sidelix")
+          SECOND_FILE = Path("nabzclan")
+
+          FIRST_SOURCE_URL = "https://raw.githubusercontent.com/jacckop/source/main/sidelix"
+          SECOND_SOURCE_URL = "https://raw.githubusercontent.com/jacckop/source/main/nabzclan"
+
+          data = json.loads(UPSTREAM_FILE.read_text(encoding="utf-8"))
+
+          if not isinstance(data, dict):
+              raise ValueError("Source must be a JSON object")
+
+          apps = data.get("apps", [])
+
+          if not isinstance(apps, list):
+              raise ValueError("apps must be a list")
+
+          EXACT_CATEGORY = {
+              # تواصل
+              "instagram": "تواصل",
+              "telegram": "تواصل",
+              "whatsapp": "تواصل",
+              "facebook": "تواصل",
+              "messenger": "تواصل",
+              "snapchat": "تواصل",
+              "discord": "تواصل",
+              "threads": "تواصل",
+              "tiktok": "تواصل",
+              "twitter": "تواصل",
+              "x": "تواصل",
+              "regram": "تواصل",
+              "beegram": "تواصل",
+              "locket": "تواصل",
+              "bigo": "تواصل",
+
+              # ترفيه
+              "youtube": "ترفيه",
+              "youtube music": "ترفيه",
+              "youtubemusic": "ترفيه",
+              "spotify": "ترفيه",
+              "netflix": "ترفيه",
+              "twitch": "ترفيه",
+              "shahid": "ترفيه",
+              "anghami": "ترفيه",
+              "deezer": "ترفيه",
+              "crunchyroll": "ترفيه",
+              "cinemana": "ترفيه",
+              "vodu": "ترفيه",
+              "hitv": "ترفيه",
+              "anime cloud": "ترفيه",
+              "anime slayer": "ترفيه",
+              "iptv": "ترفيه",
+              "yacine": "ترفيه",
+              "yacin": "ترفيه",
+              "buz tv": "ترفيه",
+              "rodjo": "ترفيه",
+              "moviebox": "ترفيه",
+
+              # أدوات
+              "capcut": "أدوات",
+              "picsart": "أدوات",
+              "remini": "أدوات",
+              "inshot": "أدوات",
+              "instashot": "أدوات",
+              "videostar": "أدوات",
+              "video star": "أدوات",
+              "nodevideo": "أدوات",
+              "lightroom": "أدوات",
+              "facetune": "أدوات",
+              "vsco": "أدوات",
+              "snapseed": "أدوات",
+              "photoshop": "أدوات",
+              "ps express": "أدوات",
+              "psexpress": "أدوات",
+              "scanner": "أدوات",
+              "pdf": "أدوات",
+              "vpn": "أدوات",
+              "esign": "أدوات",
+              "ksign": "أدوات",
+              "scarlet": "أدوات",
+              "gbox": "أدوات",
+              "trollinstaller": "أدوات",
+              "trollstore": "أدوات",
+              "filza": "أدوات",
+              "sideloadly": "أدوات",
+              "adguard": "أدوات",
+              "speedtest": "أدوات",
+              "browser": "أدوات",
+
+              # دراسة وذكاء اصطناعي
+              "chatgpt": "دراسة وذكاء اصطناعي",
+              "openai": "دراسة وذكاء اصطناعي",
+              "gemini": "دراسة وذكاء اصطناعي",
+              "claude": "دراسة وذكاء اصطناعي",
+              "copilot": "دراسة وذكاء اصطناعي",
+              "perplexity": "دراسة وذكاء اصطناعي",
+              "notion": "دراسة وذكاء اصطناعي",
+              "quizlet": "دراسة وذكاء اصطناعي",
+              "duolingo": "دراسة وذكاء اصطناعي",
+              "busuu": "دراسة وذكاء اصطناعي",
+              "mondly": "دراسة وذكاء اصطناعي",
+              "mimo": "دراسة وذكاء اصطناعي",
+              "tarteel": "دراسة وذكاء اصطناعي",
+              "headway": "دراسة وذكاء اصطناعي",
+              "dictionary": "دراسة وذكاء اصطناعي",
+              "translator": "دراسة وذكاء اصطناعي",
+
+              # ألعاب
+              "pubg": "ألعاب",
+              "minecraft": "ألعاب",
+              "roblox": "ألعاب",
+              "fortnite": "ألعاب",
+              "clash": "ألعاب",
+              "brawl": "ألعاب",
+              "asphalt": "ألعاب",
+              "genshin": "ألعاب",
+              "stumble": "ألعاب",
+              "gta": "ألعاب",
+              "rdr": "ألعاب",
+              "agar": "ألعاب",
+              "yalla ludo": "ألعاب",
+              "inside": "ألعاب",
+              "carx": "ألعاب",
+              "fifa": "ألعاب",
+              "efootball": "ألعاب",
+              "pes": "ألعاب",
+              "among us": "ألعاب",
+              "combat master": "ألعاب",
+              "call of duty": "ألعاب",
+              "cod": "ألعاب",
+              "candy crush": "ألعاب",
+              "block blast": "ألعاب",
+              "soccer": "ألعاب",
+              "zombie": "ألعاب",
+              "tower defense": "ألعاب",
+              "puzzle": "ألعاب",
+          }
+
+          SOCIAL_WORDS = [
+              "social", "chat", "message", "messages", "messaging", "dm", "followers",
+              "تواصل", "محادثة", "دردشة", "رسائل", "الخاص", "ستوري", "story",
+              "حسابات", "متابعين"
+          ]
+
+          ENTERTAINMENT_WORDS = [
+              "music", "movie", "movies", "cinema", "video", "videos", "player",
+              "stream", "streaming", "iptv", "anime", "tv", "media", "podcast",
+              "مسلسلات", "مسلسل", "افلام", "أفلام", "فيلم", "قنوات", "قناة",
+              "انمي", "أنمي", "مشاهدة", "ترفيه", "رياضة", "رياضية", "موسيقى",
+              "أغاني", "اغاني"
+          ]
+
+          TOOLS_WORDS = [
+              "vpn", "proxy", "browser", "file", "manager", "scanner", "scan",
+              "editor", "photo", "camera", "calculator", "cleaner", "speedtest",
+              "utility", "utilities", "tool", "tools", "zip", "unzip", "sign",
+              "installer", "download", "downloader", "password", "keyboard",
+              "translate", "maps", "weather", "notes", "documents", "pdf",
+              "storage", "backup", "wallpaper", "widget", "terminal", "ssh",
+              "server", "calendar", "draw", "captions", "أدوات", "توقيع",
+              "مثبت", "تثبيت", "تصميم", "صور", "فيديوهات", "مونتاج", "تحرير",
+              "ملفات", "تنزيل", "تحميل", "متصفح", "حاسبة", "مترجم"
+          ]
+
+          STUDY_AI_WORDS = [
+              "study", "student", "school", "college", "university", "learn",
+              "learning", "education", "educational", "homework", "math",
+              "dictionary", "course", "academy", "artificial intelligence",
+              "ai assistant", "ai chatbot", "ai meeting", "ai tutor",
+              "ذكاء", "اصطناعي", "دراسة", "تعلم", "تعليم", "مدرسة", "جامعة",
+              "واجب", "رياضيات", "قاموس"
+          ]
+
+          GAME_WORDS = [
+              "game", "games", "gaming", "racing", "chess", "puzzle", "simulator",
+              "survival", "battle", "royale", "pokemon", "mod menu", "fps", "pvp",
+              "لعبة", "اللعبة", "العاب", "ألعاب", "لاعب", "هاك", "مود",
+              "سباق", "قتال", "باتل", "محاكي"
+          ]
+
+          def normalize(text):
+              text = str(text).lower()
+              text = re.sub(r"https?://\S+", " ", text)
+              text = re.sub(r"[^a-z0-9\u0600-\u06FF]+", " ", text)
+              return f" {text} "
+
+          def has_word(text, word):
+              word = normalize(word).strip()
+              if not word:
+                  return False
+
+              if " " in word:
+                  return f" {word} " in text
+
+              return re.search(rf"(?<![a-z0-9]){re.escape(word)}(?![a-z0-9])", text) is not None
+
+          def has_any(text, words):
+              return any(has_word(text, word) for word in words)
+
+          def app_text(app):
+              keys = [
+                  "name",
+                  "bundleID",
+                  "bundleIdentifier",
+                  "identifier",
+                  "localizedDescription",
+                  "description",
+                  "subtitle",
+                  "category",
+                  "version"
+              ]
+
+              parts = []
+              for key in keys:
+                  value = app.get(key)
+                  if isinstance(value, str):
+                      parts.append(value)
+
+              return normalize(" ".join(parts))
+
+          def detect_category(app):
+              text = app_text(app)
+
+              for key, category in EXACT_CATEGORY.items():
+                  if has_word(text, key):
+                      return category
+
+              if has_any(text, GAME_WORDS):
+                  return "ألعاب"
+
+              if has_any(text, SOCIAL_WORDS):
+                  return "تواصل"
+
+              if has_any(text, STUDY_AI_WORDS):
+                  return "دراسة وذكاء اصطناعي"
+
+              if has_any(text, ENTERTAINMENT_WORDS):
+                  return "ترفيه"
+
+              if has_any(text, TOOLS_WORDS):
+                  return "أدوات"
+
+              return "أخرى"
+
+          def categorize_apps(apps_list):
+              output = []
+
+              for app in apps_list:
+                  if isinstance(app, dict):
+                      new_app = copy.deepcopy(app)
+                      new_app["category"] = detect_category(new_app)
+                      output.append(new_app)
+                  else:
+                      output.append(app)
+
+              return output
+
+          total_apps = len(apps)
+          middle = (total_apps + 1) // 2
+
+          first_apps = categorize_apps(apps[:middle])
+          second_apps = categorize_apps(apps[middle:])
+
+          def app_id(app):
+              if not isinstance(app, dict):
+                  return None
+
+              for key in [
+                  "bundleIdentifier",
+                  "bundleID",
+                  "identifier",
+                  "id"
+              ]:
+                  value = app.get(key)
+                  if isinstance(value, str) and value.strip():
+                      return value.strip()
+
+              return None
+
+          def fixed_featured_apps(original_featured, apps_list):
+              app_ids = set()
+
+              for app in apps_list:
+                  item_id = app_id(app)
+                  if item_id:
+                      app_ids.add(item_id)
+
+              if isinstance(original_featured, list):
+                  filtered = [
+                      item for item in original_featured
+                      if isinstance(item, str) and item in app_ids
+                  ]
+              else:
+                  filtered = []
+
+              if not filtered:
+                  for app in apps_list[:10]:
+                      item_id = app_id(app)
+                      if item_id:
+                          filtered.append(item_id)
+
+              return filtered
+
+          def build_source(apps_list, source_url, name, identifier):
+              output = copy.deepcopy(data)
+
+              output["updated_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+              output["name"] = name
+              output["identifier"] = identifier
+              output["sourceURL"] = source_url
+              output["apps"] = apps_list
+              output["featuredApps"] = fixed_featured_apps(data.get("featuredApps", []), apps_list)
+
+              if isinstance(output.get("META"), dict):
+                  output["META"]["repoName"] = name
+
+              return output
+
+          first_source = build_source(
+              first_apps,
+              FIRST_SOURCE_URL,
+              "Sidelix App Store",
+              "com.jacckop.source.sidelix"
+          )
+
+          second_source = build_source(
+              second_apps,
+              SECOND_SOURCE_URL,
+              "NabzClan App Store",
+              "com.jacckop.source.nabzclan"
+          )
+
+          FIRST_FILE.write_text(
+              json.dumps(first_source, ensure_ascii=False, indent=4),
+              encoding="utf-8"
+          )
+
+          SECOND_FILE.write_text(
+              json.dumps(second_source, ensure_ascii=False, indent=4),
+              encoding="utf-8"
+          )
+
+          print(f"Total apps: {total_apps}")
+          print(f"Sidelix apps: {len(first_apps)}")
+          print(f"NabzClan apps: {len(second_apps)}")
+          PY
+
+          date +%s > "$SYNC_STATE_FILE"
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- sidelix nabzclan .github/split-nabzclan-last-sync; then
+            echo "No changes found"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+            git add sidelix nabzclan .github/split-nabzclan-last-sync
+            git commit -m "Split and categorize NabzClan source"
+
+            git pull --rebase origin main
+            git push
+          fi
