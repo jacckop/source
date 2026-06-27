@@ -49,7 +49,7 @@ MASTER_SOURCE: dict[str, Any] = {
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/7.0",
+    "User-Agent": "KiraStore-IndexBuilder/8.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
@@ -257,21 +257,6 @@ VERSION_KEY_ALIASES = {
 }
 
 
-SIZE_CONTAINER_KEYS = [
-    "size",
-    "Size",
-    "SIZE",
-    "file",
-    "ipa",
-    "download",
-    "metadata",
-    "info",
-    "asset",
-    "binary",
-    "version",
-]
-
-
 def utc_now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -295,10 +280,23 @@ def clean_text(value: Any) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
+def normalize_key_name(key: Any) -> str:
+    return re.sub(r"[^a-z0-9]", "", str(key).lower())
+
+
 def first_value(data: dict[str, Any], aliases: list[str], default: Any = None) -> Any:
+    if not isinstance(data, dict):
+        return default
+
     for key in aliases:
         if key in data and data[key] not in (None, ""):
             return data[key]
+
+    wanted = {normalize_key_name(key) for key in aliases}
+
+    for key, value in data.items():
+        if normalize_key_name(key) in wanted and value not in (None, ""):
+            return value
 
     return default
 
@@ -327,21 +325,6 @@ def normalize_tint_color(value: Any) -> str:
 
 
 def parse_size(value: Any) -> int:
-    """
-    يحوّل الحجم إلى بايت.
-    يأخذ الحجم فقط إذا موجود بالسورس.
-    لا يفحص رابط IPA.
-    لا يخمّن.
-
-    يدعم:
-    42344934
-    "42344934"
-    "42 MB"
-    "42.5MB"
-    "1.2 GB"
-    "1024 KB"
-    """
-
     if value is None or value == "":
         return 0
 
@@ -360,6 +343,14 @@ def parse_size(value: Any) -> int:
                 parsed = parse_size(value.get(key))
                 if parsed > 0:
                     return parsed
+
+        for key, inner_value in value.items():
+            normalized = normalize_key_name(key)
+            if "size" in normalized or "bytes" in normalized or "length" in normalized:
+                parsed = parse_size(inner_value)
+                if parsed > 0:
+                    return parsed
+
         return 0
 
     if isinstance(value, list):
@@ -397,7 +388,6 @@ def parse_size(value: Any) -> int:
 
     number = float(match.group(1))
     unit = match.group(2).upper() if len(match.groups()) >= 2 and match.group(2) else "B"
-
     unit = unit.replace("IB", "B")
 
     multipliers = {
@@ -416,49 +406,6 @@ def parse_size(value: Any) -> int:
 
     size = int(number * multipliers.get(unit, 1))
     return size if size > 0 else 0
-
-
-def deep_find_size(data: Any, depth: int = 0) -> int:
-    """
-    يبحث عن الحجم داخل أي مكان قريب من التطبيق أو النسخة.
-    هذا مهم لأن بعض السورسات تخلي الحجم داخل:
-    file.size
-    ipa.size
-    download.size
-    metadata.size
-    size.value
-    """
-
-    if depth > 4:
-        return 0
-
-    if isinstance(data, (int, float, str)):
-        return parse_size(data)
-
-    if isinstance(data, list):
-        for item in data:
-            parsed = deep_find_size(item, depth + 1)
-            if parsed > 0:
-                return parsed
-        return 0
-
-    if not isinstance(data, dict):
-        return 0
-
-    for key in VERSION_KEY_ALIASES["size"] + APP_KEY_ALIASES["size"]:
-        if key in data:
-            parsed = parse_size(data.get(key))
-            if parsed > 0:
-                return parsed
-
-    for key in SIZE_CONTAINER_KEYS:
-        nested = data.get(key)
-        if isinstance(nested, (dict, list)):
-            parsed = deep_find_size(nested, depth + 1)
-            if parsed > 0:
-                return parsed
-
-    return 0
 
 
 def remove_screenshot_content(value: Any) -> str:
@@ -586,38 +533,52 @@ def source_name(source_json: dict[str, Any] | list[Any], fallback_url: str) -> s
     return host or path_name or fallback_url
 
 
+def extract_versions(raw_versions: Any) -> list[dict[str, Any]]:
+    if isinstance(raw_versions, list):
+        return [item for item in raw_versions if isinstance(item, dict)]
+
+    if isinstance(raw_versions, dict):
+        return [item for item in raw_versions.values() if isinstance(item, dict)]
+
+    return []
+
+
 def get_source_size(app_data: dict[str, Any], version_data: dict[str, Any]) -> int:
-    """
-    أولوية نقل الحجم:
-    1. من النسخة نفسها.
-    2. من التطبيق نفسه.
-    3. من أي حقل nested قريب مثل file.size أو ipa.size.
-    4. صفر.
-
-    لا يوجد أي فحص لرابط IPA.
-    """
-
-    version_direct = first_value(version_data, VERSION_KEY_ALIASES["size"], None)
-    version_size = parse_size(version_direct)
-
+    version_size = parse_size(first_value(version_data, VERSION_KEY_ALIASES["size"], None))
     if version_size > 0:
         return version_size
 
-    app_direct = first_value(app_data, APP_KEY_ALIASES["size"], None)
-    app_size = parse_size(app_direct)
-
+    app_size = parse_size(first_value(app_data, APP_KEY_ALIASES["size"], None))
     if app_size > 0:
         return app_size
 
-    version_deep = deep_find_size(version_data)
+    if isinstance(version_data, dict):
+        for key, value in version_data.items():
+            key_normalized = normalize_key_name(key)
 
-    if version_deep > 0:
-        return version_deep
+            if "size" in key_normalized or "filesize" in key_normalized or "bytes" in key_normalized or "length" in key_normalized:
+                parsed = parse_size(value)
+                if parsed > 0:
+                    return parsed
 
-    app_deep = deep_find_size(app_data)
+    if isinstance(app_data, dict):
+        for key, value in app_data.items():
+            key_normalized = normalize_key_name(key)
 
-    if app_deep > 0:
-        return app_deep
+            if "size" in key_normalized or "filesize" in key_normalized or "bytes" in key_normalized or "length" in key_normalized:
+                parsed = parse_size(value)
+                if parsed > 0:
+                    return parsed
+
+    versions = app_data.get("versions")
+    for item in extract_versions(versions):
+        for key, value in item.items():
+            key_normalized = normalize_key_name(key)
+
+            if "size" in key_normalized or "filesize" in key_normalized or "bytes" in key_normalized or "length" in key_normalized:
+                parsed = parse_size(value)
+                if parsed > 0:
+                    return parsed
 
     return 0
 
@@ -680,19 +641,18 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
 
     top_download_url = normalize_url(first_value(app, APP_KEY_ALIASES["downloadURL"], ""))
     raw_versions = app.get("versions")
+    raw_version_items = extract_versions(raw_versions)
 
     versions: list[dict[str, Any]] = []
 
-    if isinstance(raw_versions, list):
-        for item in raw_versions:
-            if isinstance(item, dict):
-                version = normalize_version(item, app)
+    for item in raw_version_items:
+        version = normalize_version(item, app)
 
-                if version.get("downloadURL") or top_download_url:
-                    if not version.get("downloadURL") and top_download_url:
-                        version["downloadURL"] = top_download_url
+        if version.get("downloadURL") or top_download_url:
+            if not version.get("downloadURL") and top_download_url:
+                version["downloadURL"] = top_download_url
 
-                    versions.append(version)
+            versions.append(version)
 
     if not versions and top_download_url:
         versions.append(normalize_version({}, app))
@@ -701,6 +661,8 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
         return None
 
     latest = versions[0]
+    raw_latest_version = raw_version_items[0] if raw_version_items else {}
+
     latest_download_url = normalize_url(latest.get("downloadURL")) or top_download_url
 
     if not latest_download_url:
@@ -719,10 +681,10 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
     category = clean_text(first_value(app, APP_KEY_ALIASES["category"], ""))
     min_os = clean_text(first_value(app, APP_KEY_ALIASES["minOSVersion"], ""))
 
-    final_size = parse_size(latest.get("size"))
+    final_size = get_source_size(app, raw_latest_version)
 
     if final_size <= 0:
-        final_size = get_source_size(app, raw_versions[0] if isinstance(raw_versions, list) and raw_versions and isinstance(raw_versions[0], dict) else {})
+        final_size = parse_size(latest.get("size"))
 
     latest["size"] = final_size
 
