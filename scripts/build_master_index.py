@@ -7,11 +7,12 @@ import json
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 
@@ -49,7 +50,7 @@ MASTER_SOURCE: dict[str, Any] = {
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/5.0",
+    "User-Agent": "KiraStore-IndexBuilder/6.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
@@ -114,6 +115,27 @@ def normalize_url(value: Any) -> str:
     return clean_text(value)
 
 
+def safe_url_for_request(url: str) -> str:
+    """
+    يحوّل المسافات والرموز غير المرمزة داخل الرابط حتى urllib يقدر يفحص الحجم.
+    هذا لا يغيّر الرابط المحفوظ داخل JSON، فقط يستخدم للفحص.
+    """
+
+    url = normalize_url(url)
+
+    if not url:
+        return ""
+
+    try:
+        parts = urlsplit(url)
+        path = quote(parts.path, safe="/:%@+")
+        query = quote(parts.query, safe="=&:%@+/?")
+        fragment = quote(parts.fragment, safe="")
+        return urlunsplit((parts.scheme, parts.netloc, path, query, fragment))
+    except Exception:
+        return url.replace(" ", "%20")
+
+
 def safe_slug(text: str) -> str:
     text = clean_text(text).lower()
     text = re.sub(r"[^a-z0-9]+", ".", text)
@@ -135,17 +157,14 @@ def normalize_tint_color(value: Any) -> str:
 
 def parse_size(value: Any) -> int:
     """
-    يأخذ الحجم فقط من قيمة موجودة داخل السورس.
-    لا يجلب أي شيء من رابط التحميل.
-    لا يخمّن.
-    إذا القيمة غير موجودة أو صفر يرجع 0.
-
-    يدعم:
+    يحوّل الحجم إلى بايت بصيغة رقم:
     42344934
     "42344934"
     "42 MB"
     "42.5 MB"
     "1.2 GB"
+
+    إذا الحجم غير موجود أو صفر يرجع 0.
     """
 
     if value is None or value == "":
@@ -204,7 +223,6 @@ def remove_screenshot_content(value: Any) -> str:
     if not text:
         return ""
 
-    # حذف روابط الصور داخل الوصف
     text = re.sub(
         r"https?://\S+\.(?:png|jpg|jpeg|webp|gif)(?:\?\S*)?",
         "",
@@ -212,7 +230,6 @@ def remove_screenshot_content(value: Any) -> str:
         flags=re.IGNORECASE,
     )
 
-    # حذف أي مقطع يذكر screenshots أو preview
     parts = re.split(r"(?<=[.!؟])\s+|\n+", text)
     cleaned_parts: list[str] = []
 
@@ -283,6 +300,67 @@ def fetch_json(url: str, retries: int = 3, timeout: int = 45) -> dict[str, Any] 
     raise RuntimeError(f"failed to fetch {url}: {last_error}")
 
 
+def fetch_remote_size(url: str, timeout: int = 15) -> int:
+    """
+    يجيب الحجم الحقيقي من السيرفر إذا السورس كاتب الحجم صفر أو ما كاتبه.
+    هذا مو تخمين. يعتمد على:
+    - Content-Length
+    - Content-Range
+
+    إذا السيرفر ما يرجع حجم يرجع 0.
+    """
+
+    request_url = safe_url_for_request(url)
+
+    if not request_url.startswith("http://") and not request_url.startswith("https://"):
+        return 0
+
+    headers = {
+        "User-Agent": "KiraStore-SizeFetcher/6.0",
+        "Accept": "*/*",
+    }
+
+    try:
+        request = Request(request_url, headers=headers, method="HEAD")
+
+        with urlopen(request, timeout=timeout) as response:
+            length = response.headers.get("Content-Length")
+
+            if length and length.isdigit():
+                size = int(length)
+
+                if size > 0:
+                    return size
+    except Exception:
+        pass
+
+    try:
+        headers["Range"] = "bytes=0-0"
+        request = Request(request_url, headers=headers, method="GET")
+
+        with urlopen(request, timeout=timeout) as response:
+            content_range = response.headers.get("Content-Range", "")
+            match = re.search(r"/(\d+)$", content_range)
+
+            if match:
+                size = int(match.group(1))
+
+                if size > 0:
+                    return size
+
+            length = response.headers.get("Content-Length")
+
+            if length and length.isdigit():
+                size = int(length)
+
+                if size > 1:
+                    return size
+    except Exception:
+        pass
+
+    return 0
+
+
 def extract_apps(source_json: dict[str, Any] | list[Any]) -> list[dict[str, Any]]:
     if isinstance(source_json, list):
         return [item for item in source_json if isinstance(item, dict)]
@@ -326,15 +404,6 @@ def source_name(source_json: dict[str, Any] | list[Any], fallback_url: str) -> s
 
 
 def get_source_size(app_data: dict[str, Any], version_data: dict[str, Any]) -> int:
-    """
-    أولوية الحجم:
-    1. حجم النسخة version.size إذا موجود بالسورس
-    2. حجم التطبيق app.size إذا موجود بالسورس
-    3. صفر
-
-    ماكو أي طلب لرابط IPA.
-    """
-
     version_size = parse_size(first_value(version_data, VERSION_KEY_ALIASES["size"], None))
 
     if version_size > 0:
@@ -443,10 +512,21 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
     icon_url = normalize_url(first_value(app, APP_KEY_ALIASES["iconURL"], ""))
     tint_color = normalize_tint_color(first_value(app, APP_KEY_ALIASES["tintColor"], "#000000"))
     category = clean_text(first_value(app, APP_KEY_ALIASES["category"], ""))
+    min_os = clean_text(first_value(app, APP_KEY_ALIASES["minOSVersion"], ""))
 
     app_size = parse_size(first_value(app, APP_KEY_ALIASES["size"], None))
     version_size = parse_size(latest.get("size"))
     final_size = version_size if version_size > 0 else app_size
+
+    output_version: dict[str, Any] = {
+        "version": clean_text(latest.get("version")) or "1.0",
+        "date": clean_text(latest.get("date")) or today(),
+        "downloadURL": latest_download_url,
+        "size": final_size,
+    }
+
+    if min_os:
+        output_version["minOSVersion"] = min_os
 
     output: dict[str, Any] = {
         "name": name,
@@ -456,26 +536,76 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
         "iconURL": icon_url,
         "tintColor": tint_color,
         "size": final_size,
-        "versions": [
-            {
-                "version": clean_text(latest.get("version")) or "1.0",
-                "date": clean_text(latest.get("date")) or today(),
-                "downloadURL": latest_download_url,
-                "size": final_size,
-            }
-        ],
+        "versions": [output_version],
     }
 
     if category:
         output["category"] = category
 
-    min_os = clean_text(first_value(app, APP_KEY_ALIASES["minOSVersion"], ""))
-
     if min_os:
         output["minOSVersion"] = min_os
-        output["versions"][0]["minOSVersion"] = min_os
 
     return output
+
+
+def fill_missing_sizes(apps: list[dict[str, Any]], max_workers: int = 40) -> int:
+    """
+    يملأ الحجوم الناقصة فقط:
+    - إذا الحجم من السورس موجود، ما يغيره.
+    - إذا الحجم 0، يفحص رابط IPA ويأخذ Content-Length.
+    - إذا السيرفر ما رجع حجم، يبقى 0.
+    """
+
+    targets: list[tuple[int, str]] = []
+
+    for index, app in enumerate(apps):
+        app_size = parse_size(app.get("size"))
+
+        versions = app.get("versions")
+        version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+
+        version_size = parse_size(version.get("size")) if isinstance(version, dict) else 0
+        download_url = clean_text(version.get("downloadURL")) if isinstance(version, dict) else ""
+
+        if app_size <= 0 and version_size <= 0 and download_url:
+            targets.append((index, download_url))
+
+    if not targets:
+        return 0
+
+    print(f"Fetching real sizes for {len(targets)} apps with missing size...")
+
+    updated = 0
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(fetch_remote_size, url): index
+            for index, url in targets
+        }
+
+        for future in as_completed(futures):
+            index = futures[future]
+
+            try:
+                size = future.result()
+            except Exception:
+                size = 0
+
+            if size <= 0:
+                continue
+
+            app = apps[index]
+            app["size"] = size
+
+            versions = app.get("versions")
+
+            if isinstance(versions, list) and versions and isinstance(versions[0], dict):
+                versions[0]["size"] = size
+
+            updated += 1
+
+    print(f"Real sizes updated: {updated}/{len(targets)}")
+    return updated
 
 
 def make_bundle_identifiers_unique(apps: list[dict[str, Any]]) -> int:
@@ -518,7 +648,7 @@ def app_sort_key(app: dict[str, Any]) -> tuple[str, str]:
     )
 
 
-def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
+def build_index(fill_sizes: bool = False) -> tuple[dict[str, Any], dict[str, Any]]:
     all_apps: list[dict[str, Any]] = []
 
     report: dict[str, Any] = {
@@ -530,8 +660,11 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
         "totalSkippedApps": 0,
         "totalOutputApps": 0,
         "bundleIdentifierRenamedApps": 0,
-        "appsWithSize": 0,
-        "appsWithoutSize": 0,
+        "appsWithSourceSize": 0,
+        "appsWithoutSourceSize": 0,
+        "remoteSizesUpdated": 0,
+        "appsWithFinalSize": 0,
+        "appsWithoutFinalSize": 0,
         "errors": [],
     }
 
@@ -562,6 +695,11 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
                     report["totalSkippedApps"] += 1
                     continue
 
+                if parse_size(normalized.get("size")) > 0:
+                    report["appsWithSourceSize"] += 1
+                else:
+                    report["appsWithoutSourceSize"] += 1
+
                 all_apps.append(normalized)
                 source_report["normalizedApps"] += 1
                 report["totalNormalizedApps"] += 1
@@ -581,16 +719,19 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
 
     renamed_count = make_bundle_identifiers_unique(all_apps)
 
-    apps_with_size = 0
-    apps_without_size = 0
+    if fill_sizes:
+        report["remoteSizesUpdated"] = fill_missing_sizes(all_apps)
+
+    apps_with_final_size = 0
+    apps_without_final_size = 0
 
     for app in all_apps:
         size = parse_size(app.get("size"))
 
         if size > 0:
-            apps_with_size += 1
+            apps_with_final_size += 1
         else:
-            apps_without_size += 1
+            apps_without_final_size += 1
             app["size"] = 0
 
         versions = app.get("versions")
@@ -620,8 +761,8 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
 
     report["totalOutputApps"] = len(all_apps)
     report["bundleIdentifierRenamedApps"] = renamed_count
-    report["appsWithSize"] = apps_with_size
-    report["appsWithoutSize"] = apps_without_size
+    report["appsWithFinalSize"] = apps_with_final_size
+    report["appsWithoutFinalSize"] = apps_without_final_size
 
     return output, report
 
@@ -630,12 +771,18 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build a lite merged KiraStore source.")
     parser.add_argument("--output", default="dist/kirastore-index.json", help="Output JSON path")
     parser.add_argument("--pretty", action="store_true", help="Pretty print JSON. This increases file size.")
+    parser.add_argument(
+        "--fill-missing-sizes",
+        action="store_true",
+        help="Fetch real IPA sizes when source size is missing or zero.",
+    )
+
     args = parser.parse_args()
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    data, report = build_index()
+    data, report = build_index(fill_sizes=args.fill_missing_sizes)
 
     if args.pretty:
         json_text = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
@@ -652,8 +799,11 @@ def main() -> int:
     print(f"Apps: {len(data.get('apps', []))}")
     print(f"File size: {file_size_mb:.2f} MB")
     print(f"Renamed duplicate bundle identifiers: {report.get('bundleIdentifierRenamedApps', 0)}")
-    print(f"Apps with source size: {report.get('appsWithSize', 0)}")
-    print(f"Apps without source size: {report.get('appsWithoutSize', 0)}")
+    print(f"Apps with source size: {report.get('appsWithSourceSize', 0)}")
+    print(f"Apps without source size: {report.get('appsWithoutSourceSize', 0)}")
+    print(f"Remote sizes updated: {report.get('remoteSizesUpdated', 0)}")
+    print(f"Apps with final size: {report.get('appsWithFinalSize', 0)}")
+    print(f"Apps without final size: {report.get('appsWithoutFinalSize', 0)}")
 
     if report.get("errors"):
         print("\nSome sources failed, but the merged source was still generated.", file=sys.stderr)
