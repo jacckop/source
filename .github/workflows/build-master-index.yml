@@ -1,0 +1,63 @@
+name: Build KiraStore Master Index
+
+on:
+  workflow_dispatch:
+  schedule:
+    # يحدث الملف كل 6 ساعات. تقدر تغيّرها أو تحذفها.
+    - cron: "0 */6 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/build_master_index.py"
+      - ".github/workflows/build-master-index.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-kirastore-master-index
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build merged source without deleting duplicates
+        run: |
+          python scripts/build_master_index.py \
+            --output dist/kirastore-index.json
+
+      - name: Validate JSON and print count
+        run: |
+          python -m json.tool dist/kirastore-index.json > /tmp/kirastore-index.check.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('dist/kirastore-index.json').read_text(encoding='utf-8'))
+          print('KiraStore apps:', len(data.get('apps', [])))
+          bundles = [app.get('bundleIdentifier') for app in data.get('apps', []) if isinstance(app, dict)]
+          print('Unique bundle IDs:', len(set(bundles)), '/', len(bundles))
+          print('KiraStore source:', 'dist/kirastore-index.json')
+          PY
+
+      - name: Commit generated source
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dist/kirastore-index.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update KiraStore master index"
+            git push
+          fi
