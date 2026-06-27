@@ -988,6 +988,29 @@
             "category": "أدوات"
         },
         {
+            "name": "Free Streaming 2",
+            "bundleIdentifier": "DELvEK.NET",
+            "developerName": "iKiraPlus",
+            "version": "4.0.1",
+            "versionDate": "2026-06-23",
+            "versionDescription": "•𝐢𝐏𝐇𝐎𝐍𝐄+𝐢𝐏𝐀𝐃 •𝐍𝐎 𝐀𝐃𝐒 •﹩ғʀᴇᴇ •Netflix •AppleTV •PrimeVideo •Disney+ •Hulu •Paramount+ •Max •No Account Needed •Languages: FR/EN/SP/PT",
+            "downloadURL": "https://st76471.ispot.cc/ipa/FreeStreaming_v4.0.0_%5BDELvEK%5D.ipa",
+            "iconURL": "https://delvek.net/img/delvek1.gif",
+            "localizedDescription": "•𝐢𝐏𝐇𝐎𝐍𝐄+𝐢𝐏𝐀𝐃 •𝐍𝐎 𝐀𝐃𝐒 •﹩ғʀᴇᴇ •Netflix •AppleTV •PrimeVideo •Disney+ •Hulu •Paramount+ •Max •No Account Needed •Languages: FR/EN/SP/PT",
+            "size": 71903000,
+            "featured": true,
+            "screenshotURLs": [
+                "https://delvek.net/img/!/delvek.gif",
+                "https://delvek.net/img/!/delvek1.jpg",
+                "https://delvek.net/img/!/delvek2.jpg",
+                "https://delvek.net/img/!/delvek4.jpg",
+                "https://delvek.net/img/!/delvek5.png",
+                "https://delvek.net/img/!/delvek6.png"
+            ],
+            "tintColor": "0,255,0",
+            "category": "ترفيه"
+        },
+        {
             "name": "3D Scanner App",
             "bundleIdentifier": "com.3dscanner.sunteame",
             "developerName": "iKiraPlus",
