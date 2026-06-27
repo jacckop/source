@@ -72,14 +72,14 @@ jobs:
 
               versions = app.get("versions", [])
               if isinstance(versions, list) and versions and isinstance(versions[0], dict):
-                  vsize = versions[0].get("size", 0)
+                  version_size = versions[0].get("size", 0)
 
-                  if isinstance(vsize, int) and vsize > 0:
+                  if isinstance(version_size, int) and version_size > 0:
                       version_size_ok += 1
                   else:
                       version_size_zero += 1
 
-                  if app_size != vsize:
+                  if app_size != version_size:
                       mismatch += 1
 
           size_mb = output_path.stat().st_size / 1024 / 1024
