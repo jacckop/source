@@ -31,13 +31,15 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Build KiraStore lite master source
+      - name: Build KiraStore master source
         run: |
-          python scripts/build_master_index.py --output dist/kirastore-index.json
+          python scripts/build_master_index.py \
+            --output dist/kirastore-index.json
 
       - name: Validate generated JSON
         run: |
           python -m json.tool dist/kirastore-index.json > /tmp/kirastore-index.check.json
+
           python - <<'PY'
           import json
           from pathlib import Path
@@ -46,22 +48,60 @@ jobs:
           data = json.loads(output_path.read_text(encoding="utf-8"))
 
           apps = data.get("apps", [])
-          bundles = [app.get("bundleIdentifier") for app in apps if isinstance(app, dict)]
+          bundles = []
+          apps_with_size = 0
+          apps_without_size = 0
+          versions_with_size = 0
+          versions_without_size = 0
+
+          for app in apps:
+              if not isinstance(app, dict):
+                  continue
+
+              bundle = app.get("bundleIdentifier")
+              if bundle:
+                  bundles.append(bundle)
+
+              app_size = app.get("size", 0)
+              if isinstance(app_size, int) and app_size > 0:
+                  apps_with_size += 1
+              else:
+                  apps_without_size += 1
+
+              versions = app.get("versions", [])
+              if isinstance(versions, list) and versions:
+                  version = versions[0]
+                  if isinstance(version, dict):
+                      version_size = version.get("size", 0)
+                      if isinstance(version_size, int) and version_size > 0:
+                          versions_with_size += 1
+                      else:
+                          versions_without_size += 1
+
           size_mb = output_path.stat().st_size / 1024 / 1024
 
           print("Apps:", len(apps))
           print("Unique bundle identifiers:", len(set(bundles)), "/", len(bundles))
+          print("Apps with source size:", apps_with_size)
+          print("Apps without source size:", apps_without_size)
+          print("Versions with source size:", versions_with_size)
+          print("Versions without source size:", versions_without_size)
           print("File size:", round(size_mb, 2), "MB")
 
           if len(set(bundles)) != len(bundles):
               raise SystemExit("Duplicate bundle identifiers still exist")
+
+          if not apps:
+              raise SystemExit("No apps generated")
           PY
 
       - name: Commit generated source
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add dist/kirastore-index.json
+
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
