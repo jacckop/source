@@ -34,8 +34,7 @@ jobs:
       - name: Build KiraStore master source
         run: |
           python scripts/build_master_index.py \
-            --output dist/kirastore-index.json \
-            --fill-missing-sizes
+            --output dist/kirastore-index.json
 
       - name: Validate generated JSON
         run: |
@@ -50,10 +49,12 @@ jobs:
 
           apps = data.get("apps", [])
           bundles = []
-          apps_with_size = 0
-          apps_without_size = 0
-          versions_with_size = 0
-          versions_without_size = 0
+
+          app_size_ok = 0
+          app_size_zero = 0
+          version_size_ok = 0
+          version_size_zero = 0
+          mismatch = 0
 
           for app in apps:
               if not isinstance(app, dict):
@@ -65,28 +66,31 @@ jobs:
 
               app_size = app.get("size", 0)
               if isinstance(app_size, int) and app_size > 0:
-                  apps_with_size += 1
+                  app_size_ok += 1
               else:
-                  apps_without_size += 1
+                  app_size_zero += 1
 
               versions = app.get("versions", [])
-              if isinstance(versions, list) and versions:
-                  version = versions[0]
-                  if isinstance(version, dict):
-                      version_size = version.get("size", 0)
-                      if isinstance(version_size, int) and version_size > 0:
-                          versions_with_size += 1
-                      else:
-                          versions_without_size += 1
+              if isinstance(versions, list) and versions and isinstance(versions[0], dict):
+                  vsize = versions[0].get("size", 0)
+
+                  if isinstance(vsize, int) and vsize > 0:
+                      version_size_ok += 1
+                  else:
+                      version_size_zero += 1
+
+                  if app_size != vsize:
+                      mismatch += 1
 
           size_mb = output_path.stat().st_size / 1024 / 1024
 
           print("Apps:", len(apps))
           print("Unique bundle identifiers:", len(set(bundles)), "/", len(bundles))
-          print("Apps with size:", apps_with_size)
-          print("Apps without size:", apps_without_size)
-          print("Versions with size:", versions_with_size)
-          print("Versions without size:", versions_without_size)
+          print("Top-level app size > 0:", app_size_ok)
+          print("Top-level app size = 0:", app_size_zero)
+          print("Version size > 0:", version_size_ok)
+          print("Version size = 0:", version_size_zero)
+          print("App size / version size mismatch:", mismatch)
           print("File size:", round(size_mb, 2), "MB")
 
           if len(set(bundles)) != len(bundles):
