@@ -1,4 +1,4 @@
-name: Split NabzClan Source - AltStore Compatible
+name: Merge NabzClan Into Sidelix
 
 on:
   workflow_dispatch:
@@ -10,30 +10,27 @@ permissions:
   contents: write
 
 concurrency:
-  group: split-nabzclan-source
+  group: merge-nabzclan-into-sidelix
   cancel-in-progress: true
 
 jobs:
-  split:
+  merge:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout my repo
         uses: actions/checkout@v4
 
-      - name: Download, normalize, split, and customize source
+      - name: Download, normalize, and write all apps to sidelix
         run: |
           set -e
 
           UPSTREAM_URL="https://apps.nabzclan.vip/repos/altstore.php"
 
-          FIRST_FILE="sidelix"
-          SECOND_FILE="nabzclan"
+          TARGET_FILE="sidelix"
+          TARGET_SOURCE_URL="https://raw.githubusercontent.com/jacckop/source/main/sidelix"
 
-          FIRST_SOURCE_URL="https://raw.githubusercontent.com/jacckop/source/main/sidelix"
-          SECOND_SOURCE_URL="https://raw.githubusercontent.com/jacckop/source/main/nabzclan"
-
-          SYNC_STATE_FILE=".github/split-nabzclan-last-sync"
+          SYNC_STATE_FILE=".github/sidelix-last-sync"
           SYNC_INTERVAL_SECONDS=$((195 * 60))
 
           if [ "${{ github.event_name }}" = "schedule" ]; then
@@ -69,13 +66,9 @@ jobs:
           from pathlib import Path
 
           UPSTREAM_FILE = Path("upstream_source.json")
+          TARGET_FILE = Path("sidelix")
 
-          FIRST_FILE = Path("sidelix")
-          SECOND_FILE = Path("nabzclan")
-
-          FIRST_SOURCE_URL = "https://raw.githubusercontent.com/jacckop/source/main/sidelix"
-          SECOND_SOURCE_URL = "https://raw.githubusercontent.com/jacckop/source/main/nabzclan"
-
+          TARGET_SOURCE_URL = "https://raw.githubusercontent.com/jacckop/source/main/sidelix"
           DEVELOPER_NAME = "iKiraPlus"
 
           data = json.loads(UPSTREAM_FILE.read_text(encoding="utf-8"))
@@ -207,6 +200,17 @@ jobs:
               "puzzle": "games",
           }
 
+          VALID_CATEGORIES = {
+              "developer",
+              "entertainment",
+              "games",
+              "lifestyle",
+              "other",
+              "photo-video",
+              "social",
+              "utilities"
+          }
+
           SOCIAL_WORDS = [
               "social", "chat", "message", "messages", "messaging", "dm", "followers",
               "تواصل", "محادثة", "دردشة", "رسائل", "الخاص", "ستوري", "story",
@@ -253,17 +257,6 @@ jobs:
               "لعبة", "اللعبة", "العاب", "ألعاب", "لاعب", "هاك", "مود",
               "سباق", "قتال", "باتل", "محاكي"
           ]
-
-          VALID_CATEGORIES = {
-              "developer",
-              "entertainment",
-              "games",
-              "lifestyle",
-              "other",
-              "photo-video",
-              "social",
-              "utilities"
-          }
 
           def normalize_text(text):
               text = str(text).lower()
@@ -386,7 +379,7 @@ jobs:
                       return value.strip()
               return clean_string(data.get("iconURL"), "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg")
 
-          def normalize_app(app, index, global_seen_bundle_ids):
+          def normalize_app(app, index, seen_bundle_ids):
               if not isinstance(app, dict):
                   return None
 
@@ -396,11 +389,11 @@ jobs:
               base_bundle_id = bundle_id
 
               counter = 2
-              while bundle_id in global_seen_bundle_ids:
+              while bundle_id in seen_bundle_ids:
                   bundle_id = f"{base_bundle_id}.{counter}"
                   counter += 1
 
-              global_seen_bundle_ids.add(bundle_id)
+              seen_bundle_ids.add(bundle_id)
 
               version = clean_string(app.get("version"), "1.0")
 
@@ -447,7 +440,6 @@ jobs:
                   "patreon": []
               }
 
-              # نخلي الحقول المختصرة أيضًا للتوافق مع برامج أخرى
               normalized["version"] = version
               normalized["versionDate"] = date
               normalized["downloadURL"] = download_url
@@ -455,26 +447,13 @@ jobs:
 
               return normalized
 
-          def normalize_apps(apps_list, start_index, global_seen_bundle_ids):
-              output = []
+          seen_bundle_ids = set()
+          normalized_apps = []
 
-              for offset, app in enumerate(apps_list):
-                  index = start_index + offset
-                  normalized = normalize_app(app, index, global_seen_bundle_ids)
-
-                  if normalized:
-                      output.append(normalized)
-
-              return output
-
-          total_apps = len(apps)
-          middle = (total_apps + 1) // 2
-
-          # مهم: هذا يمنع تكرار الباندل بين sideload و nabzclan معًا
-          global_seen_bundle_ids = set()
-
-          first_apps = normalize_apps(apps[:middle], 0, global_seen_bundle_ids)
-          second_apps = normalize_apps(apps[middle:], middle, global_seen_bundle_ids)
+          for index, app in enumerate(apps):
+              normalized = normalize_app(app, index, seen_bundle_ids)
+              if normalized:
+                  normalized_apps.append(normalized)
 
           def fixed_featured_apps(apps_list):
               featured = []
@@ -486,80 +465,55 @@ jobs:
 
               return featured
 
-          def build_source(apps_list, source_url, name, identifier):
-              output = {
-                  "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                  "name": name,
-                  "identifier": identifier,
-                  "sourceURL": source_url,
-                  "iconURL": clean_string(data.get("iconURL"), "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg"),
-                  "website": clean_string(data.get("website"), "https://appstore.sidelix.vip/"),
-                  "ipawebsite": clean_string(data.get("ipawebsite"), "https://appstore.sidelix.vip/"),
-                  "apiVersion": clean_string(data.get("apiVersion"), "v1"),
-                  "subtitle": clean_string(data.get("subtitle"), "Welcome to the repository"),
-                  "description": clean_string(data.get("description"), "Welcome to the repository"),
-                  "headerURL": clean_string(data.get("headerURL"), clean_string(data.get("iconURL"), "")),
-                  "tintColor": clean_string(data.get("tintColor"), "#F54F32"),
-                  "META": {
-                      "repoName": name,
-                      "repoIcon": clean_string(data.get("iconURL"), "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg")
-                  },
-                  "featuredApps": fixed_featured_apps(apps_list),
-                  "apps": apps_list,
-                  "news": data.get("news", [])
-              }
+          output = {
+              "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "name": "Sidelix App Store",
+              "identifier": "com.jacckop.source.sidelix",
+              "sourceURL": TARGET_SOURCE_URL,
+              "iconURL": clean_string(data.get("iconURL"), "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg"),
+              "website": clean_string(data.get("website"), "https://appstore.sidelix.vip/"),
+              "ipawebsite": clean_string(data.get("ipawebsite"), "https://appstore.sidelix.vip/"),
+              "apiVersion": clean_string(data.get("apiVersion"), "v1"),
+              "subtitle": clean_string(data.get("subtitle"), "Welcome to the repository"),
+              "description": clean_string(data.get("description"), "Welcome to the repository"),
+              "headerURL": clean_string(data.get("headerURL"), clean_string(data.get("iconURL"), "")),
+              "tintColor": clean_string(data.get("tintColor"), "#F54F32"),
+              "META": {
+                  "repoName": "Sidelix App Store",
+                  "repoIcon": clean_string(data.get("iconURL"), "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg")
+              },
+              "featuredApps": fixed_featured_apps(normalized_apps),
+              "apps": normalized_apps,
+              "news": data.get("news", [])
+          }
 
-              return output
-
-          first_source = build_source(
-              first_apps,
-              FIRST_SOURCE_URL,
-              "Sidelix App Store",
-              "com.jacckop.source.sidelix"
-          )
-
-          second_source = build_source(
-              second_apps,
-              SECOND_SOURCE_URL,
-              "NabzClan App Store",
-              "com.jacckop.source.nabzclan"
-          )
-
-          FIRST_FILE.write_text(
-              json.dumps(first_source, ensure_ascii=False, indent=4),
+          TARGET_FILE.write_text(
+              json.dumps(output, ensure_ascii=False, indent=4),
               encoding="utf-8"
           )
 
-          SECOND_FILE.write_text(
-              json.dumps(second_source, ensure_ascii=False, indent=4),
-              encoding="utf-8"
-          )
-
-          print(f"Total apps: {total_apps}")
-          print(f"Sidelix apps: {len(first_apps)}")
-          print(f"NabzClan apps: {len(second_apps)}")
-          print(f"Unique bundle IDs across both sources: {len(global_seen_bundle_ids)}")
-          print(f"Sidelix sourceURL: {FIRST_SOURCE_URL}")
-          print(f"NabzClan sourceURL: {SECOND_SOURCE_URL}")
+          print(f"Total upstream apps: {len(apps)}")
+          print(f"Total sidelix apps written: {len(normalized_apps)}")
+          print(f"Unique bundle IDs: {len(seen_bundle_ids)}")
+          print(f"Source URL: {TARGET_SOURCE_URL}")
           PY
 
           python3 -m json.tool sidelix > /dev/null
-          python3 -m json.tool nabzclan > /dev/null
 
-          echo "Both sidelix and nabzclan are valid JSON"
+          echo "sidelix is valid JSON"
 
           date +%s > "$SYNC_STATE_FILE"
 
       - name: Commit and push if changed
         run: |
-          if git diff --quiet -- sidelix nabzclan .github/split-nabzclan-last-sync; then
+          if git diff --quiet -- sidelix .github/sidelix-last-sync; then
             echo "No changes found"
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-            git add sidelix nabzclan .github/split-nabzclan-last-sync
-            git commit -m "Split NabzClan source into compatible repos"
+            git add sidelix .github/sidelix-last-sync
+            git commit -m "Merge all NabzClan apps into Sidelix"
 
             git pull --rebase origin main
             git push
