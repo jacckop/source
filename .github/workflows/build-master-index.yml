@@ -42,10 +42,12 @@ jobs:
           import json
           from pathlib import Path
 
-          data = json.loads(Path("dist/kirastore-index.json").read_text(encoding="utf-8"))
+          output_path = Path("dist/kirastore-index.json")
+          data = json.loads(output_path.read_text(encoding="utf-8"))
+
           apps = data.get("apps", [])
           bundles = [app.get("bundleIdentifier") for app in apps if isinstance(app, dict)]
-          size_mb = Path("dist/kirastore-index.json")..stat().st_size / 1024 / 1024
+          size_mb = output_path.stat().st_size / 1024 / 1024
 
           print("Apps:", len(apps))
           print("Unique bundle identifiers:", len(set(bundles)), "/", len(bundles))
