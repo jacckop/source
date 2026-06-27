@@ -1,4 +1,4 @@
-name: Split NabzClan Source
+name: Split NabzClan Source - AltStore Compatible
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
       - name: Checkout my repo
         uses: actions/checkout@v4
 
-      - name: Download, split, categorize, and customize source
+      - name: Download, normalize, split, and customize source
         run: |
           set -e
 
@@ -77,6 +77,8 @@ jobs:
           FIRST_SOURCE_URL = "https://raw.githubusercontent.com/jacckop/source/main/sidelix"
           SECOND_SOURCE_URL = "https://raw.githubusercontent.com/jacckop/source/main/nabzclan"
 
+          DEVELOPER_NAME = "iKiraPlus"
+
           data = json.loads(UPSTREAM_FILE.read_text(encoding="utf-8"))
 
           if not isinstance(data, dict):
@@ -88,124 +90,127 @@ jobs:
               raise ValueError("apps must be a list")
 
           EXACT_CATEGORY = {
-              # تواصل
-              "instagram": "تواصل",
-              "telegram": "تواصل",
-              "whatsapp": "تواصل",
-              "facebook": "تواصل",
-              "messenger": "تواصل",
-              "snapchat": "تواصل",
-              "discord": "تواصل",
-              "threads": "تواصل",
-              "tiktok": "تواصل",
-              "twitter": "تواصل",
-              "x": "تواصل",
-              "regram": "تواصل",
-              "beegram": "تواصل",
-              "locket": "تواصل",
-              "bigo": "تواصل",
+              # Social
+              "instagram": "social",
+              "telegram": "social",
+              "whatsapp": "social",
+              "facebook": "social",
+              "messenger": "social",
+              "snapchat": "social",
+              "discord": "social",
+              "threads": "social",
+              "tiktok": "social",
+              "twitter": "social",
+              "x": "social",
+              "regram": "social",
+              "beegram": "social",
+              "locket": "social",
+              "bigo": "social",
 
-              # ترفيه
-              "youtube": "ترفيه",
-              "youtube music": "ترفيه",
-              "youtubemusic": "ترفيه",
-              "spotify": "ترفيه",
-              "netflix": "ترفيه",
-              "twitch": "ترفيه",
-              "shahid": "ترفيه",
-              "anghami": "ترفيه",
-              "deezer": "ترفيه",
-              "crunchyroll": "ترفيه",
-              "cinemana": "ترفيه",
-              "vodu": "ترفيه",
-              "hitv": "ترفيه",
-              "anime cloud": "ترفيه",
-              "anime slayer": "ترفيه",
-              "iptv": "ترفيه",
-              "yacine": "ترفيه",
-              "yacin": "ترفيه",
-              "buz tv": "ترفيه",
-              "rodjo": "ترفيه",
-              "moviebox": "ترفيه",
+              # Entertainment
+              "youtube": "entertainment",
+              "youtube music": "entertainment",
+              "youtubemusic": "entertainment",
+              "spotify": "entertainment",
+              "netflix": "entertainment",
+              "twitch": "entertainment",
+              "shahid": "entertainment",
+              "anghami": "entertainment",
+              "deezer": "entertainment",
+              "crunchyroll": "entertainment",
+              "cinemana": "entertainment",
+              "vodu": "entertainment",
+              "hitv": "entertainment",
+              "anime cloud": "entertainment",
+              "anime slayer": "entertainment",
+              "iptv": "entertainment",
+              "yacine": "entertainment",
+              "yacin": "entertainment",
+              "buz tv": "entertainment",
+              "rodjo": "entertainment",
+              "moviebox": "entertainment",
 
-              # أدوات
-              "capcut": "أدوات",
-              "picsart": "أدوات",
-              "remini": "أدوات",
-              "inshot": "أدوات",
-              "instashot": "أدوات",
-              "videostar": "أدوات",
-              "video star": "أدوات",
-              "nodevideo": "أدوات",
-              "lightroom": "أدوات",
-              "facetune": "أدوات",
-              "vsco": "أدوات",
-              "snapseed": "أدوات",
-              "photoshop": "أدوات",
-              "ps express": "أدوات",
-              "psexpress": "أدوات",
-              "scanner": "أدوات",
-              "pdf": "أدوات",
-              "vpn": "أدوات",
-              "esign": "أدوات",
-              "ksign": "أدوات",
-              "scarlet": "أدوات",
-              "gbox": "أدوات",
-              "trollinstaller": "أدوات",
-              "trollstore": "أدوات",
-              "filza": "أدوات",
-              "sideloadly": "أدوات",
-              "adguard": "أدوات",
-              "speedtest": "أدوات",
-              "browser": "أدوات",
+              # Utilities / Photo-video
+              "capcut": "photo-video",
+              "picsart": "photo-video",
+              "remini": "photo-video",
+              "inshot": "photo-video",
+              "instashot": "photo-video",
+              "videostar": "photo-video",
+              "video star": "photo-video",
+              "nodevideo": "photo-video",
+              "lightroom": "photo-video",
+              "facetune": "photo-video",
+              "vsco": "photo-video",
+              "snapseed": "photo-video",
+              "photoshop": "photo-video",
+              "ps express": "photo-video",
+              "psexpress": "photo-video",
 
-              # دراسة وذكاء اصطناعي
-              "chatgpt": "دراسة وذكاء اصطناعي",
-              "openai": "دراسة وذكاء اصطناعي",
-              "gemini": "دراسة وذكاء اصطناعي",
-              "claude": "دراسة وذكاء اصطناعي",
-              "copilot": "دراسة وذكاء اصطناعي",
-              "perplexity": "دراسة وذكاء اصطناعي",
-              "notion": "دراسة وذكاء اصطناعي",
-              "quizlet": "دراسة وذكاء اصطناعي",
-              "duolingo": "دراسة وذكاء اصطناعي",
-              "busuu": "دراسة وذكاء اصطناعي",
-              "mondly": "دراسة وذكاء اصطناعي",
-              "mimo": "دراسة وذكاء اصطناعي",
-              "tarteel": "دراسة وذكاء اصطناعي",
-              "headway": "دراسة وذكاء اصطناعي",
-              "dictionary": "دراسة وذكاء اصطناعي",
-              "translator": "دراسة وذكاء اصطناعي",
+              "scanner": "utilities",
+              "pdf": "utilities",
+              "vpn": "utilities",
+              "esign": "utilities",
+              "ksign": "utilities",
+              "scarlet": "utilities",
+              "gbox": "utilities",
+              "trollinstaller": "utilities",
+              "trollstore": "utilities",
+              "filza": "utilities",
+              "sideloadly": "utilities",
+              "adguard": "utilities",
+              "speedtest": "utilities",
+              "browser": "utilities",
+              "cleaner": "utilities",
+              "server": "utilities",
 
-              # ألعاب
-              "pubg": "ألعاب",
-              "minecraft": "ألعاب",
-              "roblox": "ألعاب",
-              "fortnite": "ألعاب",
-              "clash": "ألعاب",
-              "brawl": "ألعاب",
-              "asphalt": "ألعاب",
-              "genshin": "ألعاب",
-              "stumble": "ألعاب",
-              "gta": "ألعاب",
-              "rdr": "ألعاب",
-              "agar": "ألعاب",
-              "yalla ludo": "ألعاب",
-              "inside": "ألعاب",
-              "carx": "ألعاب",
-              "fifa": "ألعاب",
-              "efootball": "ألعاب",
-              "pes": "ألعاب",
-              "among us": "ألعاب",
-              "combat master": "ألعاب",
-              "call of duty": "ألعاب",
-              "cod": "ألعاب",
-              "candy crush": "ألعاب",
-              "block blast": "ألعاب",
-              "soccer": "ألعاب",
-              "zombie": "ألعاب",
-              "tower defense": "ألعاب",
-              "puzzle": "ألعاب",
+              # Study / AI -> AltStore ما عنده education، لذلك نخليها utilities
+              "chatgpt": "utilities",
+              "openai": "utilities",
+              "gemini": "utilities",
+              "claude": "utilities",
+              "copilot": "utilities",
+              "perplexity": "utilities",
+              "notion": "utilities",
+              "quizlet": "utilities",
+              "duolingo": "utilities",
+              "busuu": "utilities",
+              "mondly": "utilities",
+              "mimo": "utilities",
+              "tarteel": "utilities",
+              "headway": "utilities",
+              "dictionary": "utilities",
+              "translator": "utilities",
+
+              # Games
+              "pubg": "games",
+              "minecraft": "games",
+              "roblox": "games",
+              "fortnite": "games",
+              "clash": "games",
+              "brawl": "games",
+              "asphalt": "games",
+              "genshin": "games",
+              "stumble": "games",
+              "gta": "games",
+              "rdr": "games",
+              "agar": "games",
+              "yalla ludo": "games",
+              "inside": "games",
+              "carx": "games",
+              "fifa": "games",
+              "efootball": "games",
+              "pes": "games",
+              "among us": "games",
+              "combat master": "games",
+              "call of duty": "games",
+              "cod": "games",
+              "candy crush": "games",
+              "block blast": "games",
+              "soccer": "games",
+              "zombie": "games",
+              "tower defense": "games",
+              "puzzle": "games",
           }
 
           SOCIAL_WORDS = [
@@ -222,16 +227,21 @@ jobs:
               "أغاني", "اغاني"
           ]
 
+          PHOTO_VIDEO_WORDS = [
+              "photo", "photos", "camera", "video editor", "editor", "edit",
+              "filter", "filters", "design", "logo", "image", "images",
+              "montage", "مونتاج", "تحرير", "تصميم", "صور", "فيديوهات"
+          ]
+
           TOOLS_WORDS = [
               "vpn", "proxy", "browser", "file", "manager", "scanner", "scan",
-              "editor", "photo", "camera", "calculator", "cleaner", "speedtest",
-              "utility", "utilities", "tool", "tools", "zip", "unzip", "sign",
-              "installer", "download", "downloader", "password", "keyboard",
-              "translate", "maps", "weather", "notes", "documents", "pdf",
-              "storage", "backup", "wallpaper", "widget", "terminal", "ssh",
-              "server", "calendar", "draw", "captions", "أدوات", "توقيع",
-              "مثبت", "تثبيت", "تصميم", "صور", "فيديوهات", "مونتاج", "تحرير",
-              "ملفات", "تنزيل", "تحميل", "متصفح", "حاسبة", "مترجم"
+              "calculator", "cleaner", "speedtest", "utility", "utilities",
+              "tool", "tools", "zip", "unzip", "sign", "installer", "download",
+              "downloader", "password", "keyboard", "translate", "maps", "weather",
+              "notes", "documents", "pdf", "storage", "backup", "wallpaper",
+              "widget", "terminal", "ssh", "server", "calendar", "draw",
+              "captions", "أدوات", "توقيع", "مثبت", "تثبيت", "ملفات",
+              "تنزيل", "تحميل", "متصفح", "حاسبة", "مترجم"
           ]
 
           STUDY_AI_WORDS = [
@@ -250,14 +260,26 @@ jobs:
               "سباق", "قتال", "باتل", "محاكي"
           ]
 
-          def normalize(text):
+          VALID_CATEGORIES = {
+              "developer",
+              "entertainment",
+              "games",
+              "lifestyle",
+              "other",
+              "photo-video",
+              "social",
+              "utilities"
+          }
+
+          def normalize_text(text):
               text = str(text).lower()
               text = re.sub(r"https?://\S+", " ", text)
               text = re.sub(r"[^a-z0-9\u0600-\u06FF]+", " ", text)
               return f" {text} "
 
           def has_word(text, word):
-              word = normalize(word).strip()
+              word = normalize_text(word).strip()
+
               if not word:
                   return False
 
@@ -279,7 +301,9 @@ jobs:
                   "description",
                   "subtitle",
                   "category",
-                  "version"
+                  "version",
+                  "downloadURL",
+                  "down"
               ]
 
               parts = []
@@ -288,7 +312,7 @@ jobs:
                   if isinstance(value, str):
                       parts.append(value)
 
-              return normalize(" ".join(parts))
+              return normalize_text(" ".join(parts))
 
           def detect_category(app):
               text = app_text(app)
@@ -298,93 +322,191 @@ jobs:
                       return category
 
               if has_any(text, GAME_WORDS):
-                  return "ألعاب"
+                  return "games"
 
               if has_any(text, SOCIAL_WORDS):
-                  return "تواصل"
+                  return "social"
 
               if has_any(text, STUDY_AI_WORDS):
-                  return "دراسة وذكاء اصطناعي"
+                  return "utilities"
 
               if has_any(text, ENTERTAINMENT_WORDS):
-                  return "ترفيه"
+                  return "entertainment"
+
+              if has_any(text, PHOTO_VIDEO_WORDS):
+                  return "photo-video"
 
               if has_any(text, TOOLS_WORDS):
-                  return "أدوات"
+                  return "utilities"
 
-              return "أخرى"
+              return "other"
 
-          def categorize_apps(apps_list):
+          def clean_string(value, fallback=""):
+              if isinstance(value, str) and value.strip():
+                  return value.strip()
+              return fallback
+
+          def to_int_size(value):
+              if isinstance(value, int):
+                  return value
+
+              if isinstance(value, float):
+                  return int(value)
+
+              if isinstance(value, str):
+                  raw = value.strip().lower().replace(",", "")
+
+                  match = re.search(r"([0-9]+(?:\.[0-9]+)?)\s*(gb|gib|mb|mib|kb|kib|bytes|byte|b)?", raw)
+                  if match:
+                      number = float(match.group(1))
+                      unit = match.group(2) or "bytes"
+
+                      if unit in ["gb", "gib"]:
+                          return int(number * 1024 * 1024 * 1024)
+                      if unit in ["mb", "mib"]:
+                          return int(number * 1024 * 1024)
+                      if unit in ["kb", "kib"]:
+                          return int(number * 1024)
+                      return int(number)
+
+              return 0
+
+          def get_download_url(app):
+              for key in ["downloadURL", "down", "url"]:
+                  value = app.get(key)
+                  if isinstance(value, str) and value.strip():
+                      return value.strip()
+              return ""
+
+          def get_bundle_id(app, index):
+              for key in ["bundleIdentifier", "bundleID", "identifier", "id"]:
+                  value = app.get(key)
+                  if isinstance(value, str) and value.strip():
+                      return value.strip()
+              return f"com.jacckop.unknown.{index + 1}"
+
+          def get_icon_url(app):
+              for key in ["iconURL", "icon"]:
+                  value = app.get(key)
+                  if isinstance(value, str) and value.strip():
+                      return value.strip()
+              return data.get("iconURL", "")
+
+          def normalize_app(app, index, seen_bundle_ids):
+              if not isinstance(app, dict):
+                  return None
+
+              name = clean_string(app.get("name"), f"App {index + 1}")
+              bundle_id = get_bundle_id(app, index)
+
+              base_bundle_id = bundle_id
+              counter = 2
+              while bundle_id in seen_bundle_ids:
+                  bundle_id = f"{base_bundle_id}.{counter}"
+                  counter += 1
+
+              seen_bundle_ids.add(bundle_id)
+
+              version = clean_string(app.get("version"), "1.0")
+              date = clean_string(app.get("versionDate"), "")
+              if not date:
+                  date = clean_string(app.get("date"), "")
+              if not date:
+                  date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+              download_url = get_download_url(app)
+              size = to_int_size(app.get("size", 0))
+
+              subtitle = clean_string(app.get("subtitle"), "")
+              description = clean_string(app.get("localizedDescription"), "")
+              if not description:
+                  description = clean_string(app.get("description"), subtitle)
+
+              category = detect_category(app)
+              if category not in VALID_CATEGORIES:
+                  category = "other"
+
+              normalized = {
+                  "name": name,
+                  "bundleIdentifier": bundle_id,
+                  "developerName": DEVELOPER_NAME,
+                  "subtitle": subtitle,
+                  "localizedDescription": description,
+                  "iconURL": get_icon_url(app),
+                  "tintColor": clean_string(app.get("tintColor"), data.get("tintColor", "#F54F32")),
+                  "category": category,
+                  "versions": [
+                      {
+                          "version": version,
+                          "date": date,
+                          "downloadURL": download_url,
+                          "size": size
+                      }
+                  ],
+                  "appPermissions": {
+                      "entitlements": [],
+                      "privacy": []
+                  },
+                  "patreon": []
+              }
+
+              # نخلي بعض الحقول القديمة أيضًا حتى البرامج المتساهلة تستفيد منها
+              normalized["version"] = version
+              normalized["versionDate"] = date
+              normalized["downloadURL"] = download_url
+              normalized["size"] = size
+
+              return normalized
+
+          def normalize_apps(apps_list):
+              seen_bundle_ids = set()
               output = []
 
-              for app in apps_list:
-                  if isinstance(app, dict):
-                      new_app = copy.deepcopy(app)
-                      new_app["category"] = detect_category(new_app)
-                      output.append(new_app)
-                  else:
-                      output.append(app)
+              for index, app in enumerate(apps_list):
+                  normalized = normalize_app(app, index, seen_bundle_ids)
+                  if normalized:
+                      output.append(normalized)
 
               return output
 
           total_apps = len(apps)
           middle = (total_apps + 1) // 2
 
-          first_apps = categorize_apps(apps[:middle])
-          second_apps = categorize_apps(apps[middle:])
+          first_apps = normalize_apps(apps[:middle])
+          second_apps = normalize_apps(apps[middle:])
 
-          def app_id(app):
-              if not isinstance(app, dict):
-                  return None
+          def fixed_featured_apps(apps_list):
+              featured = []
 
-              for key in [
-                  "bundleIdentifier",
-                  "bundleID",
-                  "identifier",
-                  "id"
-              ]:
-                  value = app.get(key)
-                  if isinstance(value, str) and value.strip():
-                      return value.strip()
+              for app in apps_list[:10]:
+                  bundle_id = app.get("bundleIdentifier")
+                  if isinstance(bundle_id, str) and bundle_id.strip():
+                      featured.append(bundle_id.strip())
 
-              return None
-
-          def fixed_featured_apps(original_featured, apps_list):
-              app_ids = set()
-
-              for app in apps_list:
-                  item_id = app_id(app)
-                  if item_id:
-                      app_ids.add(item_id)
-
-              if isinstance(original_featured, list):
-                  filtered = [
-                      item for item in original_featured
-                      if isinstance(item, str) and item in app_ids
-                  ]
-              else:
-                  filtered = []
-
-              if not filtered:
-                  for app in apps_list[:10]:
-                      item_id = app_id(app)
-                      if item_id:
-                          filtered.append(item_id)
-
-              return filtered
+              return featured
 
           def build_source(apps_list, source_url, name, identifier):
-              output = copy.deepcopy(data)
-
-              output["updated_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-              output["name"] = name
-              output["identifier"] = identifier
-              output["sourceURL"] = source_url
-              output["apps"] = apps_list
-              output["featuredApps"] = fixed_featured_apps(data.get("featuredApps", []), apps_list)
-
-              if isinstance(output.get("META"), dict):
-                  output["META"]["repoName"] = name
+              output = {
+                  "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                  "name": name,
+                  "identifier": identifier,
+                  "sourceURL": source_url,
+                  "iconURL": clean_string(data.get("iconURL"), "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg"),
+                  "website": clean_string(data.get("website"), "https://appstore.sidelix.vip/"),
+                  "ipawebsite": clean_string(data.get("ipawebsite"), "https://appstore.sidelix.vip/"),
+                  "apiVersion": clean_string(data.get("apiVersion"), "v1"),
+                  "subtitle": clean_string(data.get("subtitle"), "Welcome to the repository"),
+                  "description": clean_string(data.get("description"), "Welcome to the repository"),
+                  "headerURL": clean_string(data.get("headerURL"), clean_string(data.get("iconURL"), "")),
+                  "tintColor": clean_string(data.get("tintColor"), "#F54F32"),
+                  "META": {
+                      "repoName": name,
+                      "repoIcon": clean_string(data.get("iconURL"), "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg")
+                  },
+                  "featuredApps": fixed_featured_apps(apps_list),
+                  "apps": apps_list,
+                  "news": data.get("news", [])
+              }
 
               return output
 
@@ -415,6 +537,8 @@ jobs:
           print(f"Total apps: {total_apps}")
           print(f"Sidelix apps: {len(first_apps)}")
           print(f"NabzClan apps: {len(second_apps)}")
+          print(f"Sidelix sourceURL: {FIRST_SOURCE_URL}")
+          print(f"NabzClan sourceURL: {SECOND_SOURCE_URL}")
           PY
 
           date +%s > "$SYNC_STATE_FILE"
@@ -428,7 +552,7 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
             git add sidelix nabzclan .github/split-nabzclan-last-sync
-            git commit -m "Split and categorize NabzClan source"
+            git commit -m "Split NabzClan source into AltStore compatible repos"
 
             git pull --rebase origin main
             git push
