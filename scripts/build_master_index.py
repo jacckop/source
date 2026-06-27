@@ -40,17 +40,16 @@ MASTER_SOURCE: dict[str, Any] = {
     "name": "KiraStore",
     "identifier": "vip.kirastore.master",
     "subtitle": "KiraStore Master Source",
-    "description": "Lite merged source generated automatically from KiraStore sources. Duplicate apps are kept, and duplicated bundle identifiers are renamed with numbers.",
+    "description": "Lite merged source generated automatically from KiraStore sources.",
     "website": "https://github.com/jacckop/source",
     "tintColor": "#D71920",
     "featuredApps": [],
     "apps": [],
-    "news": [],
 }
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/2.0",
+    "User-Agent": "KiraStore-IndexBuilder/3.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
@@ -58,7 +57,6 @@ HTTP_HEADERS = {
 APP_KEY_ALIASES = {
     "name": ["name", "title", "appName"],
     "bundleIdentifier": ["bundleIdentifier", "bundleID", "bundleId", "bundle", "identifier"],
-    "developerName": ["developerName", "developer", "author"],
     "subtitle": ["subtitle", "shortDescription"],
     "localizedDescription": ["localizedDescription", "description", "desc"],
     "iconURL": ["iconURL", "iconUrl", "icon", "icon_url", "image", "imageURL", "imageUrl"],
@@ -103,8 +101,52 @@ def clean_text(value: Any) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
-def trim_text(value: Any, limit: int) -> str:
+def remove_screenshot_content(value: Any) -> str:
     text = clean_text(value)
+
+    if not text:
+        return ""
+
+    # حذف روابط الصور التي غالباً تكون screenshots داخل الوصف
+    text = re.sub(
+        r"https?://\S+\.(?:png|jpg|jpeg|webp|gif)(?:\?\S*)?",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    )
+
+    # حذف أسطر أو مقاطع فيها كلمة screenshots
+    parts = re.split(r"(?<=[.!؟])\s+|\n+", text)
+    cleaned_parts: list[str] = []
+
+    bad_words = [
+        "screenshot",
+        "screenshots",
+        "screen shot",
+        "preview image",
+        "preview images",
+        "لقطة شاشة",
+        "لقطات شاشة",
+        "سكرين شوت",
+        "سكرينشوت",
+    ]
+
+    for part in parts:
+        low = part.lower()
+        if any(word in low for word in bad_words):
+            continue
+        cleaned_parts.append(part)
+
+    text = " ".join(cleaned_parts)
+
+    # تنظيف أي بقايا روابط صور بدون امتداد واضح
+    text = re.sub(r"https?://\S*(?:screenshot|screenshots|preview)\S*", "", text, flags=re.IGNORECASE)
+
+    return clean_text(text)
+
+
+def trim_text(value: Any, limit: int) -> str:
+    text = remove_screenshot_content(value)
     if len(text) <= limit:
         return text
     return text[:limit].rstrip() + "..."
@@ -118,10 +160,7 @@ def first_value(data: dict[str, Any], aliases: list[str], default: Any = None) -
 
 
 def normalize_url(value: Any) -> str:
-    value = clean_text(value)
-    if not value:
-        return ""
-    return value
+    return clean_text(value)
 
 
 def parse_size(value: Any) -> int | None:
@@ -342,13 +381,10 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
         seed = f"{name}|{latest_download_url}|{src_url}"
         bundle = f"vip.kirastore.unknown.{safe_slug(name)}.{sha1_text(seed)[:8]}"
 
-    developer = clean_text(first_value(app, APP_KEY_ALIASES["developerName"], "KiraStore")) or "KiraStore"
-    subtitle = trim_text(first_value(app, APP_KEY_ALIASES["subtitle"], src_name), 80)
-    description = trim_text(first_value(app, APP_KEY_ALIASES["localizedDescription"], subtitle or name), 220)
+    subtitle = trim_text(first_value(app, APP_KEY_ALIASES["subtitle"], src_name), 45)
+    description = trim_text(first_value(app, APP_KEY_ALIASES["localizedDescription"], subtitle or name), 90)
     icon_url = normalize_url(first_value(app, APP_KEY_ALIASES["iconURL"], ""))
     tint_color = clean_text(first_value(app, APP_KEY_ALIASES["tintColor"], "#000000")) or "#000000"
-    category = clean_text(first_value(app, APP_KEY_ALIASES["category"], "Utilities")) or "Utilities"
-    min_os = clean_text(first_value(app, APP_KEY_ALIASES["minOSVersion"], ""))
 
     lite_version: dict[str, Any] = {
         "version": clean_text(latest.get("version")) or clean_text(first_value(app, APP_KEY_ALIASES["version"], "1.0")) or "1.0",
@@ -361,31 +397,15 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
     if size is not None:
         lite_version["size"] = size
 
-    if min_os:
-        lite_version["minOSVersion"] = min_os
-
     output: dict[str, Any] = {
         "name": name,
         "bundleIdentifier": bundle,
-        "developerName": developer,
         "subtitle": subtitle,
         "localizedDescription": description,
         "iconURL": icon_url,
         "tintColor": tint_color,
-        "category": category,
-        "version": lite_version["version"],
-        "versionDate": lite_version["date"],
-        "downloadURL": lite_version["downloadURL"],
         "versions": [lite_version],
-        "sourceName": src_name,
-        "sourceURL": src_url,
     }
-
-    if size is not None:
-        output["size"] = size
-
-    if min_os:
-        output["minOSVersion"] = min_os
 
     return output
 
@@ -399,7 +419,7 @@ def make_bundle_identifiers_unique(apps: list[dict[str, Any]]) -> int:
         base_bundle = clean_text(app.get("bundleIdentifier"))
 
         if not base_bundle:
-            seed = f"{app.get('name', '')}|{app.get('downloadURL', '')}|{app.get('sourceURL', '')}"
+            seed = f"{app.get('name', '')}|{app.get('iconURL', '')}"
             base_bundle = f"vip.kirastore.unknown.{safe_slug(clean_text(app.get('name')))}.{sha1_text(seed)[:8]}"
             app["bundleIdentifier"] = base_bundle
 
@@ -415,7 +435,6 @@ def make_bundle_identifiers_unique(apps: list[dict[str, Any]]) -> int:
             candidate = f"{base_bundle}.{next_number}"
 
         if candidate != base_bundle:
-            app["originalBundleIdentifier"] = base_bundle
             app["bundleIdentifier"] = candidate
             changed += 1
 
@@ -424,11 +443,9 @@ def make_bundle_identifiers_unique(apps: list[dict[str, Any]]) -> int:
     return changed
 
 
-def app_sort_key(app: dict[str, Any]) -> tuple[str, str, str, str]:
+def app_sort_key(app: dict[str, Any]) -> tuple[str, str]:
     return (
         clean_text(app.get("name")).lower(),
-        clean_text(app.get("version")).lower(),
-        clean_text(app.get("sourceName")).lower(),
         clean_text(app.get("bundleIdentifier")).lower(),
     )
 
@@ -507,16 +524,6 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
     output = dict(MASTER_SOURCE)
     output["apps"] = all_apps
     output["featuredApps"] = featured_apps
-    output["news"] = [
-        {
-            "title": "KiraStore Updated",
-            "identifier": f"vip.kirastore.master.update.{sha1_text(utc_now())[:12]}",
-            "caption": f"KiraStore source updated. Apps: {len(all_apps)}. Renamed duplicate bundle identifiers: {renamed_count}.",
-            "date": utc_now(),
-            "tintColor": "#D71920",
-            "notify": False,
-        }
-    ]
 
     report["totalOutputApps"] = len(all_apps)
     report["bundleIdentifierRenamedApps"] = renamed_count
