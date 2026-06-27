@@ -34,7 +34,8 @@ jobs:
       - name: Build KiraStore master source
         run: |
           python scripts/build_master_index.py \
-            --output dist/kirastore-index.json
+            --output dist/kirastore-index.json \
+            --fill-missing-sizes
 
       - name: Validate generated JSON
         run: |
@@ -82,10 +83,10 @@ jobs:
 
           print("Apps:", len(apps))
           print("Unique bundle identifiers:", len(set(bundles)), "/", len(bundles))
-          print("Apps with source size:", apps_with_size)
-          print("Apps without source size:", apps_without_size)
-          print("Versions with source size:", versions_with_size)
-          print("Versions without source size:", versions_without_size)
+          print("Apps with size:", apps_with_size)
+          print("Apps without size:", apps_without_size)
+          print("Versions with size:", versions_with_size)
+          print("Versions without size:", versions_without_size)
           print("File size:", round(size_mb, 2), "MB")
 
           if len(set(bundles)) != len(bundles):
