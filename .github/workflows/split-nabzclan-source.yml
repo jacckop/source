@@ -64,7 +64,6 @@ jobs:
 
           python3 - <<'PY'
           import json
-          import copy
           import re
           from datetime import datetime, timezone
           from pathlib import Path
@@ -90,7 +89,6 @@ jobs:
               raise ValueError("apps must be a list")
 
           EXACT_CATEGORY = {
-              # Social
               "instagram": "social",
               "telegram": "social",
               "whatsapp": "social",
@@ -107,7 +105,6 @@ jobs:
               "locket": "social",
               "bigo": "social",
 
-              # Entertainment
               "youtube": "entertainment",
               "youtube music": "entertainment",
               "youtubemusic": "entertainment",
@@ -130,7 +127,6 @@ jobs:
               "rodjo": "entertainment",
               "moviebox": "entertainment",
 
-              # Utilities / Photo-video
               "capcut": "photo-video",
               "picsart": "photo-video",
               "remini": "photo-video",
@@ -164,7 +160,6 @@ jobs:
               "cleaner": "utilities",
               "server": "utilities",
 
-              # Study / AI -> AltStore ما عنده education، لذلك نخليها utilities
               "chatgpt": "utilities",
               "openai": "utilities",
               "gemini": "utilities",
@@ -182,7 +177,6 @@ jobs:
               "dictionary": "utilities",
               "translator": "utilities",
 
-              # Games
               "pubg": "games",
               "minecraft": "games",
               "roblox": "games",
@@ -390,24 +384,26 @@ jobs:
                   value = app.get(key)
                   if isinstance(value, str) and value.strip():
                       return value.strip()
-              return data.get("iconURL", "")
+              return clean_string(data.get("iconURL"), "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg")
 
-          def normalize_app(app, index, seen_bundle_ids):
+          def normalize_app(app, index, global_seen_bundle_ids):
               if not isinstance(app, dict):
                   return None
 
               name = clean_string(app.get("name"), f"App {index + 1}")
-              bundle_id = get_bundle_id(app, index)
 
+              bundle_id = get_bundle_id(app, index)
               base_bundle_id = bundle_id
+
               counter = 2
-              while bundle_id in seen_bundle_ids:
+              while bundle_id in global_seen_bundle_ids:
                   bundle_id = f"{base_bundle_id}.{counter}"
                   counter += 1
 
-              seen_bundle_ids.add(bundle_id)
+              global_seen_bundle_ids.add(bundle_id)
 
               version = clean_string(app.get("version"), "1.0")
+
               date = clean_string(app.get("versionDate"), "")
               if not date:
                   date = clean_string(app.get("date"), "")
@@ -429,11 +425,12 @@ jobs:
               normalized = {
                   "name": name,
                   "bundleIdentifier": bundle_id,
+                  "identifier": bundle_id,
                   "developerName": DEVELOPER_NAME,
                   "subtitle": subtitle,
                   "localizedDescription": description,
                   "iconURL": get_icon_url(app),
-                  "tintColor": clean_string(app.get("tintColor"), data.get("tintColor", "#F54F32")),
+                  "tintColor": clean_string(app.get("tintColor"), clean_string(data.get("tintColor"), "#F54F32")),
                   "category": category,
                   "versions": [
                       {
@@ -450,7 +447,7 @@ jobs:
                   "patreon": []
               }
 
-              # نخلي بعض الحقول القديمة أيضًا حتى البرامج المتساهلة تستفيد منها
+              # نخلي الحقول المختصرة أيضًا للتوافق مع برامج أخرى
               normalized["version"] = version
               normalized["versionDate"] = date
               normalized["downloadURL"] = download_url
@@ -458,12 +455,13 @@ jobs:
 
               return normalized
 
-          def normalize_apps(apps_list):
-              seen_bundle_ids = set()
+          def normalize_apps(apps_list, start_index, global_seen_bundle_ids):
               output = []
 
-              for index, app in enumerate(apps_list):
-                  normalized = normalize_app(app, index, seen_bundle_ids)
+              for offset, app in enumerate(apps_list):
+                  index = start_index + offset
+                  normalized = normalize_app(app, index, global_seen_bundle_ids)
+
                   if normalized:
                       output.append(normalized)
 
@@ -472,8 +470,11 @@ jobs:
           total_apps = len(apps)
           middle = (total_apps + 1) // 2
 
-          first_apps = normalize_apps(apps[:middle])
-          second_apps = normalize_apps(apps[middle:])
+          # مهم: هذا يمنع تكرار الباندل بين sideload و nabzclan معًا
+          global_seen_bundle_ids = set()
+
+          first_apps = normalize_apps(apps[:middle], 0, global_seen_bundle_ids)
+          second_apps = normalize_apps(apps[middle:], middle, global_seen_bundle_ids)
 
           def fixed_featured_apps(apps_list):
               featured = []
@@ -537,9 +538,15 @@ jobs:
           print(f"Total apps: {total_apps}")
           print(f"Sidelix apps: {len(first_apps)}")
           print(f"NabzClan apps: {len(second_apps)}")
+          print(f"Unique bundle IDs across both sources: {len(global_seen_bundle_ids)}")
           print(f"Sidelix sourceURL: {FIRST_SOURCE_URL}")
           print(f"NabzClan sourceURL: {SECOND_SOURCE_URL}")
           PY
+
+          python3 -m json.tool sidelix > /dev/null
+          python3 -m json.tool nabzclan > /dev/null
+
+          echo "Both sidelix and nabzclan are valid JSON"
 
           date +%s > "$SYNC_STATE_FILE"
 
@@ -552,7 +559,7 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
             git add sidelix nabzclan .github/split-nabzclan-last-sync
-            git commit -m "Split NabzClan source into AltStore compatible repos"
+            git commit -m "Split NabzClan source into compatible repos"
 
             git pull --rebase origin main
             git push
