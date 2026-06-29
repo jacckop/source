@@ -49,7 +49,7 @@ MASTER_SOURCE: dict[str, Any] = {
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/10.0",
+    "User-Agent": "KiraStore-IndexBuilder/11.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
@@ -159,6 +159,7 @@ def first_value(data: dict[str, Any], aliases: list[str], default: Any = None) -
             return data[key]
 
     wanted = {normalize_key_name(key) for key in aliases}
+
     for key, value in data.items():
         if normalize_key_name(key) in wanted and value not in (None, ""):
             return value
@@ -186,11 +187,34 @@ def normalize_lookup_url(value: Any) -> str:
 
 def normalize_name_for_match(value: Any) -> str:
     text = clean_text(value).lower()
-    text = text.replace("ipaomtk.com", "")
-    text = text.replace("-ipaomtk", "")
-    text = text.replace("ipaomtk", "")
+
+    remove_words = [
+        "ipaomtk.com",
+        "ipaomtk",
+        "-omtk",
+        " omtk",
+        "iosvn",
+        "- iosvn",
+        "ipauniverse.com",
+        "ipa universe",
+        "premium",
+        "unlocked",
+        "mod",
+        "hack",
+        "patched",
+        "tweaked",
+        "pro",
+    ]
+
+    for word in remove_words:
+        text = text.replace(word, "")
+
+    text = re.sub(r"\bv\d+(?:\.\d+)*\b", "", text)
+    text = re.sub(r"\d+\.\d+\.\d+", "", text)
+    text = re.sub(r"\d+\.\d+", "", text)
     text = re.sub(r"[^a-z0-9\u0600-\u06FF]+", "", text)
-    return text
+
+    return text.strip()
 
 
 def safe_slug(text: str) -> str:
@@ -202,10 +226,13 @@ def safe_slug(text: str) -> str:
 
 def normalize_tint_color(value: Any) -> str:
     text = clean_text(value)
+
     if not text:
         return "#000000"
+
     if re.fullmatch(r"#?[0-9a-fA-F]{6}", text):
         return text if text.startswith("#") else f"#{text}"
+
     return "#000000"
 
 
@@ -246,6 +273,7 @@ def parse_size(value: Any) -> int:
         return 0
 
     text = clean_text(value).replace(",", "")
+
     if not text:
         return 0
 
@@ -294,6 +322,7 @@ def parse_size(value: Any) -> int:
 
 def remove_screenshot_content(value: Any) -> str:
     text = clean_text(value)
+
     if not text:
         return ""
 
@@ -308,18 +337,26 @@ def remove_screenshot_content(value: Any) -> str:
     cleaned_parts: list[str] = []
 
     bad_words = [
-        "screenshot", "screenshots", "screen shot",
-        "preview image", "preview images",
-        "لقطة شاشة", "لقطات شاشة", "سكرين شوت", "سكرينشوت",
+        "screenshot",
+        "screenshots",
+        "screen shot",
+        "preview image",
+        "preview images",
+        "لقطة شاشة",
+        "لقطات شاشة",
+        "سكرين شوت",
+        "سكرينشوت",
     ]
 
     for part in parts:
         low = part.lower()
         if any(word in low for word in bad_words):
             continue
+
         cleaned_parts.append(part)
 
     text = " ".join(cleaned_parts)
+
     text = re.sub(
         r"https?://\S*(?:screenshot|screenshots|preview)\S*",
         "",
@@ -332,8 +369,10 @@ def remove_screenshot_content(value: Any) -> str:
 
 def trim_text(value: Any, limit: int) -> str:
     text = remove_screenshot_content(value)
+
     if len(text) <= limit:
         return text
+
     return text[:limit].rstrip() + "..."
 
 
@@ -343,10 +382,12 @@ def fetch_json(url: str, retries: int = 3, timeout: int = 45) -> dict[str, Any] 
     for attempt in range(1, retries + 1):
         try:
             request = Request(url, headers=HTTP_HEADERS)
+
             with urlopen(request, timeout=timeout) as response:
                 raw = response.read()
 
             text = raw.decode("utf-8-sig", errors="replace").strip()
+
             if not text:
                 raise ValueError("empty response")
 
@@ -503,6 +544,7 @@ def normalize_version(version_data: dict[str, Any], app_data: dict[str, Any]) ->
 
 def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str, Any] | None:
     name = clean_text(first_value(app, APP_KEY_ALIASES["name"], ""))
+
     if not name:
         return None
 
@@ -518,6 +560,7 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
         if version.get("downloadURL") or top_download_url:
             if not version.get("downloadURL") and top_download_url:
                 version["downloadURL"] = top_download_url
+
             versions.append(version)
 
     if not versions and top_download_url:
@@ -528,6 +571,7 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
 
     latest = versions[0]
     raw_latest_version = raw_version_items[0] if raw_version_items else {}
+
     latest_download_url = normalize_url(latest.get("downloadURL")) or top_download_url
 
     if not latest_download_url:
@@ -547,6 +591,7 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
     min_os = clean_text(first_value(app, APP_KEY_ALIASES["minOSVersion"], ""))
 
     final_size = get_source_size(app, raw_latest_version)
+
     if final_size <= 0:
         final_size = parse_size(latest.get("size"))
 
@@ -582,12 +627,43 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
     return output
 
 
+def app_contains_ipaomtk(app: dict[str, Any]) -> bool:
+    text = json.dumps(app, ensure_ascii=False).lower()
+    return "ipaomtk.com" in text or "ipaomtk" in text or "omtk" in text
+
+
+def app_category_is_one(app: dict[str, Any]) -> bool:
+    category = clean_text(app.get("category"))
+    return category == "1"
+
+
+def app_size_is_zero(app: dict[str, Any]) -> bool:
+    app_size = parse_size(app.get("size"))
+
+    versions = app.get("versions")
+    version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+    version_size = parse_size(version.get("size")) if isinstance(version, dict) else 0
+
+    return app_size <= 0 or version_size <= 0
+
+
+def should_fix_zero_size_by_name(app: dict[str, Any]) -> bool:
+    if not app_size_is_zero(app):
+        return False
+
+    return app_contains_ipaomtk(app) or app_category_is_one(app)
+
+
 def build_size_lookup(apps: list[dict[str, Any]]) -> dict[str, int]:
     lookup: dict[str, int] = {}
 
     for app in apps:
         size = parse_size(app.get("size"))
+
         if size <= 0:
+            continue
+
+        if app_category_is_one(app):
             continue
 
         versions = app.get("versions")
@@ -595,9 +671,10 @@ def build_size_lookup(apps: list[dict[str, Any]]) -> dict[str, int]:
 
         download_url = normalize_lookup_url(version.get("downloadURL"))
         icon_url = normalize_lookup_url(app.get("iconURL"))
+        bundle = clean_text(app.get("bundleIdentifier")).lower()
         name_key = normalize_name_for_match(app.get("name"))
 
-        keys = []
+        keys: list[str] = []
 
         if download_url:
             keys.append(f"download:{download_url}")
@@ -605,11 +682,16 @@ def build_size_lookup(apps: list[dict[str, Any]]) -> dict[str, int]:
         if icon_url:
             keys.append(f"icon:{icon_url}")
 
+        if bundle:
+            keys.append(f"bundle:{bundle}")
+
         if name_key:
             keys.append(f"name:{name_key}")
 
         for key in keys:
-            lookup.setdefault(key, size)
+            old_size = lookup.get(key, 0)
+            if size > old_size:
+                lookup[key] = size
 
     return lookup
 
@@ -619,8 +701,7 @@ def fill_zero_sizes_from_other_sources(apps: list[dict[str, Any]]) -> int:
     updated = 0
 
     for app in apps:
-        current_size = parse_size(app.get("size"))
-        if current_size > 0:
+        if not app_size_is_zero(app):
             continue
 
         versions = app.get("versions")
@@ -628,9 +709,10 @@ def fill_zero_sizes_from_other_sources(apps: list[dict[str, Any]]) -> int:
 
         download_url = normalize_lookup_url(version.get("downloadURL"))
         icon_url = normalize_lookup_url(app.get("iconURL"))
+        bundle = clean_text(app.get("bundleIdentifier")).lower()
         name_key = normalize_name_for_match(app.get("name"))
 
-        candidates = []
+        candidates: list[str] = []
 
         if download_url:
             candidates.append(f"download:{download_url}")
@@ -638,10 +720,14 @@ def fill_zero_sizes_from_other_sources(apps: list[dict[str, Any]]) -> int:
         if icon_url:
             candidates.append(f"icon:{icon_url}")
 
-        if name_key:
+        if bundle:
+            candidates.append(f"bundle:{bundle}")
+
+        if should_fix_zero_size_by_name(app) and name_key:
             candidates.append(f"name:{name_key}")
 
         new_size = 0
+
         for key in candidates:
             new_size = lookup.get(key, 0)
             if new_size > 0:
@@ -809,10 +895,13 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
     all_apps.sort(key=app_sort_key)
 
     featured_apps: list[str] = []
+
     for app in all_apps:
         bundle = clean_text(app.get("bundleIdentifier"))
+
         if bundle and bundle not in featured_apps:
             featured_apps.append(bundle)
+
         if len(featured_apps) >= 20:
             break
 
@@ -832,6 +921,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build a lite merged KiraStore source.")
     parser.add_argument("--output", default="dist/kirastore-index.json", help="Output JSON path")
     parser.add_argument("--pretty", action="store_true", help="Pretty print JSON. This increases file size.")
+
     args = parser.parse_args()
 
     output_path = Path(args.output)
