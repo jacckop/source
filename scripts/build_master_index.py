@@ -50,7 +50,7 @@ MASTER_SOURCE: dict[str, Any] = {
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/13.0",
+    "User-Agent": "KiraStore-IndexBuilder/14.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
@@ -141,8 +141,10 @@ def sha1_text(text: str) -> str:
 def clean_text(value: Any) -> str:
     if value is None:
         return ""
+
     if not isinstance(value, str):
         value = str(value)
+
     value = value.replace("\u0000", "")
     return re.sub(r"\s+", " ", value).strip()
 
@@ -173,16 +175,12 @@ def normalize_url(value: Any) -> str:
 
 
 def exact_download_url_key(value: Any) -> str:
-    """
-    حذف التكرار يكون فقط إذا الرابط نفسه 100%.
-    لذلك ما نسوي lower ولا unquote ولا حذف query.
-    فقط نشيل المسافات من البداية والنهاية.
-    """
     return clean_text(value)
 
 
 def normalize_lookup_url(value: Any) -> str:
     text = normalize_url(value)
+
     if not text:
         return ""
 
@@ -296,6 +294,7 @@ def parse_size(value: Any) -> int:
             parsed = parse_size(item)
             if parsed > 0:
                 return parsed
+
         return 0
 
     text = clean_text(value).replace(",", "")
@@ -316,6 +315,7 @@ def parse_size(value: Any) -> int:
     ]
 
     match = None
+
     for pattern in patterns:
         match = re.search(pattern, text, re.I)
         if match:
@@ -376,6 +376,7 @@ def remove_screenshot_content(value: Any) -> str:
 
     for part in parts:
         low = part.lower()
+
         if any(word in low for word in bad_words):
             continue
 
@@ -483,35 +484,44 @@ def extract_versions(raw_versions: Any) -> list[dict[str, Any]]:
 
 def get_source_size(app_data: dict[str, Any], version_data: dict[str, Any]) -> int:
     version_size = parse_size(first_value(version_data, VERSION_KEY_ALIASES["size"], None))
+
     if version_size > 0:
         return version_size
 
     app_size = parse_size(first_value(app_data, APP_KEY_ALIASES["size"], None))
+
     if app_size > 0:
         return app_size
 
     if isinstance(version_data, dict):
         for key, value in version_data.items():
             key_normalized = normalize_key_name(key)
+
             if "size" in key_normalized or "filesize" in key_normalized or "bytes" in key_normalized or "length" in key_normalized:
                 parsed = parse_size(value)
+
                 if parsed > 0:
                     return parsed
 
     if isinstance(app_data, dict):
         for key, value in app_data.items():
             key_normalized = normalize_key_name(key)
+
             if "size" in key_normalized or "filesize" in key_normalized or "bytes" in key_normalized or "length" in key_normalized:
                 parsed = parse_size(value)
+
                 if parsed > 0:
                     return parsed
 
     versions = app_data.get("versions")
+
     for item in extract_versions(versions):
         for key, value in item.items():
             key_normalized = normalize_key_name(key)
+
             if "size" in key_normalized or "filesize" in key_normalized or "bytes" in key_normalized or "length" in key_normalized:
                 parsed = parse_size(value)
+
                 if parsed > 0:
                     return parsed
 
@@ -597,7 +607,6 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
 
     latest = versions[0]
     raw_latest_version = raw_version_items[0] if raw_version_items else {}
-
     latest_download_url = normalize_url(latest.get("downloadURL")) or top_download_url
 
     if not latest_download_url:
@@ -653,12 +662,33 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
     return output
 
 
-def app_size_is_zero(app: dict[str, Any]) -> bool:
-    app_size = parse_size(app.get("size"))
+def first_version(app: dict[str, Any]) -> dict[str, Any]:
+    versions = app.get("versions")
+
+    if isinstance(versions, list) and versions and isinstance(versions[0], dict):
+        return versions[0]
+
+    return {}
+
+
+def set_app_size(app: dict[str, Any], size: int) -> None:
+    size = parse_size(size)
+
+    if size <= 0:
+        size = 4_949_393
+
+    app["size"] = size
 
     versions = app.get("versions")
-    version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
-    version_size = parse_size(version.get("size")) if isinstance(version, dict) else 0
+
+    if isinstance(versions, list) and versions and isinstance(versions[0], dict):
+        versions[0]["size"] = size
+
+
+def app_size_is_zero(app: dict[str, Any]) -> bool:
+    app_size = parse_size(app.get("size"))
+    version = first_version(app)
+    version_size = parse_size(version.get("size"))
 
     return app_size <= 0 or version_size <= 0
 
@@ -680,7 +710,7 @@ def fetch_remote_file_size(url: Any, timeout: int = 15) -> int:
         return 0
 
     headers = {
-        "User-Agent": "KiraStore-SizeFetcher/13.0",
+        "User-Agent": "KiraStore-SizeFetcher/14.0",
         "Accept": "*/*",
     }
 
@@ -692,6 +722,7 @@ def fetch_remote_file_size(url: Any, timeout: int = 15) -> int:
 
             if length and length.isdigit():
                 size = int(length)
+
                 if size > 0:
                     return size
     except Exception:
@@ -707,6 +738,7 @@ def fetch_remote_file_size(url: Any, timeout: int = 15) -> int:
 
             if match:
                 size = int(match.group(1))
+
                 if size > 0:
                     return size
 
@@ -714,6 +746,7 @@ def fetch_remote_file_size(url: Any, timeout: int = 15) -> int:
 
             if length and length.isdigit():
                 size = int(length)
+
                 if size > 1:
                     return size
     except Exception:
@@ -787,7 +820,6 @@ def build_size_lookup(apps: list[dict[str, Any]]) -> dict[str, int]:
             continue
 
         version = first_version(app)
-
         download_url = normalize_lookup_url(version.get("downloadURL"))
         icon_url = normalize_lookup_url(app.get("iconURL"))
         bundle = clean_text(app.get("bundleIdentifier")).lower()
@@ -809,6 +841,7 @@ def build_size_lookup(apps: list[dict[str, Any]]) -> dict[str, int]:
 
         for key in keys:
             old_size = lookup.get(key, 0)
+
             if size > old_size:
                 lookup[key] = size
 
@@ -824,7 +857,6 @@ def fill_zero_sizes_from_other_sources(apps: list[dict[str, Any]]) -> int:
             continue
 
         version = first_version(app)
-
         download_url = normalize_lookup_url(version.get("downloadURL"))
         icon_url = normalize_lookup_url(app.get("iconURL"))
         bundle = clean_text(app.get("bundleIdentifier")).lower()
@@ -848,6 +880,7 @@ def fill_zero_sizes_from_other_sources(apps: list[dict[str, Any]]) -> int:
 
         for key in candidates:
             new_size = lookup.get(key, 0)
+
             if new_size > 0:
                 break
 
@@ -915,37 +948,12 @@ def fill_remaining_zero_sizes_with_estimates(apps: list[dict[str, Any]]) -> int:
     return updated
 
 
-def first_version(app: dict[str, Any]) -> dict[str, Any]:
-    versions = app.get("versions")
-    if isinstance(versions, list) and versions and isinstance(versions[0], dict):
-        return versions[0]
-    return {}
-
-
-def set_app_size(app: dict[str, Any], size: int) -> None:
-    size = parse_size(size)
-
-    if size <= 0:
-        size = 4_949_393
-
-    app["size"] = size
-
-    versions = app.get("versions")
-    if isinstance(versions, list) and versions and isinstance(versions[0], dict):
-        versions[0]["size"] = size
-
-
 def get_app_download_url(app: dict[str, Any]) -> str:
     version = first_version(app)
     return exact_download_url_key(version.get("downloadURL"))
 
 
 def remove_duplicate_apps_by_download_url(apps: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
-    """
-    يحذف التطبيقات إذا downloadURL متشابه 100%.
-    يبقي أول تطبيق ظهر ويحذف الباقي.
-    التطبيقات التي لا تملك downloadURL لا يحذفها.
-    """
     seen_urls: set[str] = set()
     unique_apps: list[dict[str, Any]] = []
     removed = 0
@@ -965,6 +973,47 @@ def remove_duplicate_apps_by_download_url(apps: list[dict[str, Any]]) -> tuple[l
         unique_apps.append(app)
 
     return unique_apps, removed
+
+
+def strip_unneeded_fields(apps: list[dict[str, Any]]) -> int:
+    """
+    يحذف فقط:
+    - tintColor
+    - minOSVersion
+
+    ولا يحذف:
+    - version
+    - date
+    - downloadURL
+    - size
+    """
+    stripped = 0
+
+    for app in apps:
+        if "tintColor" in app:
+            app.pop("tintColor", None)
+            stripped += 1
+
+        if "minOSVersion" in app:
+            app.pop("minOSVersion", None)
+            stripped += 1
+
+        versions = app.get("versions")
+
+        if isinstance(versions, list):
+            for version in versions:
+                if not isinstance(version, dict):
+                    continue
+
+                if "tintColor" in version:
+                    version.pop("tintColor", None)
+                    stripped += 1
+
+                if "minOSVersion" in version:
+                    version.pop("minOSVersion", None)
+                    stripped += 1
+
+    return stripped
 
 
 def make_bundle_identifiers_unique(apps: list[dict[str, Any]]) -> int:
@@ -1025,8 +1074,10 @@ def count_duplicate_download_urls(apps: list[dict[str, Any]]) -> int:
 
     for app in apps:
         url = get_app_download_url(app)
+
         if not url:
             continue
+
         counts[url] = counts.get(url, 0) + 1
 
     return sum(1 for count in counts.values() if count > 1)
@@ -1052,6 +1103,7 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
         "duplicateDownloadURLGroupsBefore": 0,
         "duplicateDownloadURLAppsRemoved": 0,
         "duplicateDownloadURLGroupsAfter": 0,
+        "optionalFieldsStripped": 0,
         "appsWithSize": 0,
         "appsWithoutSize": 0,
         "errors": [],
@@ -1140,6 +1192,9 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
 
         set_app_size(app, size)
 
+    optional_fields_stripped = strip_unneeded_fields(all_apps)
+    report["optionalFieldsStripped"] = optional_fields_stripped
+
     after_with, after_without = count_apps_with_size(all_apps)
 
     all_apps.sort(key=app_sort_key)
@@ -1202,6 +1257,7 @@ def main() -> int:
     print(f"Duplicate download URL groups before: {report.get('duplicateDownloadURLGroupsBefore', 0)}")
     print(f"Duplicate apps removed by identical downloadURL: {report.get('duplicateDownloadURLAppsRemoved', 0)}")
     print(f"Duplicate download URL groups after: {report.get('duplicateDownloadURLGroupsAfter', 0)}")
+    print(f"Optional fields stripped: {report.get('optionalFieldsStripped', 0)}")
     print(f"Apps with final size: {report.get('appsWithSize', 0)}")
     print(f"Apps without final size: {report.get('appsWithoutSize', 0)}")
 
