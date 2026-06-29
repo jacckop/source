@@ -102,6 +102,83 @@ jobs:
               raise SystemExit("No apps generated")
           PY
 
+      - name: Check zero-size apps
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from collections import Counter
+
+          path = Path("dist/kirastore-index.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+
+          apps = data.get("apps", [])
+
+          zero_apps = []
+          ok_apps = []
+          source_counter = Counter()
+
+          for app in apps:
+              if not isinstance(app, dict):
+                  continue
+
+              versions = app.get("versions", [])
+              version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+
+              app_size = app.get("size", 0)
+              version_size = version.get("size", 0)
+
+              app_size_ok = isinstance(app_size, int) and app_size > 0
+              version_size_ok = isinstance(version_size, int) and version_size > 0
+
+              source_name = app.get("sourceName") or "Unknown Source"
+              source_url = app.get("sourceURL") or "Unknown URL"
+
+              item = {
+                  "name": app.get("name"),
+                  "bundleIdentifier": app.get("bundleIdentifier"),
+                  "appSize": app_size,
+                  "versionSize": version_size,
+                  "sourceName": source_name,
+                  "sourceURL": source_url,
+                  "downloadURL": version.get("downloadURL"),
+              }
+
+              if app_size_ok and version_size_ok:
+                  ok_apps.append(item)
+              else:
+                  zero_apps.append(item)
+                  source_counter[f"{source_name} | {source_url}"] += 1
+
+          print("Total apps:", len(apps))
+          print("Apps with valid size:", len(ok_apps))
+          print("Apps with zero/missing size:", len(zero_apps))
+
+          print("")
+          print("Top sources with zero-size apps:")
+          for source, count in source_counter.most_common(30):
+              print(count, "|", source)
+
+          print("")
+          print("First 100 zero-size apps:")
+          for item in zero_apps[:100]:
+              print(
+                  item["name"],
+                  "| appSize:", item["appSize"],
+                  "| versionSize:", item["versionSize"],
+                  "| bundle:", item["bundleIdentifier"],
+                  "| source:", item["sourceName"],
+                  "| url:", item["sourceURL"],
+              )
+
+          # ملاحظة:
+          # ما نخلي الأكشن يفشل حتى يبقى يحدّث ملف السورس.
+          # إذا تريد الأكشن يفشل عند وجود أي تطبيق حجمه صفر، فعّل السطرين تحت:
+          #
+          # if zero_apps:
+          #     raise SystemExit("There are apps with zero/missing size")
+          PY
+
       - name: Check mthk sizes
         run: |
           python - <<'PY'
