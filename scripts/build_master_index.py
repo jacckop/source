@@ -49,7 +49,7 @@ MASTER_SOURCE: dict[str, Any] = {
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/8.0",
+    "User-Agent": "KiraStore-IndexBuilder/9.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
@@ -707,6 +707,10 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
         "tintColor": tint_color,
         "size": final_size,
         "versions": [output_version],
+
+        # مؤقت للفحص حتى نعرف التطبيق جاي من أي سورس
+        "sourceName": src_name,
+        "sourceURL": src_url,
     }
 
     if category:
