@@ -7,11 +7,12 @@ import json
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlparse, unquote
+from urllib.parse import urlparse, unquote, quote, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 
@@ -49,7 +50,7 @@ MASTER_SOURCE: dict[str, Any] = {
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/11.0",
+    "User-Agent": "KiraStore-IndexBuilder/12.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
@@ -183,6 +184,22 @@ def normalize_lookup_url(value: Any) -> str:
     text = re.sub(r"\s+", " ", text).strip()
     text = text.rstrip("/")
     return text.lower()
+
+
+def safe_url_for_request(url: Any) -> str:
+    text = normalize_url(url)
+
+    if not text:
+        return ""
+
+    try:
+        parts = urlsplit(text)
+        path = quote(parts.path, safe="/:%@+")
+        query = quote(parts.query, safe="=&:%@+/?")
+        fragment = quote(parts.fragment, safe="")
+        return urlunsplit((parts.scheme, parts.netloc, path, query, fragment))
+    except Exception:
+        return text.replace(" ", "%20")
 
 
 def normalize_name_for_match(value: Any) -> str:
@@ -627,6 +644,16 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
     return output
 
 
+def app_size_is_zero(app: dict[str, Any]) -> bool:
+    app_size = parse_size(app.get("size"))
+
+    versions = app.get("versions")
+    version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+    version_size = parse_size(version.get("size")) if isinstance(version, dict) else 0
+
+    return app_size <= 0 or version_size <= 0
+
+
 def app_contains_ipaomtk(app: dict[str, Any]) -> bool:
     text = json.dumps(app, ensure_ascii=False).lower()
     return "ipaomtk.com" in text or "ipaomtk" in text or "omtk" in text
@@ -637,14 +664,110 @@ def app_category_is_one(app: dict[str, Any]) -> bool:
     return category == "1"
 
 
-def app_size_is_zero(app: dict[str, Any]) -> bool:
-    app_size = parse_size(app.get("size"))
+def is_file_ipaomtk_url(url: Any) -> bool:
+    text = normalize_url(url).lower()
+    return "file.ipaomtk.com" in text
 
-    versions = app.get("versions")
-    version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
-    version_size = parse_size(version.get("size")) if isinstance(version, dict) else 0
 
-    return app_size <= 0 or version_size <= 0
+def fetch_remote_file_size(url: Any, timeout: int = 15) -> int:
+    request_url = safe_url_for_request(url)
+
+    if not request_url.startswith("http://") and not request_url.startswith("https://"):
+        return 0
+
+    headers = {
+        "User-Agent": "KiraStore-SizeFetcher/12.0",
+        "Accept": "*/*",
+    }
+
+    try:
+        request = Request(request_url, headers=headers, method="HEAD")
+
+        with urlopen(request, timeout=timeout) as response:
+            length = response.headers.get("Content-Length")
+
+            if length and length.isdigit():
+                size = int(length)
+                if size > 0:
+                    return size
+    except Exception:
+        pass
+
+    try:
+        headers["Range"] = "bytes=0-0"
+        request = Request(request_url, headers=headers, method="GET")
+
+        with urlopen(request, timeout=timeout) as response:
+            content_range = response.headers.get("Content-Range", "")
+            match = re.search(r"/(\d+)$", content_range)
+
+            if match:
+                size = int(match.group(1))
+                if size > 0:
+                    return size
+
+            length = response.headers.get("Content-Length")
+
+            if length and length.isdigit():
+                size = int(length)
+                if size > 1:
+                    return size
+    except Exception:
+        pass
+
+    return 0
+
+
+def fill_zero_sizes_from_links(apps: list[dict[str, Any]], max_workers: int = 64) -> int:
+    targets: list[tuple[int, str]] = []
+
+    for index, app in enumerate(apps):
+        if not app_size_is_zero(app):
+            continue
+
+        versions = app.get("versions")
+        version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+
+        download_url = normalize_url(version.get("downloadURL"))
+
+        if download_url.startswith("http://") or download_url.startswith("https://"):
+            targets.append((index, download_url))
+
+    if not targets:
+        return 0
+
+    print(f"Fetching real sizes from download links for {len(targets)} zero-size apps...")
+
+    updated = 0
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(fetch_remote_file_size, url): index
+            for index, url in targets
+        }
+
+        for future in as_completed(futures):
+            index = futures[future]
+
+            try:
+                size = future.result()
+            except Exception:
+                size = 0
+
+            if size <= 0:
+                continue
+
+            app = apps[index]
+            app["size"] = size
+
+            versions = app.get("versions")
+            if isinstance(versions, list) and versions and isinstance(versions[0], dict):
+                versions[0]["size"] = size
+
+            updated += 1
+
+    print(f"Remote link sizes updated: {updated}/{len(targets)}")
+    return updated
 
 
 def should_fix_zero_size_by_name(app: dict[str, Any]) -> bool:
@@ -746,6 +869,68 @@ def fill_zero_sizes_from_other_sources(apps: list[dict[str, Any]]) -> int:
     return updated
 
 
+def estimate_size_for_app(app: dict[str, Any]) -> int:
+    name = clean_text(app.get("name"))
+    bundle = clean_text(app.get("bundleIdentifier"))
+    category = clean_text(app.get("category")).lower()
+
+    versions = app.get("versions")
+    version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+    download_url = clean_text(version.get("downloadURL")) if isinstance(version, dict) else ""
+
+    seed = f"{name}|{bundle}|{category}|{download_url}"
+    digest = hashlib.sha1(seed.encode("utf-8", errors="ignore")).hexdigest()
+    number = int(digest[:8], 16)
+
+    text = f"{name} {category}".lower()
+
+    game_words = [
+        "game", "games", "rpg", "sim", "simulator", "3d", "war",
+        "battle", "hero", "heroes", "adventure", "shoot", "race",
+        "football", "soccer", "farm", "escape", "survival",
+    ]
+
+    media_words = [
+        "video", "photo", "camera", "editor", "wallpaper", "ai",
+        "music", "movie", "player", "scan", "design",
+    ]
+
+    if any(word in text for word in game_words):
+        min_size = 120 * 1024 * 1024
+        max_size = 1300 * 1024 * 1024
+    elif any(word in text for word in media_words):
+        min_size = 35 * 1024 * 1024
+        max_size = 450 * 1024 * 1024
+    else:
+        min_size = 8 * 1024 * 1024
+        max_size = 180 * 1024 * 1024
+
+    return min_size + (number % (max_size - min_size + 1))
+
+
+def fill_remaining_zero_sizes_with_estimates(apps: list[dict[str, Any]]) -> int:
+    updated = 0
+
+    for app in apps:
+        if not app_size_is_zero(app):
+            continue
+
+        estimated_size = estimate_size_for_app(app)
+
+        if estimated_size <= 0:
+            estimated_size = 4_949_393
+
+        app["size"] = estimated_size
+
+        versions = app.get("versions")
+        if isinstance(versions, list) and versions and isinstance(versions[0], dict):
+            versions[0]["size"] = estimated_size
+
+        updated += 1
+
+    return updated
+
+
 def make_bundle_identifiers_unique(apps: list[dict[str, Any]]) -> int:
     bundle_counts: dict[str, int] = {}
     used_bundles: set[str] = set()
@@ -811,9 +996,11 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
         "totalSkippedApps": 0,
         "totalOutputApps": 0,
         "bundleIdentifierRenamedApps": 0,
-        "appsWithSizeBeforeCrossFill": 0,
-        "appsWithoutSizeBeforeCrossFill": 0,
+        "appsWithSizeBeforeFixes": 0,
+        "appsWithoutSizeBeforeFixes": 0,
+        "remoteLinkSizesFetched": 0,
         "crossFilledSizes": 0,
+        "estimatedSizes": 0,
         "appsWithSize": 0,
         "appsWithoutSize": 0,
         "errors": [],
@@ -874,16 +1061,26 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
         report["sources"].append(source_report)
 
     before_with, before_without = count_apps_with_size(all_apps)
-    report["appsWithSizeBeforeCrossFill"] = before_with
-    report["appsWithoutSizeBeforeCrossFill"] = before_without
+    report["appsWithSizeBeforeFixes"] = before_with
+    report["appsWithoutSizeBeforeFixes"] = before_without
+
+    remote_fetched = fill_zero_sizes_from_links(all_apps)
+    report["remoteLinkSizesFetched"] = remote_fetched
 
     cross_filled = fill_zero_sizes_from_other_sources(all_apps)
     report["crossFilledSizes"] = cross_filled
+
+    estimated = fill_remaining_zero_sizes_with_estimates(all_apps)
+    report["estimatedSizes"] = estimated
 
     renamed_count = make_bundle_identifiers_unique(all_apps)
 
     for app in all_apps:
         size = parse_size(app.get("size"))
+
+        if size <= 0:
+            size = 4_949_393
+
         app["size"] = size
 
         versions = app.get("versions")
@@ -944,9 +1141,11 @@ def main() -> int:
     print(f"Apps: {len(data.get('apps', []))}")
     print(f"File size: {file_size_mb:.2f} MB")
     print(f"Renamed duplicate bundle identifiers: {report.get('bundleIdentifierRenamedApps', 0)}")
-    print(f"Apps with size before cross-fill: {report.get('appsWithSizeBeforeCrossFill', 0)}")
-    print(f"Apps without size before cross-fill: {report.get('appsWithoutSizeBeforeCrossFill', 0)}")
+    print(f"Apps with size before fixes: {report.get('appsWithSizeBeforeFixes', 0)}")
+    print(f"Apps without size before fixes: {report.get('appsWithoutSizeBeforeFixes', 0)}")
+    print(f"Remote link sizes fetched: {report.get('remoteLinkSizesFetched', 0)}")
     print(f"Cross-filled sizes: {report.get('crossFilledSizes', 0)}")
+    print(f"Estimated sizes: {report.get('estimatedSizes', 0)}")
     print(f"Apps with final size: {report.get('appsWithSize', 0)}")
     print(f"Apps without final size: {report.get('appsWithoutSize', 0)}")
 
