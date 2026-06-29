@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlparse
+from urllib.parse import urlparse, unquote
 from urllib.request import Request, urlopen
 
 
@@ -49,210 +49,78 @@ MASTER_SOURCE: dict[str, Any] = {
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/9.0",
+    "User-Agent": "KiraStore-IndexBuilder/10.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
 
 APP_KEY_ALIASES = {
-    "name": [
-        "name",
-        "title",
-        "appName",
-        "app_name",
-    ],
+    "name": ["name", "title", "appName", "app_name"],
     "bundleIdentifier": [
-        "bundleIdentifier",
-        "bundleID",
-        "bundleId",
-        "bundle",
-        "identifier",
-        "bundle_identifier",
-        "bundleid",
-        "package",
-        "packageName",
+        "bundleIdentifier", "bundleID", "bundleId", "bundle", "identifier",
+        "bundle_identifier", "bundleid", "package", "packageName",
     ],
-    "subtitle": [
-        "subtitle",
-        "shortDescription",
-        "short_description",
-        "caption",
-    ],
+    "subtitle": ["subtitle", "shortDescription", "short_description", "caption"],
     "localizedDescription": [
-        "localizedDescription",
-        "description",
-        "desc",
-        "fullDescription",
-        "full_description",
-        "changelog",
+        "localizedDescription", "description", "desc",
+        "fullDescription", "full_description", "changelog",
     ],
     "iconURL": [
-        "iconURL",
-        "iconUrl",
-        "icon",
-        "icon_url",
-        "image",
-        "imageURL",
-        "imageUrl",
-        "artworkURL",
-        "artworkUrl",
-        "thumbnail",
+        "iconURL", "iconUrl", "icon", "icon_url", "image",
+        "imageURL", "imageUrl", "artworkURL", "artworkUrl", "thumbnail",
     ],
-    "tintColor": [
-        "tintColor",
-        "tint",
-        "color",
-    ],
-    "category": [
-        "category",
-        "genre",
-        "type",
-    ],
+    "tintColor": ["tintColor", "tint", "color"],
+    "category": ["category", "genre", "type"],
     "downloadURL": [
-        "downloadURL",
-        "downloadUrl",
-        "download_url",
-        "download",
-        "url",
-        "ipa",
-        "ipaURL",
-        "ipaUrl",
-        "ipa_url",
-        "file",
-        "fileURL",
-        "fileUrl",
-        "file_url",
-        "link",
-        "directLink",
-        "direct_link",
+        "downloadURL", "downloadUrl", "download_url", "download", "url",
+        "ipa", "ipaURL", "ipaUrl", "ipa_url", "file", "fileURL",
+        "fileUrl", "file_url", "link", "directLink", "direct_link",
     ],
     "version": [
-        "version",
-        "versionName",
-        "version_name",
-        "latestVersion",
-        "latest_version",
-        "build",
+        "version", "versionName", "version_name",
+        "latestVersion", "latest_version", "build",
     ],
     "versionDate": [
-        "versionDate",
-        "date",
-        "updatedDate",
-        "updated",
-        "lastUpdated",
-        "last_updated",
-        "created",
-        "createdAt",
-        "updated_at",
+        "versionDate", "date", "updatedDate", "updated", "lastUpdated",
+        "last_updated", "created", "createdAt", "updated_at",
     ],
     "size": [
-        "size",
-        "Size",
-        "SIZE",
-        "sizeBytes",
-        "size_bytes",
-        "fileSize",
-        "filesize",
-        "file_size",
-        "fileSizeBytes",
-        "file_size_bytes",
-        "ipaSize",
-        "ipa_size",
-        "appSize",
-        "app_size",
-        "downloadSize",
-        "download_size",
-        "binarySize",
-        "binary_size",
-        "ipaFileSize",
-        "ipa_file_size",
-        "file_size_in_bytes",
-        "bytes",
-        "length",
-        "contentLength",
-        "content_length",
+        "size", "Size", "SIZE", "sizeBytes", "size_bytes", "fileSize",
+        "filesize", "file_size", "fileSizeBytes", "file_size_bytes",
+        "ipaSize", "ipa_size", "appSize", "app_size", "downloadSize",
+        "download_size", "binarySize", "binary_size", "ipaFileSize",
+        "ipa_file_size", "file_size_in_bytes", "bytes", "length",
+        "contentLength", "content_length",
     ],
     "minOSVersion": [
-        "minOSVersion",
-        "minimumOSVersion",
-        "minimum_os_version",
-        "minIOS",
-        "minIOSVersion",
-        "min_ios_version",
+        "minOSVersion", "minimumOSVersion", "minimum_os_version",
+        "minIOS", "minIOSVersion", "min_ios_version",
     ],
 }
 
 
 VERSION_KEY_ALIASES = {
-    "version": [
-        "version",
-        "versionName",
-        "version_name",
-        "build",
-    ],
+    "version": ["version", "versionName", "version_name", "build"],
     "downloadURL": [
-        "downloadURL",
-        "downloadUrl",
-        "download_url",
-        "download",
-        "url",
-        "ipa",
-        "ipaURL",
-        "ipaUrl",
-        "ipa_url",
-        "file",
-        "fileURL",
-        "fileUrl",
-        "file_url",
-        "link",
-        "directLink",
-        "direct_link",
+        "downloadURL", "downloadUrl", "download_url", "download", "url",
+        "ipa", "ipaURL", "ipaUrl", "ipa_url", "file", "fileURL",
+        "fileUrl", "file_url", "link", "directLink", "direct_link",
     ],
     "date": [
-        "date",
-        "versionDate",
-        "updatedDate",
-        "updated",
-        "lastUpdated",
-        "last_updated",
-        "created",
-        "createdAt",
-        "updated_at",
+        "date", "versionDate", "updatedDate", "updated", "lastUpdated",
+        "last_updated", "created", "createdAt", "updated_at",
     ],
     "size": [
-        "size",
-        "Size",
-        "SIZE",
-        "sizeBytes",
-        "size_bytes",
-        "fileSize",
-        "filesize",
-        "file_size",
-        "fileSizeBytes",
-        "file_size_bytes",
-        "ipaSize",
-        "ipa_size",
-        "appSize",
-        "app_size",
-        "downloadSize",
-        "download_size",
-        "binarySize",
-        "binary_size",
-        "ipaFileSize",
-        "ipa_file_size",
-        "file_size_in_bytes",
-        "bytes",
-        "length",
-        "contentLength",
-        "content_length",
+        "size", "Size", "SIZE", "sizeBytes", "size_bytes", "fileSize",
+        "filesize", "file_size", "fileSizeBytes", "file_size_bytes",
+        "ipaSize", "ipa_size", "appSize", "app_size", "downloadSize",
+        "download_size", "binarySize", "binary_size", "ipaFileSize",
+        "ipa_file_size", "file_size_in_bytes", "bytes", "length",
+        "contentLength", "content_length",
     ],
     "minOSVersion": [
-        "minOSVersion",
-        "minimumOSVersion",
-        "minimum_os_version",
-        "minIOS",
-        "minIOSVersion",
-        "min_ios_version",
+        "minOSVersion", "minimumOSVersion", "minimum_os_version",
+        "minIOS", "minIOSVersion", "min_ios_version",
     ],
 }
 
@@ -272,10 +140,8 @@ def sha1_text(text: str) -> str:
 def clean_text(value: Any) -> str:
     if value is None:
         return ""
-
     if not isinstance(value, str):
         value = str(value)
-
     value = value.replace("\u0000", "")
     return re.sub(r"\s+", " ", value).strip()
 
@@ -293,7 +159,6 @@ def first_value(data: dict[str, Any], aliases: list[str], default: Any = None) -
             return data[key]
 
     wanted = {normalize_key_name(key) for key in aliases}
-
     for key, value in data.items():
         if normalize_key_name(key) in wanted and value not in (None, ""):
             return value
@@ -305,6 +170,29 @@ def normalize_url(value: Any) -> str:
     return clean_text(value)
 
 
+def normalize_lookup_url(value: Any) -> str:
+    text = normalize_url(value)
+    if not text:
+        return ""
+
+    text = unquote(text)
+    text = text.replace("%40", "@")
+    text = text.replace("%20", " ")
+    text = text.replace("+", " ")
+    text = re.sub(r"\s+", " ", text).strip()
+    text = text.rstrip("/")
+    return text.lower()
+
+
+def normalize_name_for_match(value: Any) -> str:
+    text = clean_text(value).lower()
+    text = text.replace("ipaomtk.com", "")
+    text = text.replace("-ipaomtk", "")
+    text = text.replace("ipaomtk", "")
+    text = re.sub(r"[^a-z0-9\u0600-\u06FF]+", "", text)
+    return text
+
+
 def safe_slug(text: str) -> str:
     text = clean_text(text).lower()
     text = re.sub(r"[^a-z0-9]+", ".", text)
@@ -314,13 +202,10 @@ def safe_slug(text: str) -> str:
 
 def normalize_tint_color(value: Any) -> str:
     text = clean_text(value)
-
     if not text:
         return "#000000"
-
     if re.fullmatch(r"#?[0-9a-fA-F]{6}", text):
         return text if text.startswith("#") else f"#{text}"
-
     return "#000000"
 
 
@@ -361,7 +246,6 @@ def parse_size(value: Any) -> int:
         return 0
 
     text = clean_text(value).replace(",", "")
-
     if not text:
         return 0
 
@@ -410,7 +294,6 @@ def parse_size(value: Any) -> int:
 
 def remove_screenshot_content(value: Any) -> str:
     text = clean_text(value)
-
     if not text:
         return ""
 
@@ -425,26 +308,18 @@ def remove_screenshot_content(value: Any) -> str:
     cleaned_parts: list[str] = []
 
     bad_words = [
-        "screenshot",
-        "screenshots",
-        "screen shot",
-        "preview image",
-        "preview images",
-        "لقطة شاشة",
-        "لقطات شاشة",
-        "سكرين شوت",
-        "سكرينشوت",
+        "screenshot", "screenshots", "screen shot",
+        "preview image", "preview images",
+        "لقطة شاشة", "لقطات شاشة", "سكرين شوت", "سكرينشوت",
     ]
 
     for part in parts:
         low = part.lower()
         if any(word in low for word in bad_words):
             continue
-
         cleaned_parts.append(part)
 
     text = " ".join(cleaned_parts)
-
     text = re.sub(
         r"https?://\S*(?:screenshot|screenshots|preview)\S*",
         "",
@@ -457,10 +332,8 @@ def remove_screenshot_content(value: Any) -> str:
 
 def trim_text(value: Any, limit: int) -> str:
     text = remove_screenshot_content(value)
-
     if len(text) <= limit:
         return text
-
     return text[:limit].rstrip() + "..."
 
 
@@ -470,12 +343,10 @@ def fetch_json(url: str, retries: int = 3, timeout: int = 45) -> dict[str, Any] 
     for attempt in range(1, retries + 1):
         try:
             request = Request(url, headers=HTTP_HEADERS)
-
             with urlopen(request, timeout=timeout) as response:
                 raw = response.read()
 
             text = raw.decode("utf-8-sig", errors="replace").strip()
-
             if not text:
                 raise ValueError("empty response")
 
@@ -555,7 +426,6 @@ def get_source_size(app_data: dict[str, Any], version_data: dict[str, Any]) -> i
     if isinstance(version_data, dict):
         for key, value in version_data.items():
             key_normalized = normalize_key_name(key)
-
             if "size" in key_normalized or "filesize" in key_normalized or "bytes" in key_normalized or "length" in key_normalized:
                 parsed = parse_size(value)
                 if parsed > 0:
@@ -564,7 +434,6 @@ def get_source_size(app_data: dict[str, Any], version_data: dict[str, Any]) -> i
     if isinstance(app_data, dict):
         for key, value in app_data.items():
             key_normalized = normalize_key_name(key)
-
             if "size" in key_normalized or "filesize" in key_normalized or "bytes" in key_normalized or "length" in key_normalized:
                 parsed = parse_size(value)
                 if parsed > 0:
@@ -574,7 +443,6 @@ def get_source_size(app_data: dict[str, Any], version_data: dict[str, Any]) -> i
     for item in extract_versions(versions):
         for key, value in item.items():
             key_normalized = normalize_key_name(key)
-
             if "size" in key_normalized or "filesize" in key_normalized or "bytes" in key_normalized or "length" in key_normalized:
                 parsed = parse_size(value)
                 if parsed > 0:
@@ -635,7 +503,6 @@ def normalize_version(version_data: dict[str, Any], app_data: dict[str, Any]) ->
 
 def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str, Any] | None:
     name = clean_text(first_value(app, APP_KEY_ALIASES["name"], ""))
-
     if not name:
         return None
 
@@ -651,7 +518,6 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
         if version.get("downloadURL") or top_download_url:
             if not version.get("downloadURL") and top_download_url:
                 version["downloadURL"] = top_download_url
-
             versions.append(version)
 
     if not versions and top_download_url:
@@ -662,7 +528,6 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
 
     latest = versions[0]
     raw_latest_version = raw_version_items[0] if raw_version_items else {}
-
     latest_download_url = normalize_url(latest.get("downloadURL")) or top_download_url
 
     if not latest_download_url:
@@ -682,11 +547,8 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
     min_os = clean_text(first_value(app, APP_KEY_ALIASES["minOSVersion"], ""))
 
     final_size = get_source_size(app, raw_latest_version)
-
     if final_size <= 0:
         final_size = parse_size(latest.get("size"))
-
-    latest["size"] = final_size
 
     output_version: dict[str, Any] = {
         "version": clean_text(latest.get("version")) or "1.0",
@@ -707,8 +569,6 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
         "tintColor": tint_color,
         "size": final_size,
         "versions": [output_version],
-
-        # مؤقت للفحص حتى نعرف التطبيق جاي من أي سورس
         "sourceName": src_name,
         "sourceURL": src_url,
     }
@@ -720,6 +580,84 @@ def normalize_app(app: dict[str, Any], src_name: str, src_url: str) -> dict[str,
         output["minOSVersion"] = min_os
 
     return output
+
+
+def build_size_lookup(apps: list[dict[str, Any]]) -> dict[str, int]:
+    lookup: dict[str, int] = {}
+
+    for app in apps:
+        size = parse_size(app.get("size"))
+        if size <= 0:
+            continue
+
+        versions = app.get("versions")
+        version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+
+        download_url = normalize_lookup_url(version.get("downloadURL"))
+        icon_url = normalize_lookup_url(app.get("iconURL"))
+        name_key = normalize_name_for_match(app.get("name"))
+
+        keys = []
+
+        if download_url:
+            keys.append(f"download:{download_url}")
+
+        if icon_url:
+            keys.append(f"icon:{icon_url}")
+
+        if name_key:
+            keys.append(f"name:{name_key}")
+
+        for key in keys:
+            lookup.setdefault(key, size)
+
+    return lookup
+
+
+def fill_zero_sizes_from_other_sources(apps: list[dict[str, Any]]) -> int:
+    lookup = build_size_lookup(apps)
+    updated = 0
+
+    for app in apps:
+        current_size = parse_size(app.get("size"))
+        if current_size > 0:
+            continue
+
+        versions = app.get("versions")
+        version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+
+        download_url = normalize_lookup_url(version.get("downloadURL"))
+        icon_url = normalize_lookup_url(app.get("iconURL"))
+        name_key = normalize_name_for_match(app.get("name"))
+
+        candidates = []
+
+        if download_url:
+            candidates.append(f"download:{download_url}")
+
+        if icon_url:
+            candidates.append(f"icon:{icon_url}")
+
+        if name_key:
+            candidates.append(f"name:{name_key}")
+
+        new_size = 0
+        for key in candidates:
+            new_size = lookup.get(key, 0)
+            if new_size > 0:
+                break
+
+        if new_size <= 0:
+            continue
+
+        app["size"] = new_size
+
+        if isinstance(versions, list) and versions and isinstance(versions[0], dict):
+            versions[0]["size"] = new_size
+
+        updated += 1
+
+    return updated
 
 
 def make_bundle_identifiers_unique(apps: list[dict[str, Any]]) -> int:
@@ -762,6 +700,19 @@ def app_sort_key(app: dict[str, Any]) -> tuple[str, str]:
     )
 
 
+def count_apps_with_size(apps: list[dict[str, Any]]) -> tuple[int, int]:
+    with_size = 0
+    without_size = 0
+
+    for app in apps:
+        if parse_size(app.get("size")) > 0:
+            with_size += 1
+        else:
+            without_size += 1
+
+    return with_size, without_size
+
+
 def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
     all_apps: list[dict[str, Any]] = []
 
@@ -774,6 +725,9 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
         "totalSkippedApps": 0,
         "totalOutputApps": 0,
         "bundleIdentifierRenamedApps": 0,
+        "appsWithSizeBeforeCrossFill": 0,
+        "appsWithoutSizeBeforeCrossFill": 0,
+        "crossFilledSizes": 0,
         "appsWithSize": 0,
         "appsWithoutSize": 0,
         "errors": [],
@@ -810,10 +764,8 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
 
                 if parse_size(normalized.get("size")) > 0:
                     source_report["withSize"] += 1
-                    report["appsWithSize"] += 1
                 else:
                     source_report["withoutSize"] += 1
-                    report["appsWithoutSize"] += 1
 
                 all_apps.append(normalized)
                 source_report["normalizedApps"] += 1
@@ -835,6 +787,13 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
 
         report["sources"].append(source_report)
 
+    before_with, before_without = count_apps_with_size(all_apps)
+    report["appsWithSizeBeforeCrossFill"] = before_with
+    report["appsWithoutSizeBeforeCrossFill"] = before_without
+
+    cross_filled = fill_zero_sizes_from_other_sources(all_apps)
+    report["crossFilledSizes"] = cross_filled
+
     renamed_count = make_bundle_identifiers_unique(all_apps)
 
     for app in all_apps:
@@ -842,20 +801,18 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
         app["size"] = size
 
         versions = app.get("versions")
-
         if isinstance(versions, list) and versions and isinstance(versions[0], dict):
             versions[0]["size"] = size
+
+    after_with, after_without = count_apps_with_size(all_apps)
 
     all_apps.sort(key=app_sort_key)
 
     featured_apps: list[str] = []
-
     for app in all_apps:
         bundle = clean_text(app.get("bundleIdentifier"))
-
         if bundle and bundle not in featured_apps:
             featured_apps.append(bundle)
-
         if len(featured_apps) >= 20:
             break
 
@@ -865,6 +822,8 @@ def build_index() -> tuple[dict[str, Any], dict[str, Any]]:
 
     report["totalOutputApps"] = len(all_apps)
     report["bundleIdentifierRenamedApps"] = renamed_count
+    report["appsWithSize"] = after_with
+    report["appsWithoutSize"] = after_without
 
     return output, report
 
@@ -873,7 +832,6 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build a lite merged KiraStore source.")
     parser.add_argument("--output", default="dist/kirastore-index.json", help="Output JSON path")
     parser.add_argument("--pretty", action="store_true", help="Pretty print JSON. This increases file size.")
-
     args = parser.parse_args()
 
     output_path = Path(args.output)
@@ -896,8 +854,11 @@ def main() -> int:
     print(f"Apps: {len(data.get('apps', []))}")
     print(f"File size: {file_size_mb:.2f} MB")
     print(f"Renamed duplicate bundle identifiers: {report.get('bundleIdentifierRenamedApps', 0)}")
-    print(f"Apps with size: {report.get('appsWithSize', 0)}")
-    print(f"Apps without size: {report.get('appsWithoutSize', 0)}")
+    print(f"Apps with size before cross-fill: {report.get('appsWithSizeBeforeCrossFill', 0)}")
+    print(f"Apps without size before cross-fill: {report.get('appsWithoutSizeBeforeCrossFill', 0)}")
+    print(f"Cross-filled sizes: {report.get('crossFilledSizes', 0)}")
+    print(f"Apps with final size: {report.get('appsWithSize', 0)}")
+    print(f"Apps without final size: {report.get('appsWithoutSize', 0)}")
 
     if report.get("errors"):
         print("\nSome sources failed, but the merged source was still generated.", file=sys.stderr)
