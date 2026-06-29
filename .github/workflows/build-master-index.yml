@@ -67,14 +67,12 @@ jobs:
                   bundles.append(bundle)
 
               app_size = app.get("size", 0)
-
               if isinstance(app_size, int) and app_size > 0:
                   app_size_ok += 1
               else:
                   app_size_zero += 1
 
               versions = app.get("versions", [])
-
               if isinstance(versions, list) and versions and isinstance(versions[0], dict):
                   version_size = versions[0].get("size", 0)
 
@@ -104,7 +102,7 @@ jobs:
               raise SystemExit("No apps generated")
           PY
 
-      - name: Check ipaomtk sizes
+      - name: Check mthk sizes
         run: |
           python - <<'PY'
           import json
@@ -115,7 +113,7 @@ jobs:
 
           apps = data.get("apps", [])
 
-          ipaomtk_apps = []
+          mthk_apps = []
           with_size = []
           zero_size = []
 
@@ -123,9 +121,9 @@ jobs:
               if not isinstance(app, dict):
                   continue
 
-              text = json.dumps(app, ensure_ascii=False).lower()
+              source_url = str(app.get("sourceURL", ""))
 
-              if "ipaomtk" not in text:
+              if "raw.githubusercontent.com/jacckop/source/main/mthk" not in source_url:
                   continue
 
               versions = app.get("versions", [])
@@ -142,19 +140,19 @@ jobs:
                   "downloadURL": version.get("downloadURL"),
               }
 
-              ipaomtk_apps.append(item)
+              mthk_apps.append(item)
 
               if isinstance(app_size, int) and app_size > 0 and isinstance(version_size, int) and version_size > 0:
                   with_size.append(item)
               else:
                   zero_size.append(item)
 
-          print("ipaomtk apps:", len(ipaomtk_apps))
-          print("ipaomtk with size:", len(with_size))
-          print("ipaomtk zero/missing size:", len(zero_size))
+          print("mthk apps:", len(mthk_apps))
+          print("mthk with size:", len(with_size))
+          print("mthk zero/missing size:", len(zero_size))
 
           print("")
-          print("First 30 ipaomtk zero-size apps:")
+          print("First 30 mthk zero-size apps:")
           for item in zero_size[:30]:
               print(
                   item["name"],
@@ -164,7 +162,7 @@ jobs:
               )
 
           print("")
-          print("First 30 ipaomtk apps with size:")
+          print("First 30 mthk apps with size:")
           for item in with_size[:30]:
               print(
                   item["name"],
