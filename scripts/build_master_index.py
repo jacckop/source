@@ -50,7 +50,7 @@ MASTER_SOURCE: dict[str, Any] = {
 
 
 HTTP_HEADERS = {
-    "User-Agent": "KiraStore-IndexBuilder/14.0",
+    "User-Agent": "KiraStore-IndexBuilder/15.0",
     "Accept": "application/json,text/plain,*/*",
 }
 
@@ -403,7 +403,7 @@ def trim_text(value: Any, limit: int) -> str:
     return text[:limit].rstrip() + "..."
 
 
-def fetch_json(url: str, retries: int = 3, timeout: int = 45) -> dict[str, Any] | list[Any]:
+def fetch_json(url: str, retries: int = 5, timeout: int = 90) -> dict[str, Any] | list[Any]:
     last_error: Exception | None = None
 
     for attempt in range(1, retries + 1):
@@ -425,7 +425,7 @@ def fetch_json(url: str, retries: int = 3, timeout: int = 45) -> dict[str, Any] 
             print(f"WARN: fetch failed {attempt}/{retries}: {url} -> {error}", file=sys.stderr)
 
             if attempt < retries:
-                time.sleep(min(2 * attempt, 8))
+                time.sleep(min(2 * attempt, 10))
 
     raise RuntimeError(f"failed to fetch {url}: {last_error}")
 
@@ -710,7 +710,7 @@ def fetch_remote_file_size(url: Any, timeout: int = 15) -> int:
         return 0
 
     headers = {
-        "User-Agent": "KiraStore-SizeFetcher/14.0",
+        "User-Agent": "KiraStore-SizeFetcher/15.0",
         "Accept": "*/*",
     }
 
@@ -976,17 +976,6 @@ def remove_duplicate_apps_by_download_url(apps: list[dict[str, Any]]) -> tuple[l
 
 
 def strip_unneeded_fields(apps: list[dict[str, Any]]) -> int:
-    """
-    يحذف فقط:
-    - tintColor
-    - minOSVersion
-
-    ولا يحذف:
-    - version
-    - date
-    - downloadURL
-    - size
-    """
     stripped = 0
 
     for app in apps:
@@ -1262,7 +1251,14 @@ def main() -> int:
     print(f"Apps without final size: {report.get('appsWithoutSize', 0)}")
 
     if report.get("errors"):
-        print("\nSome sources failed, but the merged source was still generated.", file=sys.stderr)
+        print("\nERROR: One or more sources failed. Refusing to publish incomplete index.", file=sys.stderr)
+
+        for error in report.get("errors", []):
+            print(f"- {error}", file=sys.stderr)
+
+        print("\nThe JSON was generated locally for debugging, but GitHub Actions will stop before commit.", file=sys.stderr)
+
+        return 1
 
     return 0
 
