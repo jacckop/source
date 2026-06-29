@@ -16,11 +16,12 @@ permissions:
 
 concurrency:
   group: build-kirastore-master-index
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
 
     steps:
       - name: Checkout repository
@@ -38,70 +39,6 @@ jobs:
           python scripts/build_master_index.py \
             --output dist/kirastore-index.json
 
-      - name: Validate generated JSON
-        run: |
-          python -m json.tool dist/kirastore-index.json > /tmp/kirastore-index.check.json
-
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          output_path = Path("dist/kirastore-index.json")
-          data = json.loads(output_path.read_text(encoding="utf-8"))
-
-          apps = data.get("apps", [])
-          bundles = []
-
-          app_size_ok = 0
-          app_size_zero = 0
-          version_size_ok = 0
-          version_size_zero = 0
-          mismatch = 0
-
-          for app in apps:
-              if not isinstance(app, dict):
-                  continue
-
-              bundle = app.get("bundleIdentifier")
-              if bundle:
-                  bundles.append(bundle)
-
-              app_size = app.get("size", 0)
-              if isinstance(app_size, int) and app_size > 0:
-                  app_size_ok += 1
-              else:
-                  app_size_zero += 1
-
-              versions = app.get("versions", [])
-              if isinstance(versions, list) and versions and isinstance(versions[0], dict):
-                  version_size = versions[0].get("size", 0)
-
-                  if isinstance(version_size, int) and version_size > 0:
-                      version_size_ok += 1
-                  else:
-                      version_size_zero += 1
-
-                  if app_size != version_size:
-                      mismatch += 1
-
-          size_mb = output_path.stat().st_size / 1024 / 1024
-
-          print("Apps:", len(apps))
-          print("Unique bundle identifiers:", len(set(bundles)), "/", len(bundles))
-          print("Top-level app size > 0:", app_size_ok)
-          print("Top-level app size = 0:", app_size_zero)
-          print("Version size > 0:", version_size_ok)
-          print("Version size = 0:", version_size_zero)
-          print("App size / version size mismatch:", mismatch)
-          print("File size:", round(size_mb, 2), "MB")
-
-          if len(set(bundles)) != len(bundles):
-              raise SystemExit("Duplicate bundle identifiers still exist")
-
-          if not apps:
-              raise SystemExit("No apps generated")
-          PY
-
       - name: Check zero-size apps
         run: |
           python - <<'PY'
@@ -111,7 +48,6 @@ jobs:
 
           path = Path("dist/kirastore-index.json")
           data = json.loads(path.read_text(encoding="utf-8"))
-
           apps = data.get("apps", [])
 
           zero_apps = []
@@ -174,74 +110,72 @@ jobs:
               )
           PY
 
-      - name: Check mthk sizes
+      - name: Validate generated JSON
         run: |
+          python -m json.tool dist/kirastore-index.json > /tmp/kirastore-index.check.json
+
           python - <<'PY'
           import json
           from pathlib import Path
 
-          path = Path("dist/kirastore-index.json")
-          data = json.loads(path.read_text(encoding="utf-8"))
+          output_path = Path("dist/kirastore-index.json")
+          data = json.loads(output_path.read_text(encoding="utf-8"))
 
           apps = data.get("apps", [])
+          bundles = []
 
-          mthk_apps = []
-          with_size = []
-          zero_size = []
+          app_size_ok = 0
+          app_size_zero = 0
+          version_size_ok = 0
+          version_size_zero = 0
+          mismatch = 0
 
           for app in apps:
               if not isinstance(app, dict):
                   continue
 
-              source_url = str(app.get("sourceURL", ""))
-
-              if "raw.githubusercontent.com/jacckop/source/main/mthk" not in source_url:
-                  continue
-
-              versions = app.get("versions", [])
-              version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+              bundle = app.get("bundleIdentifier")
+              if bundle:
+                  bundles.append(bundle)
 
               app_size = app.get("size", 0)
-              version_size = version.get("size", 0)
 
-              item = {
-                  "name": app.get("name"),
-                  "bundleIdentifier": app.get("bundleIdentifier"),
-                  "appSize": app_size,
-                  "versionSize": version_size,
-                  "downloadURL": version.get("downloadURL"),
-              }
-
-              mthk_apps.append(item)
-
-              if isinstance(app_size, int) and app_size > 0 and isinstance(version_size, int) and version_size > 0:
-                  with_size.append(item)
+              if isinstance(app_size, int) and app_size > 0:
+                  app_size_ok += 1
               else:
-                  zero_size.append(item)
+                  app_size_zero += 1
 
-          print("mthk apps:", len(mthk_apps))
-          print("mthk with size:", len(with_size))
-          print("mthk zero/missing size:", len(zero_size))
+              versions = app.get("versions", [])
+              if isinstance(versions, list) and versions and isinstance(versions[0], dict):
+                  version_size = versions[0].get("size", 0)
 
-          print("")
-          print("First 30 mthk zero-size apps:")
-          for item in zero_size[:30]:
-              print(
-                  item["name"],
-                  "| appSize:", item["appSize"],
-                  "| versionSize:", item["versionSize"],
-                  "| bundle:", item["bundleIdentifier"],
-              )
+                  if isinstance(version_size, int) and version_size > 0:
+                      version_size_ok += 1
+                  else:
+                      version_size_zero += 1
 
-          print("")
-          print("First 30 mthk apps with size:")
-          for item in with_size[:30]:
-              print(
-                  item["name"],
-                  "| appSize:", item["appSize"],
-                  "| versionSize:", item["versionSize"],
-                  "| bundle:", item["bundleIdentifier"],
-              )
+                  if app_size != version_size:
+                      mismatch += 1
+
+          size_mb = output_path.stat().st_size / 1024 / 1024
+
+          print("Apps:", len(apps))
+          print("Unique bundle identifiers:", len(set(bundles)), "/", len(bundles))
+          print("Top-level app size > 0:", app_size_ok)
+          print("Top-level app size = 0:", app_size_zero)
+          print("Version size > 0:", version_size_ok)
+          print("Version size = 0:", version_size_zero)
+          print("App size / version size mismatch:", mismatch)
+          print("File size:", round(size_mb, 2), "MB")
+
+          if len(set(bundles)) != len(bundles):
+              raise SystemExit("Duplicate bundle identifiers still exist")
+
+          if not apps:
+              raise SystemExit("No apps generated")
+
+          if app_size_zero != 0 or version_size_zero != 0:
+              raise SystemExit("There are still apps with zero/missing size")
           PY
 
       - name: Show git changes
