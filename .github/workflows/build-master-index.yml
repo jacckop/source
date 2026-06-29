@@ -60,6 +60,7 @@ jobs:
           version_size_ok = 0
           version_size_zero = 0
           mismatch = 0
+          missing_version = 0
 
           for app in apps:
               if not isinstance(app, dict):
@@ -71,6 +72,9 @@ jobs:
 
               versions = app.get("versions", [])
               version = versions[0] if isinstance(versions, list) and versions and isinstance(versions[0], dict) else {}
+
+              if not version.get("version"):
+                  missing_version += 1
 
               url = version.get("downloadURL")
               if isinstance(url, str) and url.strip():
@@ -104,6 +108,7 @@ jobs:
           print("Top-level app size = 0:", app_size_zero)
           print("Version size > 0:", version_size_ok)
           print("Version size = 0:", version_size_zero)
+          print("Missing app version:", missing_version)
           print("App size / version size mismatch:", mismatch)
           print("File size:", round(size_mb, 2), "MB")
 
@@ -121,6 +126,9 @@ jobs:
 
           if mismatch != 0:
               raise SystemExit("App size and version size mismatch exists")
+
+          if missing_version != 0:
+              raise SystemExit("Some apps are missing version")
           PY
 
       - name: Show git changes
