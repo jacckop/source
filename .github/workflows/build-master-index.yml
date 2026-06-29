@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: build-kirastore-master-index
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -141,6 +141,17 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          # Save the generated JSON before syncing with remote main
+          cp dist/kirastore-index.json /tmp/kirastore-index.json
+
+          # Reset to latest remote main to avoid rebase conflicts on generated JSON
+          git fetch origin main
+          git reset --hard origin/main
+
+          # Restore the freshly generated JSON
+          mkdir -p dist
+          cp /tmp/kirastore-index.json dist/kirastore-index.json
+
           git add dist/kirastore-index.json
 
           if git diff --cached --quiet; then
@@ -149,6 +160,4 @@ jobs:
           fi
 
           git commit -m "chore: update KiraStore master index"
-
-          git pull --rebase origin main
           git push origin main
