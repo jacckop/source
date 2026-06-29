@@ -139,6 +139,7 @@ jobs:
                   "bundleIdentifier": app.get("bundleIdentifier"),
                   "appSize": app_size,
                   "versionSize": version_size,
+                  "category": app.get("category"),
                   "sourceName": source_name,
                   "sourceURL": source_url,
                   "downloadURL": version.get("downloadURL"),
@@ -166,17 +167,11 @@ jobs:
                   item["name"],
                   "| appSize:", item["appSize"],
                   "| versionSize:", item["versionSize"],
+                  "| category:", item["category"],
                   "| bundle:", item["bundleIdentifier"],
                   "| source:", item["sourceName"],
                   "| url:", item["sourceURL"],
               )
-
-          # ملاحظة:
-          # ما نخلي الأكشن يفشل حتى يبقى يحدّث ملف السورس.
-          # إذا تريد الأكشن يفشل عند وجود أي تطبيق حجمه صفر، فعّل السطرين تحت:
-          #
-          # if zero_apps:
-          #     raise SystemExit("There are apps with zero/missing size")
           PY
 
       - name: Check mthk sizes
