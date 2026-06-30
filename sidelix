@@ -1,5 +1,5 @@
 {
-    "updated_at": "2026-06-30T16:38:50Z",
+    "updated_at": "2026-06-30T22:03:01Z",
     "name": "Sidelix App Store",
     "identifier": "com.jacckop.source.sidelix",
     "sourceURL": "https://raw.githubusercontent.com/jacckop/source/main/sidelix",
@@ -16,18 +16,186 @@
         "repoIcon": "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg"
     },
     "featuredApps": [
+        "com.grandgames.magicsort",
+        "com.supercell.magic",
+        "com.burbn.instagram",
+        "com.huami.LoadController",
+        "com.spotify.client",
+        "com.atebits.Tweetie2",
         "com.ketchapp.spacefrontier",
         "eatlike.ai.calorie.tracker",
         "com.easygames.race",
-        "com.resonantcavity.Voloco",
-        "com.unofficialcalculators.payplan",
-        "com.evolve.podcast",
-        "com.algoriddim.djay-iphone-free",
-        "com.myswimpro.apps.MySwimPro",
-        "background.remover.bg.eraser",
-        "com.dopedevelopment.Panels"
+        "com.resonantcavity.Voloco"
     ],
     "apps": [
+        {
+            "name": "Magic Sort! (Hacked)",
+            "bundleIdentifier": "com.grandgames.magicsort",
+            "identifier": "com.grandgames.magicsort",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "features: in app purchase",
+            "iconURL": "https://appstore.sidelix.vip/images/icon_6a43d1f09e33e.jpg",
+            "tintColor": "#F54F32",
+            "category": "other",
+            "versions": [
+                {
+                    "version": "27.29",
+                    "date": "2026-06-30",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2070",
+                    "size": 205968057
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "27.29",
+            "versionDate": "2026-06-30",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2070",
+            "size": 205968057
+        },
+        {
+            "name": "Clash of Clans -nulls clash",
+            "bundleIdentifier": "com.supercell.magic",
+            "identifier": "com.supercell.magic",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "Private server that allows you to create and build keep in mind this doesn’t actually save",
+            "iconURL": "https://appstore.sidelix.vip/images/icon_6a43d162ea015.jpg",
+            "tintColor": "#F54F32",
+            "category": "utilities",
+            "versions": [
+                {
+                    "version": "18.400.7",
+                    "date": "2026-06-30",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1860",
+                    "size": 465885070
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "18.400.7",
+            "versionDate": "2026-06-30",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1860",
+            "size": 465885070
+        },
+        {
+            "name": "Instagram - RyukGram",
+            "bundleIdentifier": "com.burbn.instagram",
+            "identifier": "com.burbn.instagram",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "Features marked with * are new or improved in RyukGram\r\nGeneral\r\n\r\nHide ads\r\nHide Meta AI\r\nHide metrics (likes, comments, shares counts)\r\nHide the TestFlight beta update popup\r\nDisable app haptics\r\nCopy description\r\nCopy comment text from long-press menu *\r\nDownload / copy / expand GIF and image comments *\r\nCustom GIF in comments — long-press the GIF button to paste any Giphy link *\r\nFavorite GIFs — long-press a GIF in the picker to pin it to the top or download it *\r\nDownload audio from the reels audio page *\r\nProfile copy button *\r\nReplace domain in shared links for embeds (Discord, Telegram, etc.) *\r\nStrip tracking params from shared links *\r\nOpen links in external browser *\r\n\r\nand so many more features in the app details page",
+            "iconURL": "https://appstore.sidelix.vip/images/icon_6a417086d4e63.jpg",
+            "tintColor": "#F54F32",
+            "category": "social",
+            "versions": [
+                {
+                    "version": "435.1.0",
+                    "date": "2026-06-28",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2139",
+                    "size": 308206330
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "435.1.0",
+            "versionDate": "2026-06-28",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2139",
+            "size": 308206330
+        },
+        {
+            "name": "LCSign",
+            "bundleIdentifier": "com.huami.LoadController",
+            "identifier": "com.huami.LoadController",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "An on-device iOS app packager & signer. Certificates, plugins, resources and installation in one place — every step runs on your device.\r\n\r\nA single shade of celadon. Quiet as paper.",
+            "iconURL": "https://appstore.sidelix.vip/images/1781280155.webp",
+            "tintColor": "#F54F32",
+            "category": "other",
+            "versions": [
+                {
+                    "version": "1.1.9",
+                    "date": "2026-06-28",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2040",
+                    "size": 20996899
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "1.1.9",
+            "versionDate": "2026-06-28",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2040",
+            "size": 20996899
+        },
+        {
+            "name": "EeveeSpotify - Spotify",
+            "bundleIdentifier": "com.spotify.client",
+            "identifier": "com.spotify.client",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "Hacked spotify",
+            "iconURL": "https://appstore.sidelix.vip/images/icon_6a416163e5e01.jpg",
+            "tintColor": "#F54F32",
+            "category": "entertainment",
+            "versions": [
+                {
+                    "version": "9.1.60",
+                    "date": "2026-06-28",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1821",
+                    "size": 127825669
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "9.1.60",
+            "versionDate": "2026-06-28",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1821",
+            "size": 127825669
+        },
+        {
+            "name": "X - Twitter BHX",
+            "bundleIdentifier": "com.atebits.Tweetie2",
+            "identifier": "com.atebits.Tweetie2",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "General Enhancements\r\nDownload videos (even from private accounts)\r\nLoad photos in highest quality available\r\nSave Tweets as images\r\nUndo Tweet\r\nEnable voice Tweets & voice messages in DM\r\nEnable new DM search UI\r\nUI Customization\r\nCustom tab bar\r\nThemes (like Twitter Blue)\r\nApp icon changer\r\nFont changer\r\nPadlock\r\nDisable edge-to-edge Tweet style\r\nAlways open in Safari\r\nHide Spaces bar\r\nHide topics Tweets\r\nNo history feature\r\nDisable RTL (Right-To-Left)\r\nDisable video layer caption\r\nInteraction & Behavior\r\nTwitter Circle feature\r\nCopy profile information\r\nTranslate bio\r\nConfirm alerts on:\r\nTweet\r\nLike\r\nFollow",
+            "iconURL": "https://appstore.sidelix.vip/images/icon_6a4161b2b585a.jpg",
+            "tintColor": "#F54F32",
+            "category": "social",
+            "versions": [
+                {
+                    "version": "12.3",
+                    "date": "2026-06-28",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1865",
+                    "size": 233803971
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "12.3",
+            "versionDate": "2026-06-28",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1865",
+            "size": 233803971
+        },
         {
             "name": "Space Frontier (Hacked)",
             "bundleIdentifier": "com.ketchapp.spacefrontier",
@@ -1093,34 +1261,6 @@
             "size": 766786740
         },
         {
-            "name": "LCSign",
-            "bundleIdentifier": "com.huami.LoadController",
-            "identifier": "com.huami.LoadController",
-            "developerName": "iKiraPlus",
-            "subtitle": "",
-            "localizedDescription": "An on-device iOS app packager & signer. Certificates, plugins, resources and installation in one place — every step runs on your device.\r\n\r\nA single shade of celadon. Quiet as paper.",
-            "iconURL": "https://appstore.sidelix.vip/images/1781280155.webp",
-            "tintColor": "#F54F32",
-            "category": "other",
-            "versions": [
-                {
-                    "version": "1.1.6",
-                    "date": "2026-06-21",
-                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2040",
-                    "size": 20811872
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [],
-                "privacy": []
-            },
-            "patreon": [],
-            "version": "1.1.6",
-            "versionDate": "2026-06-21",
-            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2040",
-            "size": 20811872
-        },
-        {
             "name": "Solitaire Associations Journey (hacked)",
             "bundleIdentifier": "com.hitappsgames.wordsolitaire",
             "identifier": "com.hitappsgames.wordsolitaire",
@@ -1821,34 +1961,6 @@
             "size": 134846993
         },
         {
-            "name": "Magic Sort! (Hacked)",
-            "bundleIdentifier": "com.grandgames.magicsort",
-            "identifier": "com.grandgames.magicsort",
-            "developerName": "iKiraPlus",
-            "subtitle": "",
-            "localizedDescription": "features: in app purchase",
-            "iconURL": "https://appstore.sidelix.vip/images/icon_6a3597305a465.jpg",
-            "tintColor": "#F54F32",
-            "category": "other",
-            "versions": [
-                {
-                    "version": "26.84",
-                    "date": "2026-06-19",
-                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2070",
-                    "size": 204818772
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [],
-                "privacy": []
-            },
-            "patreon": [],
-            "version": "26.84",
-            "versionDate": "2026-06-19",
-            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2070",
-            "size": 204818772
-        },
-        {
             "name": "Egg, Inc - (Hacked)",
             "bundleIdentifier": "com.auxbrain.egginc",
             "identifier": "com.auxbrain.egginc",
@@ -2018,8 +2130,8 @@
         },
         {
             "name": "Instagram - instagram Regram",
-            "bundleIdentifier": "com.burbn.instagram",
-            "identifier": "com.burbn.instagram",
+            "bundleIdentifier": "com.burbn.instagram.2",
+            "identifier": "com.burbn.instagram.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "injected with instagram regram",
@@ -3585,34 +3697,6 @@
             "size": 7454179
         },
         {
-            "name": "EeveeSpotify - Spotify",
-            "bundleIdentifier": "com.spotify.client",
-            "identifier": "com.spotify.client",
-            "developerName": "iKiraPlus",
-            "subtitle": "",
-            "localizedDescription": "Hacked spotify",
-            "iconURL": "https://appstore.sidelix.vip/images/icon_69005b062460a.jpg",
-            "tintColor": "#F54F32",
-            "category": "entertainment",
-            "versions": [
-                {
-                    "version": "9.1.50",
-                    "date": "2026-06-12",
-                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1821",
-                    "size": 115246933
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [],
-                "privacy": []
-            },
-            "patreon": [],
-            "version": "9.1.50",
-            "versionDate": "2026-06-12",
-            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1821",
-            "size": 115246933
-        },
-        {
             "name": "Aloha Browser - Private VPN (Hacked)",
             "bundleIdentifier": "com.alohabrowser.alohabrowser",
             "identifier": "com.alohabrowser.alohabrowser",
@@ -3754,8 +3838,8 @@
         },
         {
             "name": "Instagram - IGFormat",
-            "bundleIdentifier": "com.burbn.instagram.2",
-            "identifier": "com.burbn.instagram.2",
+            "bundleIdentifier": "com.burbn.instagram.3",
+            "identifier": "com.burbn.instagram.3",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "🎯 Display & Format Customization\r\nFormat the count of likes, comments, shares, and views.\r\n\r\nShow Follow Status and toggle Auto Following or Follow Confirmation.\r\n\r\nDisplay whether a user follows you back (FollowsCurrentUser: True/False).\r\n\r\nIncrease character limit up to 1,000,000 for captions and bios.\r\n\r\nFixed Light/Dark Theme support and a dedicated Theme Option.\r\n\r\nAdd a Clear Display button for instant cleanup.\r\n\r\nSwipe to switch accounts easily.\r\n\r\n🎧 Voice Message & Audio Tools\r\nCut, download, and manage voice messages.\r\n\r\nExtend voice messages beyond 60 seconds.\r\n\r\nConvert Reels audio into voice messages.\r\n\r\nDownload audio directly from Reels or GIFs.\r\n\r\nPause and mute with a single tap.\r\n\r\n💬 Chat Management & Privacy\r\nAdvanced",
@@ -4846,8 +4930,8 @@
         },
         {
             "name": "Instagram - Rocket",
-            "bundleIdentifier": "com.burbn.instagram.3",
-            "identifier": "com.burbn.instagram.3",
+            "bundleIdentifier": "com.burbn.instagram.4",
+            "identifier": "com.burbn.instagram.4",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Instagram injected rocket Instagram",
@@ -5742,8 +5826,8 @@
         },
         {
             "name": "X - Twitter (NeoFreeBird)",
-            "bundleIdentifier": "com.atebits.Tweetie2",
-            "identifier": "com.atebits.Tweetie2",
+            "bundleIdentifier": "com.atebits.Tweetie2.2",
+            "identifier": "com.atebits.Tweetie2.2",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Key Features:\r\n\r\nOpen In Twitter extension for x.com links\r\nDisabled Grok and Video tabs by default\r\nFixed Profile and Communities toggles in Custom Navigation\r\nRemoved navigation items relocate to sidebar\r\nAbility to hide blue verified checkmarks (badge only)\r\nAdded back Flex tool for debugging\r\nMultiple minor bug fixes",
@@ -5798,8 +5882,8 @@
         },
         {
             "name": "Instagram - instagramBH",
-            "bundleIdentifier": "com.burbn.instagram.4",
-            "identifier": "com.burbn.instagram.4",
+            "bundleIdentifier": "com.burbn.instagram.5",
+            "identifier": "com.burbn.instagram.5",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Features\r\nHide Ads\r\nNo suggested post\r\nShow Like count\r\nConfirm like\r\nCopy description\r\nDownload Videos\r\nSave profile image\r\nKeep deleted message\r\nRemove last seen\r\nRemove screenshot alert\r\nUnlimited replay of once story\r\nDisable Story Seen Receipt\r\nPadlock",
@@ -6047,34 +6131,6 @@
             "versionDate": "2025-12-07",
             "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1938",
             "size": 118909865
-        },
-        {
-            "name": "X - Twitter BHX",
-            "bundleIdentifier": "com.atebits.Tweetie2.2",
-            "identifier": "com.atebits.Tweetie2.2",
-            "developerName": "iKiraPlus",
-            "subtitle": "",
-            "localizedDescription": "General Enhancements\r\nDownload videos (even from private accounts)\r\nLoad photos in highest quality available\r\nSave Tweets as images\r\nUndo Tweet\r\nEnable voice Tweets & voice messages in DM\r\nEnable new DM search UI\r\nUI Customization\r\nCustom tab bar\r\nThemes (like Twitter Blue)\r\nApp icon changer\r\nFont changer\r\nPadlock\r\nDisable edge-to-edge Tweet style\r\nAlways open in Safari\r\nHide Spaces bar\r\nHide topics Tweets\r\nNo history feature\r\nDisable RTL (Right-To-Left)\r\nDisable video layer caption\r\nInteraction & Behavior\r\nTwitter Circle feature\r\nCopy profile information\r\nTranslate bio\r\nConfirm alerts on:\r\nTweet\r\nLike\r\nFollow",
-            "iconURL": "https://appstore.sidelix.vip/images/icon_690267b01bf46.jpg",
-            "tintColor": "#F54F32",
-            "category": "social",
-            "versions": [
-                {
-                    "version": "11.46",
-                    "date": "2025-12-07",
-                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1865",
-                    "size": 161782628
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [],
-                "privacy": []
-            },
-            "patreon": [],
-            "version": "11.46",
-            "versionDate": "2025-12-07",
-            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1865",
-            "size": 161782628
         },
         {
             "name": "WhatsApp Business - Watusi",
@@ -6327,34 +6383,6 @@
             "versionDate": "2025-11-21",
             "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1851",
             "size": 74355038
-        },
-        {
-            "name": "Clash of Clans -nulls clash",
-            "bundleIdentifier": "com.supercell.magic",
-            "identifier": "com.supercell.magic",
-            "developerName": "iKiraPlus",
-            "subtitle": "",
-            "localizedDescription": "Private server that allows you to create and build keep in mind this doesn’t actually save",
-            "iconURL": "https://appstore.sidelix.vip/images/icon_69025ca07aed7.jpg",
-            "tintColor": "#F54F32",
-            "category": "utilities",
-            "versions": [
-                {
-                    "version": "18.0.2",
-                    "date": "2025-11-21",
-                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1860",
-                    "size": 376491467
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [],
-                "privacy": []
-            },
-            "patreon": [],
-            "version": "18.0.2",
-            "versionDate": "2025-11-21",
-            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1860",
-            "size": 376491467
         },
         {
             "name": "Endel  (Cracked)",
@@ -8122,8 +8150,8 @@
         },
         {
             "name": "Instagram - instagram NYX",
-            "bundleIdentifier": "com.burbn.instagram.5",
-            "identifier": "com.burbn.instagram.5",
+            "bundleIdentifier": "com.burbn.instagram.6",
+            "identifier": "com.burbn.instagram.6",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with instagram NYX",
@@ -8150,8 +8178,8 @@
         },
         {
             "name": "Instagram - Instagram AC",
-            "bundleIdentifier": "com.burbn.instagram.6",
-            "identifier": "com.burbn.instagram.6",
+            "bundleIdentifier": "com.burbn.instagram.7",
+            "identifier": "com.burbn.instagram.7",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with AC tweak",
@@ -9802,8 +9830,8 @@
         },
         {
             "name": "Instagram++",
-            "bundleIdentifier": "com.burbn.instagram.7",
-            "identifier": "com.burbn.instagram.7",
+            "bundleIdentifier": "com.burbn.instagram.8",
+            "identifier": "com.burbn.instagram.8",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Regram for instagram!\n\nFeed Enhancements\n• Download posts (Videos and Photos)\n• Repost posts (Videos and Photos)\n• Long press on posts to zoom\n• Copy text captions from posts\n\nStories\n• Save stories to Camera Roll\n• View stories anonymously\n• Manually mark stories as seen\n• Mute and unmute video stories\n• Upload from Camera Roll (Swipe up)\n• Disable auto switch between stories\n• Hide stories bar from feed\n\nProfile\n• Show if other users follow you\n• Long press on profile image to zoom\n• Show exac",
@@ -26434,8 +26462,8 @@
         },
         {
             "name": "Instagram",
-            "bundleIdentifier": "com.burbn.instagram.8",
-            "identifier": "com.burbn.instagram.8",
+            "bundleIdentifier": "com.burbn.instagram.9",
+            "identifier": "com.burbn.instagram.9",
             "developerName": "iKiraPlus",
             "subtitle": "",
             "localizedDescription": "Injected with Premium",
