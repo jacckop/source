@@ -1,5 +1,5 @@
 {
-    "updated_at": "2026-06-30T22:03:01Z",
+    "updated_at": "2026-07-01T10:56:59Z",
     "name": "Sidelix App Store",
     "identifier": "com.jacckop.source.sidelix",
     "sourceURL": "https://raw.githubusercontent.com/jacckop/source/main/sidelix",
@@ -16,18 +16,130 @@
         "repoIcon": "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg"
     },
     "featuredApps": [
+        "com.behindtechlines.HTTPBot",
+        "com.gma.water.sort.puzzle",
+        "com.google.ios.youtube",
+        "com.huami.LoadController",
         "com.grandgames.magicsort",
         "com.supercell.magic",
         "com.burbn.instagram",
-        "com.huami.LoadController",
         "com.spotify.client",
         "com.atebits.Tweetie2",
-        "com.ketchapp.spacefrontier",
-        "eatlike.ai.calorie.tracker",
-        "com.easygames.race",
-        "com.resonantcavity.Voloco"
+        "com.ketchapp.spacefrontier"
     ],
     "apps": [
+        {
+            "name": "HTTPBot (Hacked)",
+            "bundleIdentifier": "com.behindtechlines.HTTPBot",
+            "identifier": "com.behindtechlines.HTTPBot",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "Features:\r\n- subscription unlocked",
+            "iconURL": "https://appstore.sidelix.vip/images/icon_6a448cc3ec3ee.jpg",
+            "tintColor": "#F54F32",
+            "category": "other",
+            "versions": [
+                {
+                    "version": "2026.5.1",
+                    "date": "2026-07-01",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2141",
+                    "size": 41542882
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "2026.5.1",
+            "versionDate": "2026-07-01",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2141",
+            "size": 41542882
+        },
+        {
+            "name": "Water Sort Puzzle (Hacked)",
+            "bundleIdentifier": "com.gma.water.sort.puzzle",
+            "identifier": "com.gma.water.sort.puzzle",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "Features:\r\n- Free Purchases\r\n\r\nSteps to use this hack:\r\n\r\nTap \"Buy,\" then \"Cancel\"\r\n\r\nYou won't be charged",
+            "iconURL": "https://appstore.sidelix.vip/images/icon_6a445bf788809.jpg",
+            "tintColor": "#F54F32",
+            "category": "games",
+            "versions": [
+                {
+                    "version": "32.0.0",
+                    "date": "2026-07-01",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2140",
+                    "size": 124026384
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "32.0.0",
+            "versionDate": "2026-07-01",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2140",
+            "size": 124026384
+        },
+        {
+            "name": "Youtube - YouTube Plus",
+            "bundleIdentifier": "com.google.ios.youtube",
+            "identifier": "com.google.ios.youtube",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "ℹ️ Features:\r\n\r\nContent download — save videos directly to your gallery.\r\n\r\nNo ads — neither from YouTube nor from bloggers.\r\n\r\nCustomizable interface — personalize the appearance, hide unnecessary elements, and enable dark mode for OLED displays.\r\n\r\nPlayer controls — adjust playback speed, quality, and behavior. Use gestures for convenience.\r\n\r\nAdditional options — save user settings, clear cache, and flexibly customize how the app works.",
+            "iconURL": "https://appstore.sidelix.vip/images/icon_6a445b34385f7.jpg",
+            "tintColor": "#F54F32",
+            "category": "entertainment",
+            "versions": [
+                {
+                    "version": "21.26.4",
+                    "date": "2026-07-01",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1824",
+                    "size": 160697273
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "21.26.4",
+            "versionDate": "2026-07-01",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1824",
+            "size": 160697273
+        },
+        {
+            "name": "LCSign",
+            "bundleIdentifier": "com.huami.LoadController",
+            "identifier": "com.huami.LoadController",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "An on-device iOS app packager & signer. Certificates, plugins, resources and installation in one place — every step runs on your device.\r\n\r\nA single shade of celadon. Quiet as paper.",
+            "iconURL": "https://appstore.sidelix.vip/images/1781280155.webp",
+            "tintColor": "#F54F32",
+            "category": "other",
+            "versions": [
+                {
+                    "version": "1.2.1",
+                    "date": "2026-07-01",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2040",
+                    "size": 21480075
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "1.2.1",
+            "versionDate": "2026-07-01",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2040",
+            "size": 21480075
+        },
         {
             "name": "Magic Sort! (Hacked)",
             "bundleIdentifier": "com.grandgames.magicsort",
@@ -111,34 +223,6 @@
             "versionDate": "2026-06-28",
             "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2139",
             "size": 308206330
-        },
-        {
-            "name": "LCSign",
-            "bundleIdentifier": "com.huami.LoadController",
-            "identifier": "com.huami.LoadController",
-            "developerName": "iKiraPlus",
-            "subtitle": "",
-            "localizedDescription": "An on-device iOS app packager & signer. Certificates, plugins, resources and installation in one place — every step runs on your device.\r\n\r\nA single shade of celadon. Quiet as paper.",
-            "iconURL": "https://appstore.sidelix.vip/images/1781280155.webp",
-            "tintColor": "#F54F32",
-            "category": "other",
-            "versions": [
-                {
-                    "version": "1.1.9",
-                    "date": "2026-06-28",
-                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2040",
-                    "size": 20996899
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [],
-                "privacy": []
-            },
-            "patreon": [],
-            "version": "1.1.9",
-            "versionDate": "2026-06-28",
-            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2040",
-            "size": 20996899
         },
         {
             "name": "EeveeSpotify - Spotify",
@@ -1175,34 +1259,6 @@
             "versionDate": "2026-06-23",
             "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2111",
             "size": 65346935
-        },
-        {
-            "name": "YouTube Plus",
-            "bundleIdentifier": "com.google.ios.youtube",
-            "identifier": "com.google.ios.youtube",
-            "developerName": "iKiraPlus",
-            "subtitle": "",
-            "localizedDescription": "ℹ️ Features:\r\n\r\nContent download — save videos directly to your gallery.\r\n\r\nNo ads — neither from YouTube nor from bloggers.\r\n\r\nCustomizable interface — personalize the appearance, hide unnecessary elements, and enable dark mode for OLED displays.\r\n\r\nPlayer controls — adjust playback speed, quality, and behavior. Use gestures for convenience.\r\n\r\nAdditional options — save user settings, clear cache, and flexibly customize how the app works.",
-            "iconURL": "https://appstore.sidelix.vip/images/icon_6a39e2c4a55e3.jpg",
-            "tintColor": "#F54F32",
-            "category": "entertainment",
-            "versions": [
-                {
-                    "version": "21.25.5",
-                    "date": "2026-06-23",
-                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1824",
-                    "size": 159720523
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [],
-                "privacy": []
-            },
-            "patreon": [],
-            "version": "21.25.5",
-            "versionDate": "2026-06-23",
-            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1824",
-            "size": 159720523
         },
         {
             "name": "Twitch - TwitchAdBlock",
