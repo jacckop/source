@@ -1,5 +1,5 @@
 {
-    "updated_at": "2026-07-01T10:56:59Z",
+    "updated_at": "2026-07-01T18:23:23Z",
     "name": "Sidelix App Store",
     "identifier": "com.jacckop.source.sidelix",
     "sourceURL": "https://raw.githubusercontent.com/jacckop/source/main/sidelix",
@@ -16,6 +16,8 @@
         "repoIcon": "https://cdn.nabzclan.vip/sidelix/images/logo/logosidelix.jpg"
     },
     "featuredApps": [
+        "com.roblox.robloxmobile",
+        "com.roblox.robloxmobile.2",
         "com.behindtechlines.HTTPBot",
         "com.gma.water.sort.puzzle",
         "com.google.ios.youtube",
@@ -23,11 +25,65 @@
         "com.grandgames.magicsort",
         "com.supercell.magic",
         "com.burbn.instagram",
-        "com.spotify.client",
-        "com.atebits.Tweetie2",
-        "com.ketchapp.spacefrontier"
+        "com.spotify.client"
     ],
     "apps": [
+        {
+            "name": "Roblox - DotSight Crosshair",
+            "bundleIdentifier": "com.roblox.robloxmobile",
+            "identifier": "com.roblox.robloxmobile",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "Features:\r\n\r\nAmazing crosshair for all types games in Roblox and outside of Roblox\r\n\r\nProject Details & files: https://nabzclan.vip/threads/dotsight-crosshair-06-19-2026.643/\r\n\r\nDemo Video #1: https://www.youtube.com/watch?v=RML_JEkJs4Y",
+            "iconURL": "https://appstore.sidelix.vip/images/icon_6a45429294d5c.jpg",
+            "tintColor": "#F54F32",
+            "category": "games",
+            "versions": [
+                {
+                    "version": "2.727.1204",
+                    "date": "2026-07-01",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2098",
+                    "size": 124593152
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "2.727.1204",
+            "versionDate": "2026-07-01",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2098",
+            "size": 124593152
+        },
+        {
+            "name": "Roblox - Delta",
+            "bundleIdentifier": "com.roblox.robloxmobile.2",
+            "identifier": "com.roblox.robloxmobile.2",
+            "developerName": "iKiraPlus",
+            "subtitle": "",
+            "localizedDescription": "Delta is a revolutionary new way to experience the world of scripting with its extensive library of features that will make your life easier.",
+            "iconURL": "https://appstore.sidelix.vip/images/icon_6a4538c124ab3.jpg",
+            "tintColor": "#F54F32",
+            "category": "games",
+            "versions": [
+                {
+                    "version": "2.727.1204",
+                    "date": "2026-07-01",
+                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1929",
+                    "size": 130411677
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": []
+            },
+            "patreon": [],
+            "version": "2.727.1204",
+            "versionDate": "2026-07-01",
+            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1929",
+            "size": 130411677
+        },
         {
             "name": "HTTPBot (Hacked)",
             "bundleIdentifier": "com.behindtechlines.HTTPBot",
@@ -1007,34 +1063,6 @@
             "versionDate": "2026-06-26",
             "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1834",
             "size": 687822930
-        },
-        {
-            "name": "Roblox - DotSight Crosshair",
-            "bundleIdentifier": "com.roblox.robloxmobile",
-            "identifier": "com.roblox.robloxmobile",
-            "developerName": "iKiraPlus",
-            "subtitle": "",
-            "localizedDescription": "Features:\r\n\r\nAmazing crosshair for all types games in Roblox and outside of Roblox\r\n\r\nProject Details & files: https://nabzclan.vip/threads/dotsight-crosshair-06-19-2026.643/\r\n\r\nDemo Video #1: https://www.youtube.com/watch?v=RML_JEkJs4Y",
-            "iconURL": "https://appstore.sidelix.vip/images/icon_6a3da1bb313f8.jpg",
-            "tintColor": "#F54F32",
-            "category": "games",
-            "versions": [
-                {
-                    "version": "2.726.1138",
-                    "date": "2026-06-25",
-                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2098",
-                    "size": 117757025
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [],
-                "privacy": []
-            },
-            "patreon": [],
-            "version": "2.726.1138",
-            "versionDate": "2026-06-25",
-            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/2098",
-            "size": 117757025
         },
         {
             "name": "Fractal Space (paid app)",
@@ -2715,34 +2743,6 @@
             "versionDate": "2026-06-18",
             "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1991",
             "size": 152904040
-        },
-        {
-            "name": "Roblox - Delta",
-            "bundleIdentifier": "com.roblox.robloxmobile.2",
-            "identifier": "com.roblox.robloxmobile.2",
-            "developerName": "iKiraPlus",
-            "subtitle": "",
-            "localizedDescription": "Delta is a revolutionary new way to experience the world of scripting with its extensive library of features that will make your life easier.",
-            "iconURL": "https://appstore.sidelix.vip/images/icon_6903dd43f1e0e.jpg",
-            "tintColor": "#F54F32",
-            "category": "games",
-            "versions": [
-                {
-                    "version": "2.725.1142",
-                    "date": "2026-06-18",
-                    "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1929",
-                    "size": 124692092
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [],
-                "privacy": []
-            },
-            "patreon": [],
-            "version": "2.725.1142",
-            "versionDate": "2026-06-18",
-            "downloadURL": "https://appstore.sidelix.vip/download-repo-source/1929",
-            "size": 124692092
         },
         {
             "name": "NFC Tools (Hacked)",
