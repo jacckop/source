@@ -56,6 +56,48 @@
             "category": "أدوات"
         },
         {
+            "name": "Detector",
+            "bundleIdentifier": "com.michelbarnich.Detector-Beta",
+            "developerName": "iKiraPlus",
+            "version": "1.4",
+            "versionDate": "2026-06-30",
+            "versionDescription": "•Premium Unlocked •Detector is designed to provide quick results through efficient scanning & detection systems for malware on your iOS devices",
+            "downloadURL": "https://st76471.ispot.cc/ipa/Detector_v1.4_%5BDELvEK%5D.ipa",
+            "iconURL": "https://delvek.net/img/detector.png",
+            "localizedDescription": "•Premium Unlocked •Detector is designed to provide quick results through efficient scanning & detection systems for malware on your iOS devices",
+            "size": 65318000,
+            "featured": true,
+            "screenshotURLs": [
+                "https://delvek.net/img/!/detector1.png",
+                "https://delvek.net/img/!/detector2.png",
+                "https://delvek.net/img/!/detector3.png",
+                "https://delvek.net/img/!/detector4.png"
+            ],
+            "tintColor": "0,255,0",
+            "category": "أخرى"
+        },
+        {
+            "name": "Koma Football",
+            "bundleIdentifier": "com.komafootball.app",
+            "developerName": "iKiraPlus",
+            "version": "1.2",
+            "versionDate": "2026-06-30",
+            "versionDescription": "•Premium Unlocked •NO ADS with this version •Koma Football is a powerful & modern football app designed for fans who want instant access to live match updates, detailed match insights, advanced statistics & comprehensive football information in one beautifully designed platform",
+            "downloadURL": "https://st76471.ispot.cc/ipa/KomaFootball_v1.2%2BNOADS_%5BDELvEK%5D.ipa",
+            "iconURL": "https://delvek.net/img/komafootball.png",
+            "localizedDescription": "•Premium Unlocked •NO ADS with this version •Koma Football is a powerful & modern football app designed for fans who want instant access to live match updates, detailed match insights, advanced statistics & comprehensive football information in one beautifully designed platform",
+            "size": 25260000,
+            "featured": true,
+            "screenshotURLs": [
+                "https://delvek.net/img/!/komafootball1.png",
+                "https://delvek.net/img/!/komafootball2.png",
+                "https://delvek.net/img/!/komafootball3.png",
+                "https://delvek.net/img/!/komafootball4.png"
+            ],
+            "tintColor": "0,255,0",
+            "category": "أخرى"
+        },
+        {
             "name": "365Scores - Live Sports Scores",
             "bundleIdentifier": "com.365scores.365scroesapp",
             "developerName": "iKiraPlus",
